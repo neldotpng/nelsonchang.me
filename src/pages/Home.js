@@ -7,16 +7,16 @@ class Home extends Component {
       <div className="Home">
         <header className="Home-header">
           <h1 className="Home-marquee">
-            <span>Nelson Chang Nelson Chang&nbsp;</span>
-            <span>Nelson Chang Nelson Chang&nbsp;</span>
+            <span>Nelson Chang Portfolio&nbsp;</span>
+            <span>Nelson Chang Portfolio&nbsp;</span>
           </h1>
           <h2 className="Home-marquee Home-marquee__reverse">
-            <span>Portfolio Portfolio&nbsp;</span>
-            <span>Portfolio Portfolio&nbsp;</span>
+            <span>Under Construction&nbsp;</span>
+            <span>Under Construction&nbsp;</span>
           </h2>
           <h3 className="Home-marquee Home-marquee__outline">
-            <span>Under Construction&nbsp;</span>
-            <span>Under Construction&nbsp;</span>
+            <span>Coming Soon&nbsp;</span>
+            <span>Coming Soon&nbsp;</span>
           </h3>
           <h3 className="Home-marquee Home-marquee__reverse Home-marquee__outline">
             <span>S/S 2019 S/S 2019 S/S 2019&nbsp;</span>
