@@ -22,8 +22,8 @@ class Home extends Component {
 
   onDeviceMotion = (e) => {
     let {accelerationIncludingGravity: a} = e;
-    let x = a.x / 10 * 8;
-    let y = a.y / 10 * 8;
+    let x = a.x / 10 * 6;
+    let y = a.y / 2.5;
     this.setOffset(x, y);
   }
 
