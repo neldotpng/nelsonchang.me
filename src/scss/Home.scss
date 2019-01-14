@@ -1,0 +1,52 @@
+.Home {
+  min-height: 100vh;
+}
+
+.Home-header {
+  font-family: Helvetica;
+  font-size: 25vh;
+  font-weight: 600;
+  line-height: 25vh;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.Home-marquee {
+  max-width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+
+  > span {
+    animation: marquee 15s linear infinite;
+    display: inline-block;
+  }
+
+  &.Home-marquee__reverse > span {
+    animation: marquee-reverse 15s linear infinite;
+  }
+}
+
+.Home-marquee__outline {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
