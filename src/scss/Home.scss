@@ -1,6 +1,6 @@
 .Home {
   font-family: Helvetica;
-  font-weight: 600;
+  font-weight: 700;
   min-height: 100vh;
   position: relative;
 }
@@ -21,12 +21,12 @@
   white-space: nowrap;
 
   > span {
-    animation: marquee 25s linear infinite;
+    animation: marquee 30s linear infinite;
     display: inline-block;
   }
 
   &.Home-marquee__reverse > span {
-    animation: marquee-reverse 25s linear infinite;
+    animation: marquee-reverse 30s linear infinite;
   }
 }
 

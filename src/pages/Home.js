@@ -40,20 +40,20 @@ class Home extends Component {
       <div className="Home">
         <div className="Home-background">
           <div className="Home-marquee">
-            <span>Coming Soon&nbsp;</span>
-            <span>Coming Soon&nbsp;</span>
+            <span>Coming Soon Coming Soon&nbsp;</span>
+            <span>Coming Soon Coming Soon&nbsp;</span>
           </div>
           <div className="Home-marquee Home-marquee__reverse">
-            <span>S/S 2019 S/S 2019&nbsp;</span>
-            <span>S/S 2019 S/S 2019&nbsp;</span>
+            <span>S/S 2019 S/S 2019 S/S 2019&nbsp;</span>
+            <span>S/S 2019 S/S 2019 S/S 2019&nbsp;</span>
           </div>
           <div className="Home-marquee">
-            <span>Coming Soon&nbsp;</span>
-            <span>Coming Soon&nbsp;</span>
+            <span>Coming Soon Coming Soon&nbsp;</span>
+            <span>Coming Soon Coming Soon&nbsp;</span>
           </div>
           <div className="Home-marquee Home-marquee__reverse">
-            <span>S/S 2019 S/S 2019&nbsp;</span>
-            <span>S/S 2019 S/S 2019&nbsp;</span>
+            <span>S/S 2019 S/S 2019 S/S 2019&nbsp;</span>
+            <span>S/S 2019 S/S 2019 S/S 2019&nbsp;</span>
           </div>
         </div>
 
