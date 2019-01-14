@@ -31,8 +31,8 @@ class Home extends Component {
     this.setState({
       heroTextStyle: `
         ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.9),
-        ${xWalk * -1}px ${yWalk}px 0 rgba(0,255,255,0.9),
-        ${xWalk}px ${yWalk * -1}px 0 rgba(255,255,0,0.9),
+        ${xWalk * -1}px ${yWalk}px 0 rgba(255,255,0,0.9),
+        ${xWalk}px ${yWalk * -1}px 0 rgba(0,255,255,0.9),
         ${xWalk * -1}px ${yWalk * -1}px 0 rgba(255,0,0,0.9)
       `,
     });
