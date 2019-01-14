@@ -8,17 +8,26 @@ class Home extends Component {
       0px 0px 0 rgba(0,255,255,0.9),
       0px 0px 0 rgba(255,255,0,0.9),
       0px 0px 0 rgba(255,0,0,0.9)
-    `
+    `,
   }
 
-  onMousemove = (e) => {
-    const { offsetWidth: width, offsetHeight: height } = this.state.hero;
+  onMouseMove = (e) => {
+    let { offsetWidth: width, offsetHeight: height } = this.state.hero;
     let { pageX: x, pageY: y } = e;
     const walk = 8;
-
     const xWalk = (x / width * walk) - (walk / 2);
     const yWalk = (y / height * walk) - (walk / 2);
+    this.setOffset(xWalk, yWalk);
+  }
 
+  onDeviceMotion = (e) => {
+    let {accelerationIncludingGravity: a} = e;
+    let x = a.x / 10 * 8;
+    let y = a.y / 10 * 8;
+    this.setOffset(x, y);
+  }
+
+  setOffset = (xWalk, yWalk) => {
     this.setState({
       heroTextStyle: `
         ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.9),
@@ -33,6 +42,9 @@ class Home extends Component {
     this.setState({
       hero: document.querySelector('.Home-hero'),
     });
+    if (window.DeviceMotionEvent) {
+      window.addEventListener('devicemotion', this.onDeviceMotion);
+    }
   }
 
   render() {
@@ -57,8 +69,8 @@ class Home extends Component {
           </div>
         </div>
 
-        <header className="Home-hero" onMouseMove={this.onMousemove}>
-          <h1 
+        <header className="Home-hero" onMouseMove={this.onMouseMove}>
+          <h1
             className="Home-heroText"
             style={{textShadow: this.state.heroTextStyle}}>
             Nelson Chang.
