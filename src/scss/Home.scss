@@ -21,12 +21,12 @@
   white-space: nowrap;
 
   > span {
-    animation: marquee 30s linear infinite;
+    animation: marquee 55s linear infinite;
     display: inline-block;
   }
 
   &.Home-marquee__reverse > span {
-    animation: marquee-reverse 30s linear infinite;
+    animation: marquee-reverse 55s linear infinite;
   }
 }
 
