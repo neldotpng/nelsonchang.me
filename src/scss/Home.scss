@@ -1,7 +1,9 @@
 .Home {
   font-family: Helvetica;
   font-weight: 700;
+  max-width: 100vw;
   min-height: 100vh;
+  overflow: hidden;
   position: relative;
 }
 
