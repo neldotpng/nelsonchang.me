@@ -73,8 +73,12 @@ class Home extends Component {
           <h1
             className="Home-heroText"
             style={{textShadow: this.state.heroTextStyle}}>
-            Nelson Chang.
+            nelson chang
           </h1>
+
+          <a href="mailto:nelsonchang@gmail.com" className="Home-cta">
+            contact
+          </a>
         </header>
       </div>
     );
