@@ -24,6 +24,10 @@ class Home extends Component {
     let {accelerationIncludingGravity: a} = e;
     let x = a.x / 10 * 6;
     let y = a.y / 2.5;
+    let z = a.z / 3;
+    if (x <= z) {
+      x = z;
+    }
     this.setOffset(x, y);
   }
 
