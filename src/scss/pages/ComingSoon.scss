@@ -1,4 +1,4 @@
-.Home {
+.ComingSoon {
   font-family: Helvetica;
   font-weight: 700;
   max-width: 100vw;
@@ -7,14 +7,14 @@
   position: relative;
 }
 
-.Home-background {
+.ComingSoon-background {
   font-size: 25vh;
   line-height: 25vh;
   overflow: hidden;
   text-transform: uppercase;
 }
 
-.Home-marquee {
+.ComingSoon-marquee {
   color: #fff;
   max-width: 100vw;
   overflow: hidden;
@@ -27,12 +27,12 @@
     display: inline-block;
   }
 
-  &.Home-marquee__reverse > span {
+  &.ComingSoon-marquee__reverse > span {
     animation: marquee-reverse 55s linear infinite;
   }
 }
 
-.Home-hero {
+.ComingSoon-hero {
   align-items: center;
   display: flex;
   flex-flow: column;
@@ -46,11 +46,11 @@
   z-index: 10;
 }
 
-.Home-heroText {
+.ComingSoon-heroText {
   font-size: 120px;
 }
 
-.Home-cta {
+.ComingSoon-cta {
   background-color: #000;
   border: 2px solid transparent;
   bottom: 20px;
@@ -88,23 +88,23 @@
 }
 
 @media screen and (max-width: 480px) {
-  .Home-hero {
+  .ComingSoon-hero {
     align-items: flex-start;
     margin-left: 10px;
   }
 
-  .Home-heroText {
+  .ComingSoon-heroText {
     font-size: 100px;
     line-height: 85px;
   }
 
-  .Home-cta {
+  .ComingSoon-cta {
     margin-left: 5px;
   }
 }
 
 @media screen and (max-height: 400px) {
-  .Home-heroText {
+  .ComingSoon-heroText {
     font-size: 90px;
   }
 }
