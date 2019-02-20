@@ -1,6 +1,9 @@
 @import './reset.scss';
 @import './fonts.scss';
-@import '../pages/ComingSoon.scss';
+
+@import './components.scss';
+@import './pages.scss';
+
 
 body {
   margin: 0;
