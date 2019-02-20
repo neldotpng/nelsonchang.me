@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
+
+@font-face {
+  font-family: 'Inter UI';
+  font-style:  normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/Inter-UI-Regular.woff2") format("woff2"),
+       url("../../assets/fonts/Inter-UI-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter UI';
+  font-style:  normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/Inter-UI-Bold.woff2") format("woff2"),
+       url("../../assets/fonts/Inter-UI-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter UI';
+  font-style:  normal;
+  font-weight: 900;
+  src: url("../../assets/fonts/Inter-UI-Black.woff2") format("woff2"),
+       url("../../assets/fonts/Inter-UI-Black.woff") format("woff");
+}
+
+$hangul: 'Black Han Sans';
+$sans: 'Inter UI', 'Helvetica', 'sans-serif';
+
+.hangul {
+  font-family: $hangul;
+}
+
+.sans {
+  font-family: $sans;
+}
