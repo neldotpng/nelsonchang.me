@@ -1,8 +1,6 @@
 import * as THREE from 'three';
-import { TweenLite } from 'gsap/TweenMax';
 
-import image1 from '../../../assets/images/sample-01.png';
-import image2 from '../../../assets/images/sample-02.png';
+import image1 from '../../../assets/images/self.png';
 
 // import InteractiveControls from './controls/InteractiveControls';
 import Particles from './particles/Particles';
@@ -16,7 +14,6 @@ export default class WebGLView {
 
 		this.samples = [
 			image1,
-			image2,
 		];
 
 		this.initThree();

@@ -3,8 +3,8 @@ import { TweenLite, Power2 } from 'gsap';
 
 import TouchTexture from './TouchTexture';
 
-import vertexShader from '../../shaders/particleVert';
-import fragmentShader from '../../shaders/particleFrag';
+import vertexShader from '../../shaders/particle.vert';
+import fragmentShader from '../../shaders/particle.frag';
 
 const glslify = require('glslify');
 
@@ -78,8 +78,8 @@ export default class Particles {
 
 		const material = new THREE.RawShaderMaterial({
 			uniforms,
-			vertexShader: glslify(vertexShader),
-			fragmentShader: glslify(fragmentShader),
+			vertexShader: glslify(require('../../shaders/particle.vert')),
+			fragmentShader: glslify(require('../../shaders/particle.frag')),
 			depthTest: false,
 			transparent: true,
 			// blending: THREE.AdditiveBlending
