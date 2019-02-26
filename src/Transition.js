@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
+import ParticleCanvas from './components/ParticleCanvas/ParticleCanvas';
+
 class Transition extends Component {
   render() {
-    return (
-      <TransitionGroup component="article">
+    return [
+      <ParticleCanvas key="ParticleCanvas" />,
+      <TransitionGroup
+        component="article"
+        key="Transition">
         <CSSTransition
           key={this.props.location}
           classNames="Transition"
@@ -12,7 +17,7 @@ class Transition extends Component {
           {this.props.children}
         </CSSTransition>
       </TransitionGroup>
-    )
+    ]
   }
 }
 

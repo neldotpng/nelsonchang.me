@@ -26,7 +26,7 @@ class Canvas extends Component {
     const text = str.split('');
     const mi = (text.length - 1) / 2;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ctx.filter = `blur(${Math.abs(this.state.yPos / 20)}px)`;
+    // this.ctx.filter = `blur(${Math.abs(this.state.yPos / 20)}px)`;
 
     text.forEach((char, i) => {
       const mult = i - mi;
@@ -38,7 +38,7 @@ class Canvas extends Component {
   animate = debounce(() => {
     this.drawText('장수영');
     requestAnimationFrame(this.animate);
-  }, 1000 / 45)
+  }, 1000 / 30)
 
   onMouseMove = (e) => {
     const yPos = this.state.height / 2 - e.pageY;

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import { withRouter, Switch } from 'react-router';
 
 import Transition from './Transition';

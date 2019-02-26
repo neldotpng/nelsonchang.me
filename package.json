@@ -4,16 +4,20 @@
   "private": true,
   "homepage": "https://nelsonchang.me/",
   "devDependencies": {
+    "glslify": "^7.0.0",
     "react-scripts": "^2.1.5"
   },
   "dependencies": {
     "classnames": "^2.2.6",
     "gh-pages": "^2.0.1",
+    "glsl-noise": "0.0.0",
+    "gsap": "^2.1.1",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
-    "react-transition-group": "^2.5.3"
+    "react-transition-group": "^2.5.3",
+    "three": "^0.101.1"
   },
   "scripts": {
     "start": "react-scripts start",
