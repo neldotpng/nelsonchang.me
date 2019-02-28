@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 import image1 from '../../../assets/images/self.png';
 
-// import InteractiveControls from './controls/InteractiveControls';
+import InteractiveControls from './controls/InteractiveControls';
 import Particles from './particles/Particles';
 
 const glslify = require('glslify');
@@ -12,16 +12,15 @@ export default class WebGLView {
 	constructor(app) {
 		this.app = app;
 
-		this.samples = [
+		this.images = [
 			image1,
 		];
 
 		this.initThree();
 		this.initParticles();
-		// this.initControls();
+		this.initControls();
 
-		const rnd = ~~(Math.random() * this.samples.length);
-		this.goto(rnd);
+		this.particles.init(this.images[0])
 	}
 
 	initThree() {
@@ -39,9 +38,9 @@ export default class WebGLView {
 		this.clock = new THREE.Clock(true);
 	}
 
-	// initControls() {
-	// 	this.interactive = new InteractiveControls(this.camera, this.renderer.domElement);
-	// }
+	initControls() {
+		this.interactive = new InteractiveControls(this.camera, this.renderer.domElement);
+	}
 
 	initParticles() {
 		this.particles = new Particles(this);
@@ -60,25 +59,6 @@ export default class WebGLView {
 
 	draw() {
 		this.renderer.render(this.scene, this.camera);
-	}
-
-
-	goto(index) {
-		// init next
-		if (this.currSample == null) this.particles.init(this.samples[index]);
-		// hide curr then init next
-		else {
-			this.particles.hide(true).then(() => {
-				this.particles.init(this.samples[index]);
-			});
-		}
-
-		this.currSample = index;
-	}
-
-	next() {
-		if (this.currSample < this.samples.length - 1) this.goto(this.currSample + 1);
-		else this.goto(0);
 	}
 
 	// ---------------------------------------------------------------------------------------------

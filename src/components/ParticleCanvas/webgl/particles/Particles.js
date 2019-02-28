@@ -3,9 +3,6 @@ import { TweenLite, Power2 } from 'gsap';
 
 import TouchTexture from './TouchTexture';
 
-import vertexShader from '../../shaders/particle.vert';
-import fragmentShader from '../../shaders/particle.frag';
-
 const glslify = require('glslify');
 
 export default class Particles {
@@ -62,8 +59,6 @@ export default class Particles {
 			for (let i = 0; i < this.numPoints; i++) {
 				if (originalColors[i * 4 + 0] > threshold) numVisible++;
 			}
-
-			// console.log('numVisible', numVisible, this.numPoints);
 		}
 
 		const uniforms = {
@@ -82,7 +77,6 @@ export default class Particles {
 			fragmentShader: glslify(require('../../shaders/particle.frag')),
 			depthTest: false,
 			transparent: true,
-			// blending: THREE.AdditiveBlending
 		});
 
 		const geometry = new THREE.InstancedBufferGeometry();
@@ -178,7 +172,7 @@ export default class Particles {
 		TweenLite.to(this.object3D.material.uniforms.uRandom, time, { value: 2.0 });
 		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 1.5, { value: 40.0 }, { value: 4.0 });
 
-		// this.addListeners();
+		this.addListeners();
 	}
 
 	hide(_destroy, time = 0.8) {

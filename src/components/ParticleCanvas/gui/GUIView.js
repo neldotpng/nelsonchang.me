@@ -34,26 +34,26 @@ export default class GUIView {
 		}
 	}
 
-	// onTouchChange() {
-	// 	if (!this.app.webgl) return;
-	// 	if (!this.app.webgl.particles) return;
+	onTouchChange() {
+		if (!this.app.webgl) return;
+		if (!this.app.webgl.particles) return;
 
-	// 	this.app.webgl.particles.touch.radius = this.touchRadius;
-	// }
+		this.app.webgl.particles.touch.radius = this.touchRadius;
+	}
 
-	// onParticlesChange() {
-	// 	if (!this.app.webgl) return;
-	// 	if (!this.app.webgl.particles) return;
+	onParticlesChange() {
+		if (!this.app.webgl) return;
+		if (!this.app.webgl.particles) return;
 
-	// 	this.app.webgl.particles.object3D.material.uniforms.uRandom.value = this.particlesRandom;
-	// 	this.app.webgl.particles.object3D.material.uniforms.uDepth.value = this.particlesDepth;
-	// 	this.app.webgl.particles.object3D.material.uniforms.uSize.value = this.particlesSize;
+		this.app.webgl.particles.object3D.material.uniforms.uRandom.value = this.particlesRandom;
+		this.app.webgl.particles.object3D.material.uniforms.uDepth.value = this.particlesDepth;
+		this.app.webgl.particles.object3D.material.uniforms.uSize.value = this.particlesSize;
 
-	// 	this.app.webgl.particles.hitArea.material.visible = this.particlesHitArea;
-	// }
+		this.app.webgl.particles.hitArea.material.visible = this.particlesHitArea;
+	}
 
-	// onPostProcessingChange() {
-	// 	if (!this.app.webgl.composer) return;
-	// 	this.app.webgl.composer.enabled = this.postProcessing;
-	// }
+	onPostProcessingChange() {
+		if (!this.app.webgl.composer) return;
+		this.app.webgl.composer.enabled = this.postProcessing;
+	}
 }

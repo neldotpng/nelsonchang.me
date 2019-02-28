@@ -2,8 +2,6 @@ import EventEmitter from 'events';
 import * as THREE from 'three';
 import browser from 'browser-detect';
 
-import { passiveEvent } from '../../utils/event.utils.js';
-
 export default class InteractiveControls extends EventEmitter {
 
 	get enabled() { return this._enabled; }
@@ -20,7 +18,7 @@ export default class InteractiveControls extends EventEmitter {
 		this.mouse = new THREE.Vector2();
 		this.offset = new THREE.Vector3();
 		this.intersection = new THREE.Vector3();
-		
+
 		this.objects = [];
 		this.hovered = null;
 		this.selected = null;
@@ -51,9 +49,9 @@ export default class InteractiveControls extends EventEmitter {
 		this.handlerLeave = this.onLeave.bind(this);
 
 		if (this.browser.mobile) {
-			this.el.addEventListener('touchstart', this.handlerDown, passiveEvent);
-			this.el.addEventListener('touchmove', this.handlerMove, passiveEvent);
-			this.el.addEventListener('touchend', this.handlerUp, passiveEvent);
+			this.el.addEventListener('touchstart', this.handlerDown);
+			this.el.addEventListener('touchmove', this.handlerMove);
+			this.el.addEventListener('touchend', this.handlerUp);
 		}
 		else {
 			this.el.addEventListener('mousedown', this.handlerDown);
@@ -97,16 +95,6 @@ export default class InteractiveControls extends EventEmitter {
 		this.mouse.y = -((touch.y + this.rect.y) / this.rect.height) * 2 + 1;
 
 		this.raycaster.setFromCamera(this.mouse, this.camera);
-
-		/*
-		// is dragging
-		if (this.selected && this.isDown) {
-			if (this.raycaster.ray.intersectPlane(this.plane, this.intersection)) {
-				this.emit('interactive-drag', { object: this.selected, position: this.intersection.sub(this.offset) });
-			}
-			return;
-		}
-		*/
 
 		const intersects = this.raycaster.intersectObjects(this.objects);
 
@@ -157,7 +145,7 @@ export default class InteractiveControls extends EventEmitter {
 
 	onLeave(e) {
 		this.onUp(e);
-		
+
 		this.emit('interactive-out', { object: this.hovered });
 		this.hovered = null;
 	}
