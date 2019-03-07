@@ -27,7 +27,6 @@ export default class Renderer {
 		this.handlerAnimate = this.animate.bind(this);
 
 		window.addEventListener('resize', this.resize.bind(this));
-		window.addEventListener('keyup', this.keyup.bind(this));
 
 		const el = this.webgl.renderer.domElement;
 	}
@@ -44,7 +43,6 @@ export default class Renderer {
 	// ---------------------------------------------------------------------------------------------
 
 	update() {
-		// if (this.gui.stats) this.gui.stats.begin();
 		if (this.webgl) this.webgl.update();
 		if (this.gui) this.gui.update();
 	}
@@ -60,10 +58,5 @@ export default class Renderer {
 
 	resize() {
 		if (this.webgl) this.webgl.resize();
-	}
-
-	keyup(e) {
-		// g
-		if (e.keyCode == 71) { if (this.gui) this.gui.toggle(); }
 	}
 }

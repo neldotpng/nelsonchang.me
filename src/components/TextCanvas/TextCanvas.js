@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import debounce from '../../functions/debounce';
 
-class Canvas extends Component {
+class TextCanvas extends Component {
   state = {
     width: window.innerWidth,
     height: window.innerHeight,
@@ -65,4 +65,4 @@ class Canvas extends Component {
   }
 }
 
-export default Canvas;
+export default TextCanvas;

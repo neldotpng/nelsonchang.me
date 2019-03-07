@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import ParticleCanvas from './components/ParticleCanvas/ParticleCanvas';
+import TextCanvas from './components/TextCanvas/TextCanvas';
 
 class Transition extends Component {
   render() {
     return [
-      <ParticleCanvas key="ParticleCanvas" />,
+      <TextCanvas key="TextCanvas" />,
       <TransitionGroup
         component="article"
         key="Transition">
