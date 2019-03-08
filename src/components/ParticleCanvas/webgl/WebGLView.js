@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import image1 from '../../../assets/images/text.png';
+import image1 from '../../../assets/images/self.png';
 
 import InteractiveControls from './controls/InteractiveControls';
 import Particles from './particles/Particles';

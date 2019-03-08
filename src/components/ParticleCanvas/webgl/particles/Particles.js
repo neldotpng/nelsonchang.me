@@ -57,7 +57,7 @@ export default class Particles {
 			originalColors = Float32Array.from(imgData.data);
 
 			for (let i = 0; i < this.numPoints; i++) {
-				if (originalColors[i * 4 + 0] > threshold) numVisible++;
+				if (originalColors[i * 4] > threshold) numVisible++;
 			}
 		}
 
