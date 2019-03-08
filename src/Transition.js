@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import TextCanvas from './components/TextCanvas/TextCanvas';
+import TextCanvas from './components/shared/TextCanvas';
 
 class Transition extends Component {
   render() {
