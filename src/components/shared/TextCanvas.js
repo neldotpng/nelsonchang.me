@@ -16,7 +16,6 @@ class TextCanvas extends Component {
     ],
     fontSize: '100vh',
     i: 0,
-    tweening: false,
   }
 
   init = () => {
@@ -90,38 +89,21 @@ class TextCanvas extends Component {
   }
 
   animateParticles = () => {
-    if (!this.state.tweening) {
-      this.positions.forEach((p, i) => {
-        this.particles[i].x += (this.positions[i].x - this.particles[i].x) * 0.35;
-        this.particles[i].y += (this.positions[i].y - this.particles[i].y) * 0.35;
-        this.particles[i].move(this.mx, this.my);
-        this.particles[i].draw();
-      });
-    } else {
-      this.positions.forEach((p, i) => {
-        this.particles[i].move(this.mx, this.my);
-        this.particles[i].draw();
-      });
-    }
+    this.positions.forEach((p, i) => {
+      this.particles[i].move(this.mx, this.my);
+      this.particles[i].draw();
+    });
   }
 
   changeWord = () => {
-    this.setState({
-      tweening: true,
-    }, () => {
-      this.getPixels(this.state.words[this.state.i]);
-      this.positions.forEach((p, i) => {
-        TweenLite.to(this.particles[i], 1, {
-          homeX: p.x,
-          homeY: p.y,
-          easing: Power2.easeIn,
-        });
+    this.getPixels(this.state.words[this.state.i]);
+    this.positions.forEach((p, i) => {
+      TweenLite.to(this.particles[i], 1, {
+        homeX: p.x,
+        homeY: p.y,
+        easing: Power2.easeIn,
       });
     });
-
-    setTimeout(() => {
-      this.setState({ tweening: false });
-    }, 1000)
   }
 
   animate = debounce(() => {
