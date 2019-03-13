@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { TweenLite, Power2 } from 'gsap';
 import Particle from './Particle';
 
 import debounce from '../../functions/debounce';
@@ -15,6 +16,7 @@ class TextCanvas extends Component {
     ],
     fontSize: '100vh',
     i: 0,
+    tweening: false,
   }
 
   init = () => {
@@ -49,13 +51,23 @@ class TextCanvas extends Component {
 
   makeParticles = () => {
     for (let i = 0; i <= this.positions.length * 2; i++) {
-      this.particles.push(
-        new Particle(
-          this.canvas.width / 2,
-          i - this.canvas.height,
-          this.ctx,
+      if (!!this.positions[i]) {
+        this.particles.push(
+          new Particle(
+            this.positions[i].x,
+            this.positions[i].y,
+            this.ctx,
+          )
+        );
+      } else {
+        this.particles.push(
+          new Particle(
+            this.canvas.width / 2,
+            i - this.canvas.height,
+            this.ctx,
+          )
         )
-      );
+      }
     }
   }
 
@@ -78,29 +90,55 @@ class TextCanvas extends Component {
   }
 
   animateParticles = () => {
-    this.positions.forEach((p, i) => {
-      this.particles[i].x += (this.positions[i].x - this.particles[i].x) * 0.35;
-      this.particles[i].y += (this.positions[i].y - this.particles[i].y) * 0.35;
-      this.particles[i].move(this.mx, this.my);
-      this.particles[i].draw();
+    if (!this.state.tweening) {
+      this.positions.forEach((p, i) => {
+        this.particles[i].x += (this.positions[i].x - this.particles[i].x) * 0.35;
+        this.particles[i].y += (this.positions[i].y - this.particles[i].y) * 0.35;
+        this.particles[i].move(this.mx, this.my);
+        this.particles[i].draw();
+      });
+    } else {
+      this.positions.forEach((p, i) => {
+        this.particles[i].move(this.mx, this.my);
+        this.particles[i].draw();
+      });
+    }
+  }
+
+  changeWord = () => {
+    this.setState({
+      tweening: true,
+    }, () => {
+      this.getPixels(this.state.words[this.state.i]);
+      this.positions.forEach((p, i) => {
+        TweenLite.to(this.particles[i], 1, {
+          homeX: p.x,
+          homeY: p.y,
+          easing: Power2.easeIn,
+        });
+      });
     });
+
+    setTimeout(() => {
+      this.setState({ tweening: false });
+    }, 1000)
   }
 
   animate = debounce(() => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.animateParticles();
-    requestAnimationFrame(this.animate);
+    this.animation = requestAnimationFrame(this.animate);
   }, 1000 / 40)
 
   onClick = () => {
     if (this.state.i === this.state.words.length - 1) {
       this.setState({
         i: 0,
-      }, this.getPixels(this.state.words[this.state.i]));
+      }, this.changeWord());
     } else {
       this.setState({
         i: this.state.i + 1
-      }, this.getPixels(this.state.words[this.state.i]));
+      }, this.changeWord());
     }
   }
 
