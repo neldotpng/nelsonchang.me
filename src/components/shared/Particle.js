@@ -13,7 +13,7 @@ export default class Particle {
     this.homeAngle = 0;
     this.cursorForce = 0;
     this.cursorAngle = 0;
-    this.color = 'rgba(255, 255, 255, 0.5)';
+    this.color = 'rgba(255, 255, 255, 0.4)';
     this.ctx = ctx;
   }
 
@@ -39,7 +39,6 @@ export default class Particle {
       let cursorDY = this.y - my;
       let cursorDistanceSquared = Math.pow(cursorDX, 2) + Math.pow(cursorDY, 2);
       cursorForce = Math.min(100000 / cursorDistanceSquared, 50);
-      // cursorForce = 5;
       cursorAngle = Math.atan2(cursorDY, cursorDX);
     } else {
       cursorForce = 0;
@@ -49,8 +48,8 @@ export default class Particle {
     this.xVelocity += homeForce * Math.cos(homeAngle) + cursorForce * Math.cos(cursorAngle);
     this.yVelocity += homeForce * Math.sin(homeAngle) + cursorForce * Math.sin(cursorAngle);
 
-    this.xVelocity *= 0.83;
-    this.yVelocity *= 0.83;
+    this.xVelocity *= 0.6;
+    this.yVelocity *= 0.6;
 
     this.x += this.xVelocity;
     this.y += this.yVelocity;

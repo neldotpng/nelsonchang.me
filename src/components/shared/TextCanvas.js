@@ -61,8 +61,8 @@ class TextCanvas extends Component {
       } else {
         this.particles.push(
           new Particle(
-            this.canvas.width / 2,
-            i - this.canvas.height,
+            this.canvas.width * Math.random(),
+            this.canvas.height * Math.random(),
             this.ctx,
           )
         )
@@ -98,7 +98,7 @@ class TextCanvas extends Component {
   changeWord = () => {
     this.getPixels(this.state.words[this.state.i]);
     this.positions.forEach((p, i) => {
-      TweenLite.to(this.particles[i], 1, {
+      TweenLite.to(this.particles[i], 0.8, {
         homeX: p.x,
         homeY: p.y,
         easing: Power2.easeIn,
