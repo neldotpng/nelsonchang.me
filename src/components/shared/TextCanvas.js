@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Particle from './Particle';
 
 import debounce from '../../functions/debounce';
 
@@ -6,60 +7,132 @@ class TextCanvas extends Component {
   state = {
     width: window.innerWidth,
     height: window.innerHeight,
-    yPos: 0,
+    dpi: window.devicePixelRatio,
+    words: [
+      '장수영',
+      '삼겹살',
+      '겹삼수',
+    ],
+    fontSize: '100vh',
+    i: 0,
   }
 
-  drawCanvas = () => {
-    this.dpi = window.devicePixelRatio;
-
+  init = () => {
     this.canvas = document.getElementById('canvas');
-    this.canvas.setAttribute('width', this.state.width * this.dpi);
-    this.canvas.setAttribute('height', this.state.height * this.dpi);
-
     this.ctx = this.canvas.getContext('2d');
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.font = `${this.state.height}px Black Han Sans`;
+
+    this.txtCanv = document.createElement('canvas');
+    this.txtCtx = this.txtCanv.getContext('2d');
+    this.txtCtx.fillStyle = 'black';
+
+    this.setValues();
   }
 
-  drawText = (str) => {
-    const text = str.split('');
-    const mi = (text.length - 1) / 2;
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    // this.ctx.filter = `blur(${Math.abs(this.state.yPos / 20)}px)`;
+  setValues = () => {
+    this.canvas.width = this.state.width * this.state.dpi;
+    this.canvas.height = this.state.height * this.state.dpi;
 
-    text.forEach((char, i) => {
-      const mult = i - mi;
-      const xPos = (this.ctx.measureText(char).width * mult) + this.state.width;
-      this.ctx.fillText(char, xPos, this.state.height + (this.state.yPos * mult));
+    this.particles = [];
+
+    this.txtCanv.width = this.canvas.width;
+    this.txtCanv.height = this.canvas.height;
+    this.txtCtx.textBaseline = 'middle';
+    this.txtCtx.font = `${this.state.fontSize} Black Han Sans`;
+
+    this.getPixels(this.state.words[this.state.i]);
+    this.makeParticles();
+
+    setTimeout(() => {
+      this.animate();
+    }, 1000);
+  }
+
+  makeParticles = () => {
+    for (let i = 0; i <= this.positions.length * 2; i++) {
+      this.particles.push(
+        new Particle(
+          this.canvas.width / 2,
+          i - this.canvas.height,
+          this.ctx,
+        )
+      );
+    }
+  }
+
+  getPixels = (keyword) => {
+    const grid = 12;
+    this.txtCtx.clearRect(0, 0, this.txtCanv.width, this.txtCanv.height);
+    this.txtCtx.fillText(keyword, this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2, this.txtCanv.height / 2);
+
+    const imgData = this.txtCtx.getImageData(0, 0, this.txtCanv.width, this.txtCanv.height);
+    const buffer32 = new Uint32Array(imgData.data.buffer);
+
+    this.positions = [];
+    for (let y = 0; y < this.txtCanv.height; y += grid) {
+      for (let x = 0; x < this.txtCanv.width; x += grid) {
+        if (buffer32[y * this.txtCanv.width + x]) {
+          this.positions.push({x: x, y: y});
+        }
+      }
+    }
+  }
+
+  animateParticles = () => {
+    this.positions.forEach((p, i) => {
+      this.particles[i].x += (this.positions[i].x - this.particles[i].x) * 0.35;
+      this.particles[i].y += (this.positions[i].y - this.particles[i].y) * 0.35;
+      this.particles[i].move(this.mx, this.my);
+      this.particles[i].draw();
     });
   }
 
   animate = debounce(() => {
-    this.drawText('장수영');
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.animateParticles();
     requestAnimationFrame(this.animate);
-  }, 1000 / 30)
+  }, 1000 / 40)
 
-  onMouseMove = (e) => {
-    const yPos = this.state.height / 2 - e.pageY;
-    console.log(e.pageY);
-    this.setState({ yPos });
+  onClick = () => {
+    if (this.state.i === this.state.words.length - 1) {
+      this.setState({
+        i: 0,
+      }, this.getPixels(this.state.words[this.state.i]));
+    } else {
+      this.setState({
+        i: this.state.i + 1
+      }, this.getPixels(this.state.words[this.state.i]));
+    }
   }
 
-  init = () => {
-    this.drawCanvas();
-    this.animate();
+  onMouseMove = (e) => {
+    this.mx = (e.clientX - this.canvas.offsetLeft) * 2;
+    this.my = (e.clientY - this.canvas.offsetTop) * 2;
+  }
+
+  onResize = () => {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    }, () => {
+      this.setValues();
+    });
   }
 
   componentDidMount() {
     this.init();
+
+    window.addEventListener('resize', debounce(() => {
+      this.onResize();
+    }, 1000 / 20))
   }
+
 
   render() {
     return (
       <canvas
         id="canvas"
         className="shared__canvas"
+        onClick={this.onClick}
         onMouseMove={this.onMouseMove} />
     )
   }
