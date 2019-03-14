@@ -82,7 +82,10 @@ class TextCanvas extends Component {
     for (let y = 0; y < this.txtCanv.height; y += grid) {
       for (let x = 0; x < this.txtCanv.width; x += grid) {
         if (buffer32[y * this.txtCanv.width + x]) {
-          this.positions.push({x: x, y: y});
+          this.positions.push({
+            x,
+            y,
+          });
         }
       }
     }
@@ -97,10 +100,14 @@ class TextCanvas extends Component {
 
   changeWord = () => {
     this.getPixels(this.state.words[this.state.i]);
+
+    const txtHeight = (this.positions.slice(-1)[0].y + (this.positions.length - 1) * 0.1) - this.positions[0].y,
+          diff = (this.state.height - (txtHeight / 2)) / 1.5;
+
     this.positions.forEach((p, i) => {
       TweenLite.to(this.particles[i], 0.8, {
         homeX: p.x,
-        homeY: p.y,
+        homeY: (p.y + 0.1 * i) - diff,
         easing: Power2.easeIn,
       });
     });
@@ -112,7 +119,7 @@ class TextCanvas extends Component {
     this.animation = requestAnimationFrame(this.animate);
   }, 1000 / 40)
 
-  onClick = () => {
+  nextWord = () => {
     if (this.state.i === this.state.words.length - 1) {
       this.setState({
         i: 0,
@@ -140,6 +147,9 @@ class TextCanvas extends Component {
 
   componentDidMount() {
     this.init();
+    this.nextWord();
+
+    setInterval(this.nextWord, 5000);
 
     window.addEventListener('resize', debounce(() => {
       this.onResize();
@@ -152,7 +162,6 @@ class TextCanvas extends Component {
       <canvas
         id="canvas"
         className="shared__canvas"
-        onClick={this.onClick}
         onMouseMove={this.onMouseMove} />
     )
   }
