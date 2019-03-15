@@ -1,11 +1,11 @@
 // import { TweenLite, Power2 } from 'gsap';
 
 export default class Particle {
-  constructor(x, y, ctx) {
+  constructor(sx, sy, x, y, ctx) {
     this.homeX = x;
     this.homeY = y;
-    this.x = x;
-    this.y = y;
+    this.x = sx;
+    this.y = sy;
     this.xVelocity = 0;
     this.yVelocity = 0;
     this.radius = 11;
@@ -13,13 +13,23 @@ export default class Particle {
     this.homeAngle = 0;
     this.cursorForce = 0;
     this.cursorAngle = 0;
-    this.color = 'rgba(255,198,168,0.9)';
+    this.color = {
+      r: 255,
+      g: 198,
+      b: 168,
+      a: 0.9,
+    };
     this.ctx = ctx;
   }
 
   draw = () => {
     this.ctx.save();
-    this.ctx.fillStyle = this.color;
+    this.ctx.fillStyle = `rgba(
+      ${this.color.r},
+      ${this.color.g},
+      ${this.color.b},
+      ${this.color.a}
+    )`;
     this.ctx.fillRect(this.x, this.y, this.radius, this.radius);
     this.ctx.restore();
   }

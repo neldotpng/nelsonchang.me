@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Particle from './Particle';
+import { TweenLite, Power2 } from 'gsap';
 
+import Particle from './Particle';
 import debounce from '../../functions/debounce';
 
 class TextCanvas extends Component {
@@ -52,6 +53,8 @@ class TextCanvas extends Component {
       if (!!this.positions[i]) {
         this.particles.push(
           new Particle(
+            this.canvas.width / 2,
+            this.canvas.height * Math.random(),
             this.positions[i].x,
             this.positions[i].y,
             this.ctx,
@@ -66,6 +69,8 @@ class TextCanvas extends Component {
     for (let i = 0; i <= nta; i++) {
       this.particles.push(
         new Particle(
+          this.canvas.width / 2,
+          i + this.canvas.height / 2,
           this.canvas.width / 2,
           i + this.canvas.height / 2,
           this.ctx,
@@ -112,6 +117,16 @@ class TextCanvas extends Component {
     this.positions.forEach((p, i) => {
       this.particles[i].homeX = p.x;
       this.particles[i].homeY = p.y;
+
+      // TweenLite.to(this.particles[i], 1, {
+      //   color: {
+      //     r: 0,
+      //     g: 0,
+      //     b: 0,
+      //     a: 0.3,
+      //   },
+      //   easing: Power2.easeIn,
+      // })
     });
   }
 
