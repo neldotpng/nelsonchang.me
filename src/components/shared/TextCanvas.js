@@ -76,6 +76,7 @@ class TextCanvas extends Component {
     this.txtCtx.fillText(keyword, this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2, this.txtCanv.height / 2);
 
     const imgData = this.txtCtx.getImageData(0, 0, this.txtCanv.width, this.txtCanv.height);
+    console.log(imgData);
     const buffer32 = new Uint32Array(imgData.data.buffer);
 
     this.positions = [];
@@ -102,12 +103,12 @@ class TextCanvas extends Component {
     this.getPixels(this.state.words[this.state.i]);
 
     const txtHeight = (this.positions.slice(-1)[0].y + (this.positions.length - 1) * 0.1) - this.positions[0].y,
-          diff = (this.state.height - (txtHeight / 2)) / 1.5;
+          diff = ((this.state.height - (txtHeight / 2) / 2) - this.positions[0].y) / 2;
 
     this.positions.forEach((p, i) => {
       TweenLite.to(this.particles[i], 0.8, {
         homeX: p.x,
-        homeY: (p.y + 0.1 * i) - diff,
+        homeY: p.y + diff,
         easing: Power2.easeIn,
       });
     });
@@ -149,7 +150,7 @@ class TextCanvas extends Component {
     this.init();
     this.nextWord();
 
-    setInterval(this.nextWord, 5000);
+    // setInterval(this.nextWord, 5000);
 
     window.addEventListener('resize', debounce(() => {
       this.onResize();

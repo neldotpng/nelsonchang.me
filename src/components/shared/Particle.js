@@ -13,7 +13,7 @@ export default class Particle {
     this.homeAngle = 0;
     this.cursorForce = 0;
     this.cursorAngle = 0;
-    this.color = 'rgba(255, 255, 255, 0.4)';
+    this.color = 'rgba(0,0,0,1)';
     this.ctx = ctx;
   }
 
