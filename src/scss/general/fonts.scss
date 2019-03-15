@@ -23,14 +23,3 @@
   src: url("../../assets/fonts/Inter-UI-Black.woff2") format("woff2"),
        url("../../assets/fonts/Inter-UI-Black.woff") format("woff");
 }
-
-$hangul: 'Black Han Sans';
-$sans: 'Inter UI', 'Helvetica', 'sans-serif';
-
-.hangul {
-  font-family: $hangul;
-}
-
-.sans {
-  font-family: $sans;
-}

@@ -1,17 +1,25 @@
-@import './reset.scss';
-@import './fonts.scss';
+@import './reset';
+@import './fonts';
+@import './variables';
 
-@import './components.scss';
-@import './pages.scss';
+@import './components';
+@import './pages';
 
+.hangul {
+  font-family: $hangul;
+}
+
+.sans {
+  font-family: $sans;
+}
 
 body {
-  margin: 0;
-  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $sans;
-  font-size: 120px;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
 }
 
 * {
