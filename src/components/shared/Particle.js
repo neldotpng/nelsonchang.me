@@ -8,12 +8,12 @@ export default class Particle {
     this.y = y;
     this.xVelocity = 0;
     this.yVelocity = 0;
-    this.radius = 7;
+    this.radius = 11;
     this.homeForce = 0;
     this.homeAngle = 0;
     this.cursorForce = 0;
     this.cursorAngle = 0;
-    this.color = 'rgba(0,0,0,1)';
+    this.color = 'rgba(255,198,168,0.9)';
     this.ctx = ctx;
   }
 
@@ -48,8 +48,8 @@ export default class Particle {
     this.xVelocity += homeForce * Math.cos(homeAngle) + cursorForce * Math.cos(cursorAngle);
     this.yVelocity += homeForce * Math.sin(homeAngle) + cursorForce * Math.sin(cursorAngle);
 
-    this.xVelocity *= 0.66;
-    this.yVelocity *= 0.66;
+    this.xVelocity *= 0.6;
+    this.yVelocity *= 0.6;
 
     this.x += this.xVelocity;
     this.y += this.yVelocity;

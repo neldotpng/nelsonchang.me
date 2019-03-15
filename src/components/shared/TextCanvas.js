@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { TweenLite, Power2 } from 'gsap';
 import Particle from './Particle';
 
 import debounce from '../../functions/debounce';
@@ -49,7 +48,7 @@ class TextCanvas extends Component {
   }
 
   makeParticles = () => {
-    for (let i = 0; i <= this.positions.length * 2; i++) {
+    for (let i = 0; i < this.positions.length; i++) {
       if (!!this.positions[i]) {
         this.particles.push(
           new Particle(
@@ -57,16 +56,21 @@ class TextCanvas extends Component {
             this.positions[i].y,
             this.ctx,
           )
-        );
-      } else {
-        this.particles.push(
-          new Particle(
-            this.canvas.width * Math.random(),
-            this.canvas.height * Math.random(),
-            this.ctx,
-          )
         )
       }
+    }
+  }
+
+  addParticles = () => {
+    const nta = this.positions.length - this.particles.length;
+    for (let i = 0; i <= nta; i++) {
+      this.particles.push(
+        new Particle(
+          this.canvas.width / 2,
+          i + this.canvas.height / 2,
+          this.ctx,
+        )
+      )
     }
   }
 
@@ -76,7 +80,6 @@ class TextCanvas extends Component {
     this.txtCtx.fillText(keyword, this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2, this.txtCanv.height / 2);
 
     const imgData = this.txtCtx.getImageData(0, 0, this.txtCanv.width, this.txtCanv.height);
-    console.log(imgData);
     const buffer32 = new Uint32Array(imgData.data.buffer);
 
     this.positions = [];
@@ -84,8 +87,8 @@ class TextCanvas extends Component {
       for (let x = 0; x < this.txtCanv.width; x += grid) {
         if (buffer32[y * this.txtCanv.width + x]) {
           this.positions.push({
-            x,
-            y,
+            x: x - this.state.width / 10,
+            y: y,
           });
         }
       }
@@ -102,15 +105,13 @@ class TextCanvas extends Component {
   changeWord = () => {
     this.getPixels(this.state.words[this.state.i]);
 
-    const txtHeight = (this.positions.slice(-1)[0].y + (this.positions.length - 1) * 0.1) - this.positions[0].y,
-          diff = ((this.state.height - (txtHeight / 2) / 2) - this.positions[0].y) / 2;
+    if (this.positions.length > this.particles.length) {
+      this.addParticles();
+    }
 
     this.positions.forEach((p, i) => {
-      TweenLite.to(this.particles[i], 0.8, {
-        homeX: p.x,
-        homeY: p.y + diff,
-        easing: Power2.easeIn,
-      });
+      this.particles[i].homeX = p.x;
+      this.particles[i].homeY = p.y;
     });
   }
 
@@ -163,6 +164,7 @@ class TextCanvas extends Component {
       <canvas
         id="canvas"
         className="shared__canvas"
+        onClick={this.nextWord}
         onMouseMove={this.onMouseMove} />
     )
   }
