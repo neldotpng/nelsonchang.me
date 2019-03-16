@@ -2,10 +2,10 @@
 
 export default class Particle {
   constructor(sx, sy, x, y, ctx) {
-    this.homeX = x;
-    this.homeY = y;
     this.x = sx;
     this.y = sy;
+    this.homeX = x;
+    this.homeY = y;
     this.xVelocity = 0;
     this.yVelocity = 0;
     this.radius = 11;
@@ -17,7 +17,7 @@ export default class Particle {
       r: 255,
       g: 198,
       b: 168,
-      a: 0.9,
+      a: 1,
     };
     this.ctx = ctx;
   }

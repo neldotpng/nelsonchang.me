@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TweenLite, Power2 } from 'gsap';
+// import { TweenLite, Power2 } from 'gsap';
 
 import Particle from './Particle';
 import debounce from '../../functions/debounce';
@@ -45,7 +45,7 @@ class TextCanvas extends Component {
 
     setTimeout(() => {
       this.animate();
-    }, 1000);
+    }, 2000);
   }
 
   makeParticles = () => {
@@ -92,12 +92,17 @@ class TextCanvas extends Component {
       for (let x = 0; x < this.txtCanv.width; x += grid) {
         if (buffer32[y * this.txtCanv.width + x]) {
           this.positions.push({
-            x: x - this.state.width / 10,
+            x: x,
             y: y,
           });
         }
       }
     }
+
+    const diff = (this.canvas.height - this.positions[this.positions.length - 1].y - this.positions[0].y) / 2;
+    this.positions.forEach((p) => {
+      p.y += diff;
+    });
   }
 
   animateParticles = () => {

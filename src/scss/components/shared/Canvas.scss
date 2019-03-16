@@ -1,5 +1,9 @@
 .shared__canvas {
   background-color: $off-white;
   height: 100vh !important;
+  left: 0;
+  position: fixed;
+  top: 0;
   width: 100vw !important;
+  z-index: 0;
 }
