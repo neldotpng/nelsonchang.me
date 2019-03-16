@@ -4,6 +4,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .nav__container {
@@ -12,12 +13,37 @@
   justify-content: space-between;
   height: 100%;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: $max-width;
 }
 
 .nav__home {
-  color: $black;
+  color: $dark-gray;
   font-weight: 900;
   font-size: 42px;
   text-decoration: none;
+}
+
+.nav__menu {}
+
+.nav__menuButton {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+}
+
+.nav__hamburger {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 36px;
+  padding: 10px;
+  width: 50px;
+
+  > span {
+    background-color: $black;
+    display: inline-block;
+    height: 2px;
+    width: 100%;
+  }
 }
