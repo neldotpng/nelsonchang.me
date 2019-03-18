@@ -14,7 +14,7 @@ class TextCanvas extends Component {
       '삼겹살',
       '겹삼수',
     ],
-    fontSize: '100vh',
+    fontSize: '120vh',
     i: 0,
   }
 
@@ -43,9 +43,7 @@ class TextCanvas extends Component {
     this.getPixels(this.state.words[this.state.i]);
     this.makeParticles();
 
-    setTimeout(() => {
-      this.animate();
-    }, 2000);
+    this.animate();
   }
 
   makeParticles = () => {
@@ -80,7 +78,7 @@ class TextCanvas extends Component {
   }
 
   getPixels = (keyword) => {
-    const grid = 12;
+    const grid = 15;
     this.txtCtx.clearRect(0, 0, this.txtCanv.width, this.txtCanv.height);
     this.txtCtx.fillText(keyword, this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2, this.txtCanv.height / 2);
 
@@ -171,8 +169,6 @@ class TextCanvas extends Component {
     this.init();
     this.nextWord();
 
-    // setInterval(this.nextWord, 5000);
-
     window.addEventListener('resize', debounce(() => {
       this.onResize();
     }, 1000 / 20))
@@ -181,11 +177,13 @@ class TextCanvas extends Component {
 
   render() {
     return (
-      <canvas
-        id="canvas"
-        className="shared__canvas"
-        onClick={this.nextWord}
-        onMouseMove={this.onMouseMove} />
+      <div className="canvas">
+        <canvas
+          id="canvas"
+          className="shared__canvas"
+          onClick={this.nextWord}
+          onMouseMove={this.onMouseMove} />
+      </div>
     )
   }
 }

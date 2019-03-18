@@ -1,2 +1,48 @@
-.Home {
+.home {
+  position: relative;
+}
+
+.home__header {
+  height: 100vh;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.home__headerText {
+  left: 50%;
+  position: absolute;
+  text-align: right;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 10;
+}
+
+.home__h1 {
+  font-size: 72px;
+  font-weight: 700;
+
+  > span {
+    display: block;
+  }
+}
+
+.home__name {
+  // color: $off-white;
+  color: $pink;
+  font-size: 100px;
+  // text-shadow: -1px 0 $pink, 0 1px $pink, 1px 0 $pink, 0 -1px $pink;
+}
+
+.home__h1,
+.home__sub {
+  margin: 0 auto;
+  max-width: $max-width;
+}
+
+.home__sub {
+  padding-top: 20px;
 }
