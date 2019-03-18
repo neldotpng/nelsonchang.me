@@ -1,29 +1,30 @@
 .home {
+  min-height: 100vh;
   position: relative;
 }
 
 .home__header {
+  align-items: center;
+  display: flex;
   height: 100vh;
   left: 0;
-  pointer-events: none;
+  padding: 0 20px;
   position: absolute;
   top: 0;
-  width: 100vw;
+  width: 100%;
 }
 
 .home__headerText {
-  left: 50%;
-  position: absolute;
+  margin: 0 auto;
+  max-width: $max-width;
   text-align: right;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
-  z-index: 10;
 }
 
 .home__h1 {
   font-size: 72px;
   font-weight: 700;
+  line-height: 78px;
 
   > span {
     display: block;
@@ -31,18 +32,32 @@
 }
 
 .home__name {
-  // color: $off-white;
   color: $pink;
-  font-size: 100px;
-  // text-shadow: -1px 0 $pink, 0 1px $pink, 1px 0 $pink, 0 -1px $pink;
 }
 
-.home__h1,
 .home__sub {
-  margin: 0 auto;
+  margin-top: 15px;
+  position: relative;
+}
+
+.home__scroll {
+  bottom: 20px;
+  display: flex;
+  font-size: 14px;
+  justify-content: flex-end;
+  left: 50%;
   max-width: $max-width;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
 }
 
-.home__sub {
-  padding-top: 20px;
+.home__scrollContainer {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+
+  .arrow__down {
+    margin-top: 5px;
+  }
 }
