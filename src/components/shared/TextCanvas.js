@@ -15,6 +15,7 @@ class TextCanvas extends Component {
       '겹삼수',
     ],
     fontSize: '120vh',
+    fontFamily: '"Black Han Sans", Helvetica',
     i: 0,
   }
 
@@ -26,7 +27,7 @@ class TextCanvas extends Component {
     this.txtCtx = this.txtCanv.getContext('2d');
     this.txtCtx.fillStyle = 'black';
 
-    this.setValues();
+    setTimeout(this.setValues, 1000);
   }
 
   setValues = () => {
@@ -38,7 +39,7 @@ class TextCanvas extends Component {
     this.txtCanv.width = this.canvas.width;
     this.txtCanv.height = this.canvas.height;
     this.txtCtx.textBaseline = 'middle';
-    this.txtCtx.font = `${this.state.fontSize} Black Han Sans`;
+    this.txtCtx.font = `${this.state.fontSize} ${this.state.fontFamily}`;
 
     this.getPixels(this.state.words[this.state.i]);
     this.makeParticles();
@@ -120,16 +121,6 @@ class TextCanvas extends Component {
     this.positions.forEach((p, i) => {
       this.particles[i].homeX = p.x;
       this.particles[i].homeY = p.y;
-
-      // TweenLite.to(this.particles[i], 1, {
-      //   color: {
-      //     r: 0,
-      //     g: 0,
-      //     b: 0,
-      //     a: 0.3,
-      //   },
-      //   easing: Power2.easeIn,
-      // })
     });
   }
 
@@ -167,7 +158,7 @@ class TextCanvas extends Component {
 
   componentDidMount() {
     this.init();
-    this.nextWord();
+    // this.nextWord();
 
     window.addEventListener('resize', debounce(() => {
       this.onResize();
@@ -178,11 +169,16 @@ class TextCanvas extends Component {
   render() {
     return (
       <div className="canvas">
+        <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
+          장수영삼겹살
+        </div>
         <canvas
           id="canvas"
           className="shared__canvas"
           onClick={this.nextWord}
-          onMouseMove={this.onMouseMove} />
+          onMouseMove={this.onMouseMove}>
+          장수영 삼겹살
+        </canvas>
       </div>
     )
   }
