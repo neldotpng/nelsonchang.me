@@ -14,7 +14,9 @@ class TextCanvas extends Component {
       '삼겹살',
       '겹삼수',
     ],
-    fontSize: '120vh',
+    grid: 22,
+    size: 21,
+    fontSize: '160vh',
     fontFamily: '"Black Han Sans", Helvetica',
     i: 0,
   }
@@ -57,6 +59,7 @@ class TextCanvas extends Component {
             this.positions[i].x,
             this.positions[i].y,
             this.ctx,
+            this.state.size,
           )
         )
       }
@@ -73,13 +76,13 @@ class TextCanvas extends Component {
           this.canvas.width / 2,
           i + this.canvas.height / 2,
           this.ctx,
+          this.state.size,
         )
       )
     }
   }
 
   getPixels = (keyword) => {
-    const grid = 15;
     this.txtCtx.clearRect(0, 0, this.txtCanv.width, this.txtCanv.height);
     this.txtCtx.fillText(keyword, this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2, this.txtCanv.height / 2);
 
@@ -87,8 +90,8 @@ class TextCanvas extends Component {
     const buffer32 = new Uint32Array(imgData.data.buffer);
 
     this.positions = [];
-    for (let y = 0; y < this.txtCanv.height; y += grid) {
-      for (let x = 0; x < this.txtCanv.width; x += grid) {
+    for (let y = 0; y < this.txtCanv.height; y += this.state.grid) {
+      for (let x = 0; x < this.txtCanv.width; x += this.state.grid) {
         if (buffer32[y * this.txtCanv.width + x]) {
           this.positions.push({
             x: x,
@@ -163,6 +166,8 @@ class TextCanvas extends Component {
     window.addEventListener('resize', debounce(() => {
       this.onResize();
     }, 1000 / 20))
+
+    window.addEventListener('mousemove', this.onMouseMove);
   }
 
 
@@ -170,13 +175,11 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          장수영삼겹살
+          {this.state.words[this.state.i]}
         </div>
         <canvas
           id="canvas"
-          className="shared__canvas"
-          onClick={this.nextWord}
-          onMouseMove={this.onMouseMove}>
+          className="shared__canvas">
           장수영 삼겹살
         </canvas>
       </div>

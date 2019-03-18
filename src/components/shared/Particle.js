@@ -1,12 +1,12 @@
 export default class Particle {
-  constructor(sx, sy, x, y, ctx) {
+  constructor(sx, sy, x, y, ctx, size) {
     this.x = sx;
     this.y = sy;
     this.homeX = x;
     this.homeY = y;
     this.xVelocity = 0;
     this.yVelocity = 0;
-    this.radius = 14;
+    this.radius = size;
     this.homeForce = 0;
     this.homeAngle = 0;
     this.cursorForce = 0;
