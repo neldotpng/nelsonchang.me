@@ -1,6 +1,7 @@
 @import './reset';
 @import './fonts';
 @import './variables';
+@import './icons';
 
 @import './components';
 @import './pages';
@@ -10,7 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: $dark-gray;
   font-family: $sans;
-  font-size: 18px;
   margin: 0;
   padding: 0;
 }
@@ -22,6 +22,11 @@ body {
 article {
   position: relative;
   z-index: 1;
+}
+
+p {
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .hangul {
