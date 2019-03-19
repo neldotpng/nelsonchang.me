@@ -1,5 +1,5 @@
 .home {
-  min-height: 100vh;
+  padding-top: 100vh;
   position: relative;
 }
 
@@ -22,17 +22,13 @@
 }
 
 .home__h1 {
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 78px;
-
   > span {
     display: block;
   }
 }
 
 .home__name {
-  color: $pink;
+  color: $red;
 }
 
 .home__sub {
@@ -40,24 +36,12 @@
   position: relative;
 }
 
-.home__scroll {
-  bottom: 20px;
-  display: flex;
-  font-size: 14px;
-  justify-content: flex-end;
-  left: 50%;
+.home__about {
+  margin: 0 auto;
   max-width: $max-width;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 100%;
+  padding: 120px 20px;
 }
 
-.home__scrollContainer {
-  align-items: center;
-  display: flex;
-  flex-flow: column;
-
-  .arrow__down {
-    margin-top: 5px;
-  }
+.home__h2 {
+  font-weight: 400;
 }
