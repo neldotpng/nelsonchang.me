@@ -1,5 +1,4 @@
 .home {
-  padding-top: 100vh;
   position: relative;
 }
 
@@ -8,6 +7,7 @@
   display: flex;
   height: 100vh;
   left: 0;
+  overflow: hidden;
   padding: 0 20px;
   position: absolute;
   top: 0;
@@ -17,7 +17,6 @@
 .home__headerText {
   margin: 0 auto;
   max-width: $max-width;
-  text-align: right;
   width: 100%;
 }
 

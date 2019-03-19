@@ -6,18 +6,17 @@ class Nav extends Component {
     return (
       <nav className="nav">
         <div className="nav__container">
-          <Link to="/" className="nav__home">N.</Link>
+          <Link to="/" className="nav__link nav__home">N.</Link>
 
-          <div className="nav__menu">
-            <div role="button" className="nav__menuButton">
-              <span className="nav__menuLabel">Menu</span>
-              <div className="nav__hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+          <div role="button" className="nav__menu">
+            <div className="nav__hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
+
+          <Link to="/about" className="nav__link nav__about">About</Link>
         </div>
       </nav>
     );
