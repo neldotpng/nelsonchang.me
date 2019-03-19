@@ -15,7 +15,7 @@ class TextCanvas extends Component {
       '겹삼수',
     ],
     grid: 13,
-    size: 15,
+    size: 14,
     fontSize: '120vh',
     fontFamily: '"Black Han Sans", Helvetica',
     i: 0,
@@ -130,27 +130,28 @@ class TextCanvas extends Component {
     this.animation = requestAnimationFrame(this.animate);
   }, 1000 / 45)
 
-  nextWord = () => {
-    if (this.state.i === this.state.words.length - 1) {
-      this.setState({
-        i: 0,
-      }, this.changeWord());
-    } else {
-      this.setState({
-        i: this.state.i + 1
-      }, this.changeWord());
-    }
-  }
-
-  animateColors = () => {
-    const timer = (this.particles.length - 1) * 0.00075;
+  tweenSize = () => {
+    const timer = 3.5;
     this.particles.forEach((p, i) => {
       TweenMax.to(p, timer, {
         radius: 11,
-        delay: 0.00075 * i,
+        delay: timer / this.particles.length * i,
         yoyo: true,
         repeat: -1,
-        easing: Sine.easeOut,
+        easing: Sine.easeInOut,
+      });
+    });
+  }
+
+  tweenColor = (r, g, b) => {
+    const timer = 3.5;
+    this.particles.forEach((p, i) => {
+      TweenMax.to(p.color, timer, {
+        r: r,
+        g: g,
+        b: b,
+        delay: timer / this.particles.length * i,
+        easing: Sine.easeInOut,
       });
     });
   }
@@ -167,6 +168,7 @@ class TextCanvas extends Component {
         height: window.innerHeight,
       }, () => {
         this.setValues();
+        this.tweenSize();
       });
     }
   }
@@ -175,9 +177,8 @@ class TextCanvas extends Component {
     this.init();
 
     setTimeout(() => {
-      // this.nextWord();
-      this.animateColors();
-    }, 5000);
+      this.tweenSize();
+    }, 1000);
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
 
