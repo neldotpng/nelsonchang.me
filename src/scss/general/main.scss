@@ -2,37 +2,7 @@
 @import './fonts';
 @import './variables';
 @import './icons';
+@import './common';
 
 @import './components';
 @import './pages';
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: $dark-gray;
-  font-family: $sans;
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-article {
-  position: relative;
-  z-index: 1;
-}
-
-p {
-  font-size: 18px;
-  line-height: 22px;
-}
-
-.hangul {
-  font-family: $hangul;
-}
-
-.sans {
-  font-family: $sans;
-}
