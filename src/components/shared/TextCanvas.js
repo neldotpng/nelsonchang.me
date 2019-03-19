@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { TweenLite, Power2 } from 'gsap';
+import { TweenMax, Sine } from 'gsap';
 
 import Particle from './Particle';
 import debounce from '../../functions/debounce';
@@ -14,9 +14,9 @@ class TextCanvas extends Component {
       '삼겹살',
       '겹삼수',
     ],
-    grid: 22,
-    size: 21,
-    fontSize: '160vh',
+    grid: 13,
+    size: 15,
+    fontSize: '120vh',
     fontFamily: '"Black Han Sans", Helvetica',
     i: 0,
   }
@@ -54,8 +54,8 @@ class TextCanvas extends Component {
       if (!!this.positions[i]) {
         this.particles.push(
           new Particle(
-            this.canvas.width / 2,
-            this.canvas.height * Math.random(),
+            this.state.width,
+            Math.pow(i, 1.35),
             this.positions[i].x,
             this.positions[i].y,
             this.ctx,
@@ -93,10 +93,7 @@ class TextCanvas extends Component {
     for (let y = 0; y < this.txtCanv.height; y += this.state.grid) {
       for (let x = 0; x < this.txtCanv.width; x += this.state.grid) {
         if (buffer32[y * this.txtCanv.width + x]) {
-          this.positions.push({
-            x: x,
-            y: y,
-          });
+          this.positions.push({ x, y });
         }
       }
     }
@@ -131,7 +128,7 @@ class TextCanvas extends Component {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.animateParticles();
     this.animation = requestAnimationFrame(this.animate);
-  }, 1000 / 40)
+  }, 1000 / 45)
 
   nextWord = () => {
     if (this.state.i === this.state.words.length - 1) {
@@ -145,27 +142,44 @@ class TextCanvas extends Component {
     }
   }
 
+  animateColors = () => {
+    const timer = (this.particles.length - 1) * 0.00075;
+    this.particles.forEach((p, i) => {
+      TweenMax.to(p, timer, {
+        radius: 11,
+        delay: 0.00075 * i,
+        yoyo: true,
+        repeat: -1,
+        easing: Sine.easeOut,
+      });
+    });
+  }
+
   onMouseMove = (e) => {
     this.mx = (e.clientX - this.canvas.offsetLeft) * 2;
     this.my = (e.clientY - this.canvas.offsetTop) * 2;
   }
 
   onResize = () => {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    }, () => {
-      this.setValues();
-    });
+    if (this.state.width !== window.innerWidth) {
+      this.setState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      }, () => {
+        this.setValues();
+      });
+    }
   }
 
   componentDidMount() {
     this.init();
-    // this.nextWord();
 
-    window.addEventListener('resize', debounce(() => {
-      this.onResize();
-    }, 1000 / 20))
+    setTimeout(() => {
+      // this.nextWord();
+      this.animateColors();
+    }, 5000);
+
+    window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
 
     window.addEventListener('mousemove', this.onMouseMove);
   }
