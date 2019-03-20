@@ -13,7 +13,7 @@ class Home extends Component {
               </div>
             </h1>
             <p className="home__sub">
-              I’m a Chicago-based (soon NYC-based)<br/> creative technologist / front-end developer.
+              I’m a Chicago-based (soon-to-be NYC)<br/> creative technologist / front-end developer.
             </p>
           </div>
         </header>
