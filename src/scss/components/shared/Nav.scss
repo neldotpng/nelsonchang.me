@@ -13,11 +13,13 @@
 .nav__container {
   align-items: center;
   display: flex;
-  font-size: 14px;
+  font-size: 16px;
   justify-content: space-between;
   height: 100%;
   margin: 0 auto;
   max-width: $max-width;
+  position: relative;
+  z-index: 10;
 }
 
 .nav__home {
@@ -28,25 +30,90 @@
 .nav__link {
   color: $dark-gray;
   text-decoration: none;
-}
-
-.nav__menu {
-  border: 2px solid $dark-gray;
-  cursor: pointer;
-  padding: 10px;
+  transition: color $mid $cubic-bezier;
 }
 
 .nav__hamburger {
+  cursor: pointer;
   display: flex;
   flex-flow: column;
-  height: 16px;
+  height: 36px;
   justify-content: space-between;
-  width: 30px;
+  padding: 10px;
+  width: 50px;
 
   > span {
-    background-color: $black;
+    background-color: $dark-gray;
     display: inline-block;
     height: 2px;
+    transition: background $mid $cubic-bezier;
     width: 100%;
   }
+}
+
+.nav__container.is-open {
+  .nav__link {
+    color: $blue;
+  }
+
+  .nav__hamburger > span {
+    background-color: $blue;
+  }
+}
+
+.nav__menu {
+  background-color: $dark-gray;
+  color: $white;
+  left: 10px;
+  max-height: calc(100vh - 20px);
+  min-height: calc(100vh - 20px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: top left;
+  transition: width $mid $cubic-bezier;
+  width: 0;
+  z-index: 0;
+
+  &.is-open {
+    width: 450px;
+  }
+}
+
+.nav__menuContainer {
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+.nav__menuLink {
+  color: $white;
+  display: inline-block;
+  font-size: 32px;
+  padding-left: 40px;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:before {
+    color: $blue;
+    content: '0' counter(item);
+    counter-increment: item;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 900;
+    left: 0;
+    position: absolute;
+    top: 2px;
+  }
+}
+
+.nav__items {
+  counter-reset: item;
+  margin-top: 120px;
+}
+
+.nav__item {
+  margin-bottom: 48px;
 }
