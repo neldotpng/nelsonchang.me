@@ -22,7 +22,7 @@ p {
 }
 
 #root:after {
-  border: 10px solid $white;
+  border: 10px solid $darkish-gray;
   content: '';
   display: block;
   height: calc(100vh - 20px);
