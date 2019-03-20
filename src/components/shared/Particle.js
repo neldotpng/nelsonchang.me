@@ -7,13 +7,27 @@ export default class Particle {
     this.xVelocity = 0;
     this.yVelocity = 0;
     this.radius = size;
+    // this.color = {
+    //   r: 0,
+    //   g: 188,
+    //   b: 232,
+    //   a: 0.75,
+    // };
     this.color = {
-      r: 0,
-      g: 188,
-      b: 232,
+      r: 249,
+      g: 173,
+      b: 38,
       a: 0.75,
     };
     this.ctx = ctx;
+
+    this.getX = () => {
+      return this.homeX;
+    };
+
+    this.getY = () => {
+      return this.homeY;
+    };
   }
 
   draw = () => {
@@ -42,7 +56,7 @@ export default class Particle {
       let cursorDX = this.x - mx;
       let cursorDY = this.y - my;
       let cursorDistanceSquared = Math.pow(cursorDX, 2) + Math.pow(cursorDY, 2);
-      cursorForce = Math.min(100000 / cursorDistanceSquared, 50);
+      cursorForce = Math.min(50000 / cursorDistanceSquared, 50);
       cursorAngle = Math.atan2(cursorDY, cursorDX);
     } else {
       cursorForce = 0;
