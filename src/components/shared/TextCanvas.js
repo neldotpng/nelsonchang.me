@@ -131,13 +131,14 @@ class TextCanvas extends Component {
   }, 1000 / 40)
 
   tweenSize = () => {
-    const timer = 3.5;
+    const t = 3.5,
+          l = this.particles.length;
     this.particles.forEach((p, i) => {
-      TweenMax.to(p, timer, {
+      TweenMax.to(p, t, {
         radius: 11,
-        homeX: p.getX() + 15,
-        homeY: p.getY() + 15,
-        delay: timer / this.particles.length * i,
+        homeX: this.homeX + 20,
+        homeY: this.homeY + 20,
+        delay: t / l * i,
         yoyo: true,
         repeat: -1,
         easing: Sine.easeInOut,
