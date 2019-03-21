@@ -128,7 +128,7 @@ class TextCanvas extends Component {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.animateParticles();
     this.animation = requestAnimationFrame(this.animate);
-  }, 1000 / 40)
+  }, 1000 / 45)
 
   tweenSize = () => {
     const t = 3.5,
@@ -136,8 +136,8 @@ class TextCanvas extends Component {
     this.particles.forEach((p, i) => {
       TweenMax.to(p, t, {
         radius: 11,
-        homeX: this.homeX + 20,
-        homeY: this.homeY + 20,
+        homeX: p.getX() + 25,
+        homeY: p.getY() + 25,
         delay: t / l * i,
         yoyo: true,
         repeat: -1,

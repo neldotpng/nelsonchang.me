@@ -14,6 +14,14 @@ export default class Particle {
       a: 0.75,
     };
     this.ctx = ctx;
+
+    this.getX = () => {
+      return this.homeX;
+    }
+
+    this.getY = () => {
+      return this.homeY;
+    }
   }
 
   draw = () => {
