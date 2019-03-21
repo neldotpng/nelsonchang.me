@@ -16,9 +16,8 @@ class Nav extends Component {
   render() {
     const containerClasses = cx("nav__container", {
       "is-open": this.state.isOpen,
-    });
-
-    const menuClasses = cx("nav__menu", {
+    }),
+    menuClasses = cx("nav__menu", {
       "is-open": this.state.isOpen,
     });
 
@@ -40,6 +39,10 @@ class Nav extends Component {
         </div>
 
         <div className={menuClasses}>
+          <svg viewBox="0 0 100 100" width="0" className="nav__menuBackground" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50"/>
+          </svg>
+
           <div className="nav__menuContainer">
             <ul className="nav__items">
               <li className="nav__item">
@@ -63,6 +66,8 @@ class Nav extends Component {
                 </Link>
               </li>
             </ul>
+
+
           </div>
         </div>
       </nav>
