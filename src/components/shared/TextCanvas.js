@@ -112,6 +112,7 @@ class TextCanvas extends Component {
   }
 
   changeWord = () => {
+    TweenMax.killAll();
     this.getPixels(this.state.words[this.state.i]);
 
     if (this.positions.length > this.particles.length) {
@@ -122,6 +123,8 @@ class TextCanvas extends Component {
       this.particles[i].homeX = p.x;
       this.particles[i].homeY = p.y;
     });
+
+    this.tweenSize();
   }
 
   animate = debounce(() => {
@@ -194,7 +197,7 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          {this.state.words[this.state.i]}
+          장수영 삼겹살
         </div>
         <canvas
           id="canvas"
