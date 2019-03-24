@@ -21,6 +21,10 @@
 }
 
 .home__h1 {
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 110px;
+
   > span {
     display: block;
   }
@@ -28,10 +32,16 @@
 
 .home__name {
   color: $red;
+  display: inline-block;
+  font-family: $serif;
+  font-size: 150px;
+  line-height: 0;
 }
 
 .home__sub {
-  margin-top: 15px;
+  font-size: 20px;
+  line-height: 27px;
+  margin-top: 30px;
   position: relative;
 }
 
