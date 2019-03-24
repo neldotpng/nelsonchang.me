@@ -12,8 +12,8 @@ class ShapeOverlays extends Component {
     numPoints: 3,
     duration: 450,
     delayPointsArray: [],
-    delayPointsMax: 100,
-    delayPerPath: 70,
+    delayPointsMax: 90,
+    delayPerPath: 40,
     timeStart: Date.now(),
   }
 

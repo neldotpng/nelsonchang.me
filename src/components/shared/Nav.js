@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { TweenMax, Sine } from 'gsap';
 import cx from 'classnames';
 
 import ShapeOverlays from './ShapeOverlays';
@@ -12,8 +13,23 @@ class Nav extends Component {
   onClick = () => {
     this.setState({
       isOpen: !this.state.isOpen,
+    }, () => {
+      if (this.state.isOpen) {
+        setTimeout(() => {
+          TweenMax.staggerTo('.nav__menuLink', 0.3, {
+            opacity: 1,
+            y: 0,
+          }, 0.05);
+        }, 200)
+      } else {
+        TweenMax.staggerTo('.nav__menuLink', 0.3, {
+          opacity: 0,
+          y: "-=10",
+        }, 0.05);
+      }
     });
   }
+
 
   render() {
     const containerClasses = cx("nav__container", {

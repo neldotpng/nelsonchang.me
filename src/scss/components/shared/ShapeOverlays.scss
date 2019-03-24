@@ -1,6 +1,7 @@
 .shape-overlays {
   height: 100vh;
   left: 0;
+  pointer-events: none;
   position: absolute;
   top: 0;
   width: 100vw;
@@ -10,15 +11,3 @@
 .shape-overlays__path {
   fill: rgba($dark-gray, 0.95);
 }
-
-// .shape-overlays__path:nth-of-type(1) {
-//   fill: #c4dbea;
-// }
-
-// .shape-overlays__path:nth-of-type(2) {
-//   fill: #4c688b;
-// }
-
-// .shape-overlays__path:nth-of-type(3) {
-//   fill: #2e496a;
-// }
