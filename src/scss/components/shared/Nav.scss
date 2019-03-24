@@ -94,10 +94,9 @@
 
 .nav__menu {
   background-color: transparent;
+  height: calc(100vh - 20px);
   left: 10px;
-  max-height: calc(100vh - 20px);
   min-height: calc(100vh - 20px);
-  overflow-x: hidden;
   overflow-y: auto;
   position: absolute;
   top: 0;
@@ -107,13 +106,6 @@
   z-index: 1;
 
   &.is-open {
-    background-color: rgba($dark-gray, 0.9);
-
-    // .nav__menuBackground {
-    //   opacity: 1;
-    //   width: 1120px;
-    // }
-
     .nav__menuContainer {
       opacity: 1;
       transition-delay: $long;
@@ -122,22 +114,15 @@
   }
 }
 
-// .nav__menuBackground {
-//   fill: $dark-gray;
-//   left: calc(100% - 35px);
-//   opacity: 0;
-//   position: absolute;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   transition: width $long ease-in-out, opacity $long $cubic-bezier;
-//   width: 0;
-//   z-index: 0;
-// }
-
 .nav__menuContainer {
-  margin-top: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
   opacity: 0;
-  padding: 0 30px;
+  overflow-y: auto;
+  padding: 50px 30px;
+  position: relative;
   transition: all $short $cubic-bezier;
   visibility: hidden;
 }
@@ -145,9 +130,9 @@
 .nav__menuLink {
   color: $white;
   display: inline-block;
-  font-size: 32px;
-  font-family: $sans-bold;
-  padding-left: 32px;
+  font-size: 40px;
+  font-family: $serif;
+  padding-left: 34px;
   position: relative;
   text-decoration: none;
   white-space: nowrap;
@@ -157,18 +142,46 @@
     content: '0' counter(item);
     counter-increment: item;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     left: 0;
     position: absolute;
     top: 3px;
   }
 }
 
-.nav__items {
-  counter-reset: item;
-  margin-top: 120px;
+.nav__menuLink--inactive {
+  color: rgba($white, 0.5);
+
+  &:before {
+    color: rgba($blue, 0.5);
+  }
 }
 
-.nav__item {
+.nav__items {
+  counter-reset: item;
+
+  @media screen and (max-height: 480px) {
+    padding-bottom: 70px;
+  }
+}
+
+.nav__item:not(:last-child) {
   margin-bottom: 48px;
+}
+
+.nav__menuCta {
+  bottom: 20px;
+  color: $white;
+  font-size: 14px;
+  left: 50%;
+  max-width: 580px;
+  padding: 0 50px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.nav__menuEmail {
+  color: $blue;
+  text-decoration: none;
 }
