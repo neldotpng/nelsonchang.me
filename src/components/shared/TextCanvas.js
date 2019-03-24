@@ -14,10 +14,13 @@ class TextCanvas extends Component {
       '삼겹살',
       '겹삼수',
     ],
-    grid: 13,
-    size: 14,
-    fontSize: '120vh',
-    fontFamily: '"Black Han Sans", Helvetica',
+    size: {
+      max: 15,
+      min: 11,
+      grid: 13,
+    },
+    fontSize: '140vh',
+    fontFamily: 'Black Han Sans',
     i: 0,
   }
 
@@ -59,7 +62,7 @@ class TextCanvas extends Component {
             this.positions[i].x,
             this.positions[i].y,
             this.ctx,
-            this.state.size,
+            this.state.size.max,
           )
         )
       }
@@ -76,10 +79,15 @@ class TextCanvas extends Component {
           this.canvas.width / 2,
           i + this.canvas.height / 2,
           this.ctx,
-          this.state.size,
+          this.state.size.max,
         )
       )
     }
+  }
+
+  removeParticles = () => {
+    const newArr = this.particles.slice(0, this.positions.length);
+    this.particles = newArr;
   }
 
   getPixels = (keyword) => {
@@ -90,8 +98,8 @@ class TextCanvas extends Component {
     const buffer32 = new Uint32Array(imgData.data.buffer);
 
     this.positions = [];
-    for (let y = 0; y < this.txtCanv.height; y += this.state.grid) {
-      for (let x = 0; x < this.txtCanv.width; x += this.state.grid) {
+    for (let y = 0; y < this.txtCanv.height; y += this.state.size.grid) {
+      for (let x = 0; x < this.txtCanv.width; x += this.state.size.grid) {
         if (buffer32[y * this.txtCanv.width + x]) {
           this.positions.push({ x, y });
         }
@@ -117,6 +125,8 @@ class TextCanvas extends Component {
 
     if (this.positions.length > this.particles.length) {
       this.addParticles();
+    } else {
+      this.removeParticles();
     }
 
     this.positions.forEach((p, i) => {
@@ -138,7 +148,7 @@ class TextCanvas extends Component {
           l = this.particles.length;
     this.particles.forEach((p, i) => {
       TweenMax.to(p, t, {
-        radius: 11,
+        radius: this.state.size.min,
         homeX: p.getX() + 25,
         homeY: p.getY() + 25,
         delay: t / l * i,
@@ -180,6 +190,22 @@ class TextCanvas extends Component {
     }
   }
 
+  // nextWord = () => {
+  //   if (this.state.i < this.state.words.length - 1) {
+  //     this.setState({
+  //       i: this.state.i + 1,
+  //     }, () => {
+  //       this.changeWord();
+  //     });
+  //   } else {
+  //     this.setState({
+  //       i: 0,
+  //     }, () => {
+  //       this.changeWord();
+  //     });
+  //   }
+  // }
+
   componentDidMount() {
     this.init();
 
@@ -190,6 +216,8 @@ class TextCanvas extends Component {
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
 
     window.addEventListener('mousemove', this.onMouseMove);
+
+    // window.addEventListener('click', this.nextWord)
   }
 
 
