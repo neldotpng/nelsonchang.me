@@ -8,7 +8,6 @@ class ShapeOverlays extends Component {
 
   state = {
     isNavOpened: false,
-    isAnimating: false,
     numPoints: 3,
     duration: 450,
     delayPointsArray: [],
@@ -18,7 +17,6 @@ class ShapeOverlays extends Component {
   }
 
   toggle = () => {
-    this.setState({ isAnimating: true });
     const range = Math.random() * Math.PI * 2;
     const delayPointsArray = [];
 
@@ -97,9 +95,6 @@ class ShapeOverlays extends Component {
       requestAnimationFrame(() => {
         this.renderLoop();
       });
-    }
-    else {
-      this.setState({ isAnimating: false });
     }
   }
 
