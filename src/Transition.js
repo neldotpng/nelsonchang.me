@@ -7,15 +7,15 @@ import TextCanvas from './components/shared/TextCanvas';
 class Transition extends Component {
   render() {
     return [
-      <Nav key="Nav" />,
-      <TextCanvas key="TextCanvas" />,
+      <Nav key="Nav" location={this.props.location} />,
+      <TextCanvas key="TextCanvas" location={this.props.location} />,
       <TransitionGroup
         component="article"
         key="Transition">
         <CSSTransition
           key={this.props.location}
           classNames="Transition"
-          timeout={500}>
+          timeout={2000}>
           {this.props.children}
         </CSSTransition>
       </TransitionGroup>

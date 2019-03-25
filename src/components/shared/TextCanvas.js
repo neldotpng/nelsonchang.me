@@ -11,8 +11,8 @@ class TextCanvas extends Component {
     dpi: window.devicePixelRatio,
     words: [
       '장수영',
+      '나는',
       '삼겹살',
-      '겹삼수',
     ],
     size: {
       max: 15,
@@ -80,6 +80,7 @@ class TextCanvas extends Component {
           i + this.canvas.height / 2,
           this.ctx,
           this.state.size.max,
+          this.particles[0].color,
         )
       )
     }
@@ -120,7 +121,8 @@ class TextCanvas extends Component {
   }
 
   changeWord = () => {
-    TweenMax.killAll();
+    TweenMax.killAll(true);
+
     this.getPixels(this.state.words[this.state.i]);
 
     if (this.positions.length > this.particles.length) {
@@ -159,18 +161,18 @@ class TextCanvas extends Component {
     });
   }
 
-  tweenColor = (r, g, b) => {
-    const timer = 3.5;
-    this.particles.forEach((p, i) => {
-      TweenMax.to(p.color, timer, {
-        r: r,
-        g: g,
-        b: b,
-        delay: timer / this.particles.length * i,
-        easing: Sine.easeInOut,
-      });
-    });
-  }
+  // tweenColor = (r, g, b) => {
+  //   const timer = 1;
+  //   this.particles.forEach((p, i) => {
+  //     TweenMax.to(p.color, timer, {
+  //       r: r,
+  //       g: g,
+  //       b: b,
+  //       delay: timer / this.particles.length * i,
+  //       easing: Sine.easeInOut,
+  //     });
+  //   });
+  // }
 
   onMouseMove = (e) => {
     this.mx = (e.clientX - this.canvas.offsetLeft) * 2;
@@ -184,40 +186,51 @@ class TextCanvas extends Component {
         height: window.innerHeight,
       }, () => {
         this.setValues();
-        TweenMax.killAll();
+        TweenMax.killAll(true);
         this.tweenSize();
       });
     }
   }
 
-  // nextWord = () => {
-  //   if (this.state.i < this.state.words.length - 1) {
-  //     this.setState({
-  //       i: this.state.i + 1,
-  //     }, () => {
-  //       this.changeWord();
-  //     });
-  //   } else {
-  //     this.setState({
-  //       i: 0,
-  //     }, () => {
-  //       this.changeWord();
-  //     });
-  //   }
-  // }
+  updateWord = (i) => {
+    this.setState({ i }, () => {
+      this.changeWord();
+    });
+  }
+
+  updateCanvas = (location) => {
+    switch(location) {
+      default:
+      case '/':
+        this.updateWord(0);
+        // setTimeout(() => {
+        //   this.tweenColor(249, 173, 38);
+        // }, 1);
+        break;
+      case '/about':
+        this.updateWord(1);
+        // setTimeout(() => {
+        //   this.tweenColor(0, 188, 232);
+        // }, 1);
+        break;
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      this.updateCanvas(this.props.location);
+    }
+  }
 
   componentDidMount() {
     this.init();
 
     setTimeout(() => {
-      this.tweenSize();
+      this.updateCanvas(this.props.location);
     }, 1000);
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
-
     window.addEventListener('mousemove', this.onMouseMove);
-
-    // window.addEventListener('click', this.nextWord)
   }
 
 
@@ -225,7 +238,7 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          장수영 삼겹살
+          장수영 나는 삼겹살
         </div>
         <canvas
           id="canvas"

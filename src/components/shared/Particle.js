@@ -1,5 +1,13 @@
 export default class Particle {
-  constructor(sx, sy, x, y, ctx, size) {
+  constructor(
+    sx,
+    sy,
+    x,
+    y,
+    ctx,
+    size,
+    color = {r: 249, g: 173, b: 38, a: 0.75},
+  ) {
     this.x = sx;
     this.y = sy;
     this.homeX = x;
@@ -7,12 +15,7 @@ export default class Particle {
     this.xVelocity = 0;
     this.yVelocity = 0;
     this.radius = size;
-    this.color = {
-      r: 249,
-      g: 173,
-      b: 38,
-      a: 0.75,
-    };
+    this.color = color;
     this.ctx = ctx;
 
     this.getX = () => {
@@ -53,8 +56,8 @@ export default class Particle {
 
     this.xVelocity += homeForce * Math.cos(homeAngle) + cursorForce * Math.cos(cursorAngle);
     this.yVelocity += homeForce * Math.sin(homeAngle) + cursorForce * Math.sin(cursorAngle);
-    this.xVelocity *= 0.6;
-    this.yVelocity *= 0.6;
+    this.xVelocity *= 0.585;
+    this.yVelocity *= 0.585;
 
     this.x += this.xVelocity;
     this.y += this.yVelocity;
