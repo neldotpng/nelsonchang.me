@@ -1,0 +1,28 @@
+body.is-transitioning {
+  overflow: hidden;
+}
+
+.Transition-enter {
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+}
+
+.Transition-enter-active {}
+
+.Transition-enter-done {
+  opacity: 1;
+  transition: opacity $mid $cubic-bezier;
+}
+
+.Transition-exit {
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.Transition-exit-active {}

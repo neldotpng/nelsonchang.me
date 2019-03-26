@@ -43,7 +43,9 @@ class Nav extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
-      this.closeMenu();
+      setTimeout(() => {
+        this.closeMenu();
+      }, 200);
     }
   }
 
@@ -77,7 +79,7 @@ class Nav extends Component {
         </div>
 
         <nav className={menuClasses}>
-          <ShapeOverlays isNavOpen={this.state.isOpen} />
+          <ShapeOverlays isNavOpen={this.state.isOpen} duration={450} />
 
           <div className="nav__menuContainer">
             <ul className="nav__items">

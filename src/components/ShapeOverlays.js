@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 
 class ShapeOverlays extends Component {
   constructor() {
@@ -9,7 +10,6 @@ class ShapeOverlays extends Component {
   state = {
     isNavOpened: false,
     numPoints: 3,
-    duration: 450,
     delayPointsArray: [],
     delayPointsMax: 90,
     delayPerPath: 40,
@@ -60,7 +60,7 @@ class ShapeOverlays extends Component {
     for (let i = 0; i < this.state.numPoints; i++) {
       points[i] = this.cubicInOut(
         Math.min(
-          Math.max(time - this.state.delayPointsArray[i], 0) / this.state.duration, 1)
+          Math.max(time - this.state.delayPointsArray[i], 0) / this.props.duration, 1)
         ) * 100;
     }
 
@@ -91,7 +91,7 @@ class ShapeOverlays extends Component {
 
   renderLoop = () => {
     this.animate();
-    if (Date.now() - this.state.timeStart < this.state.duration + this.state.delayPerPath * (this.path.length - 1) + this.state.delayPointsMax) {
+    if (Date.now() - this.state.timeStart < this.props.duration + this.state.delayPerPath * (this.path.length - 1) + this.state.delayPointsMax) {
       requestAnimationFrame(() => {
         this.renderLoop();
       });
@@ -105,12 +105,24 @@ class ShapeOverlays extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.isNavOpen !== this.props.isNavOpen) {
       this.toggle();
+    } else if (prevProps.transition !== this.props.transition) {
+      this.toggle();
+      setTimeout(() => {
+        this.toggle();
+      }, this.props.duration);
     }
   }
 
   render() {
     return (
-      <svg className="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none" ref={this.elem}>
+      <svg
+        className={cx(
+          this.props.customClass,
+          "shape-overlays"
+        )}
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        ref={this.elem}>
         <path className="shape-overlays__path"></path>
       </svg>
     );

@@ -203,22 +203,18 @@ class TextCanvas extends Component {
       default:
       case '/':
         this.updateWord(0);
-        // setTimeout(() => {
-        //   this.tweenColor(249, 173, 38);
-        // }, 1);
         break;
       case '/about':
         this.updateWord(1);
-        // setTimeout(() => {
-        //   this.tweenColor(0, 188, 232);
-        // }, 1);
         break;
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
-      this.updateCanvas(this.props.location);
+      setTimeout(() => {
+        this.updateCanvas(this.props.location);
+      }, 800);
     }
   }
 
@@ -243,7 +239,7 @@ class TextCanvas extends Component {
         <canvas
           id="canvas"
           className="shared__canvas">
-          장수영 삼겹살
+          장수영 나는 삼겹살
         </canvas>
       </div>
     )

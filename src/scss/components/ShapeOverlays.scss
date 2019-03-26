@@ -10,4 +10,21 @@
 
 .shape-overlays__path {
   fill: rgba($white, 0.925);
+  transition: fill $long $cubic-bezier;
+}
+
+.transitionOverlay {
+  &.shape-overlays {
+    z-index: 500;
+  }
+
+  .shape-overlays__path {
+    fill: rgba($blue, 0.5);
+  }
+}
+
+body.is-transitioning {
+  .transitionOverlay .shape-overlays__path {
+    fill: $blue;
+  }
 }

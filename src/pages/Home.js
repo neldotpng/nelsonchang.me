@@ -8,8 +8,8 @@ class Home extends Component {
           <div className="home__headerText">
             <h1 className="home__h1">
               <span>Hi.</span>
-              <div>
-                I’m <span className="home__name">Nelson.</span>
+              <div className="home__name">
+                I’m Nelson.
               </div>
             </h1>
             <p className="home__sub">
