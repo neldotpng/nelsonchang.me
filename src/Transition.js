@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import ShapeOverlays from './components/ShapeOverlays';
 import Nav from './components/Nav';
 import TextCanvas from './components/TextCanvas';
 
