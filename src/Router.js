@@ -12,8 +12,8 @@ const App = withRouter(({ history, location }) => (
   <Transition history={history} location={location.pathname}>
     <Switch location={location}>
       <Route exact path="/" component={Home} />
-      <Route exact path="/coming-soon" component={ComingSoon} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/coming-soon" component={ComingSoon} />
     </Switch>
   </Transition>
 ));
