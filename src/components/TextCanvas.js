@@ -151,8 +151,8 @@ class TextCanvas extends Component {
     this.particles.forEach((p, i) => {
       TweenMax.to(p, t, {
         radius: this.state.size.min,
-        homeX: p.getX() + 25,
-        homeY: p.getY() + 25,
+        homeX: p.getX() + 20,
+        homeY: p.getY() + 20,
         delay: t / l * i,
         yoyo: true,
         repeat: -1,

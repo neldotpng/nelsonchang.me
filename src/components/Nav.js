@@ -27,7 +27,7 @@ class Nav extends Component {
         } else {
           TweenMax.staggerTo('.nav__menuLink', 0.3, {
             opacity: 0,
-            y: "-=15",
+            y: "-=10",
           }, 0.05);
         }
 
