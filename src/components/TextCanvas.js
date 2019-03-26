@@ -214,7 +214,7 @@ class TextCanvas extends Component {
     if (prevProps.location !== this.props.location) {
       setTimeout(() => {
         this.updateCanvas(this.props.location);
-      }, 800);
+      }, 900);
     }
   }
 

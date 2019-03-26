@@ -10,7 +10,6 @@
 
 .shape-overlays__path {
   fill: rgba($white, 0.925);
-  transition: fill $long $cubic-bezier;
 }
 
 .transitionOverlay {
@@ -20,6 +19,7 @@
 
   .shape-overlays__path {
     fill: rgba($blue, 0.5);
+    transition: fill $long $cubic-bezier;
   }
 }
 
