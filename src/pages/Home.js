@@ -5,7 +5,7 @@ import H1 from '../components/H1';
 class Home extends Component {
   render() {
     return (
-      <div className="home">
+      <section className="page home">
         <header className="home__header">
           <div className="home__headerText">
             <div className="home__large">
@@ -19,7 +19,7 @@ class Home extends Component {
             </p>
           </div>
         </header>
-      </div>
+      </section>
     )
   }
 }

@@ -105,11 +105,6 @@ class ShapeOverlays extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.isNavOpen !== this.props.isNavOpen) {
       this.toggle();
-    } else if (prevProps.transition !== this.props.transition) {
-      this.toggle();
-      setTimeout(() => {
-        this.toggle();
-      }, this.props.duration);
     }
   }
 

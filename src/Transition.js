@@ -13,17 +13,12 @@ class Transition extends Component {
       setTimeout(() => {
         window.scrollTo(0, 0);
         document.body.classList.remove('is-transitioning');
-      }, 800);
+      }, 400);
     }
   }
 
   render() {
     return [
-      <ShapeOverlays
-        key="Overlay"
-        customClass={"transitionOverlay"}
-        transition={this.props.location}
-        duration={800} />,
       <Nav
         key="Nav"
         location={this.props.location} />,
@@ -38,8 +33,8 @@ class Transition extends Component {
           in={true}
           classNames="Transition"
           timeout={{
-            enter: 1600,
-            exit: 800,
+            enter: 1000,
+            exit: 400,
           }}>
           {this.props.children}
         </CSSTransition>

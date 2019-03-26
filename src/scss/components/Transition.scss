@@ -2,6 +2,10 @@ body.is-transitioning {
   overflow: hidden;
 }
 
+.page {
+  transition: opacity $long $cubic-bezier;
+}
+
 .Transition-enter {
   left: 50%;
   opacity: 0;
@@ -16,13 +20,15 @@ body.is-transitioning {
 
 .Transition-enter-done {
   opacity: 1;
-  transition: opacity $mid $cubic-bezier;
 }
 
 .Transition-exit {
+  opacity: 1;
   overflow: hidden;
   position: relative;
   z-index: 10;
 }
 
-.Transition-exit-active {}
+.Transition-exit-active {
+  opacity: 0;
+}

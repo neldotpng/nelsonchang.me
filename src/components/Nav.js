@@ -8,26 +8,36 @@ import ShapeOverlays from './ShapeOverlays';
 class Nav extends Component {
   state = {
     isOpen: false,
+    isAnimating: false,
   }
 
   toggleMenu = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    }, () => {
-      if (this.state.isOpen) {
-        setTimeout(() => {
+    if (!this.state.isAnimating) {
+      this.setState({
+        isOpen: !this.state.isOpen,
+        isAnimating: true,
+      }, () => {
+        if (this.state.isOpen) {
+          setTimeout(() => {
+            TweenMax.staggerTo('.nav__menuLink', 0.3, {
+              opacity: 1,
+              y: 0,
+            }, 0.05);
+          }, 200)
+        } else {
           TweenMax.staggerTo('.nav__menuLink', 0.3, {
-            opacity: 1,
-            y: 0,
+            opacity: 0,
+            y: "-=15",
           }, 0.05);
-        }, 200)
-      } else {
-        TweenMax.staggerTo('.nav__menuLink', 0.3, {
-          opacity: 0,
-          y: "-=15",
-        }, 0.05);
-      }
-    });
+        }
+
+        setTimeout(() => {
+          this.setState({
+            isAnimating: false,
+          });
+        }, 400);
+      });
+    }
   }
 
   closeMenu = () => {
@@ -79,7 +89,7 @@ class Nav extends Component {
         </div>
 
         <nav className={menuClasses}>
-          <ShapeOverlays isNavOpen={this.state.isOpen} duration={450} />
+          <ShapeOverlays isNavOpen={this.state.isOpen} duration={400} />
 
           <div className="nav__menuContainer">
             <ul className="nav__items">
