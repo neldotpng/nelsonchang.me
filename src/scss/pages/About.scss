@@ -20,26 +20,8 @@
 }
 
 .about__h1 {
-  color: $red;
-  display: inline-block;
-  font-size: 100px;
-  line-height: 110px;
-  position: relative;
-
-  &:before {
-    background-color: $red;
-    content: '';
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: width $short $cubic-bezier;
-    width: 100%;
-  }
-
-  &.is-transitioned:before {
-    width: 0;
-  }
+  font-size: 72px;
+  line-height: 85px;
 }
 
 .about__introP {
@@ -57,8 +39,8 @@
 
 @media screen and (max-width: $lgViewport) {
   .about__h1 {
-    font-size: 72px;
-    line-height: 82px;
+    font-size: 60px;
+    line-height: 70px;
   }
 }
 

@@ -1,0 +1,26 @@
+.common__h1 {
+  color: transparent;
+  display: inline-block;
+  position: relative;
+  transition: color 0ms $cubic-bezier $short;
+
+  &:before {
+    background-color: $red;
+    content: '';
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: width $short $cubic-bezier $short, height $short $cubic-bezier;
+    width: 100%;
+  }
+
+  &.is-transitioned {
+    color: $red;
+
+    &:before {
+      height: 100%;
+      width: 0;
+    }
+  }
+}
