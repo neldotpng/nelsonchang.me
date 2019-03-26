@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
 
 import H1 from '../components/H1';
 
