@@ -12,7 +12,10 @@ class TextCanvas extends Component {
     words: [
       '장수영',
       '나는',
-      '삼겹살',
+      '스포츠',
+      '길잡이',
+      '유행',
+      '3D',
     ],
     size: {
       max: 15,
@@ -207,6 +210,18 @@ class TextCanvas extends Component {
       case '/about':
         this.updateWord(1);
         break;
+      case '/marquee-sports':
+        this.updateWord(2);
+        break;
+      case '/odyssey':
+        this.updateWord(3);
+        break;
+      case '/trunk-club':
+        this.updateWord(4);
+        break;
+      case '/ar-vr':
+        this.updateWord(5);
+        break;
     }
   }
 
@@ -232,12 +247,12 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          장수영 나는 삼겹살
+          장수영 나는 스포츠 길잡이 유행 3D
         </div>
         <canvas
           id="canvas"
           className="shared__canvas">
-          장수영 나는 삼겹살
+          장수영 나는 스포츠 길잡이 유행 3D
         </canvas>
       </div>
     )

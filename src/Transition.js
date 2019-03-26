@@ -13,7 +13,7 @@ class Transition extends Component {
       setTimeout(() => {
         window.scrollTo(0, 0);
         document.body.classList.remove('is-transitioning');
-      }, 400);
+      }, 500);
     }
   }
 
@@ -32,10 +32,7 @@ class Transition extends Component {
           key={this.props.location}
           in={true}
           classNames="Transition"
-          timeout={{
-            enter: 400,
-            exit: 400,
-          }}>
+          timeout={500}>
           {this.props.children}
         </CSSTransition>
       </TransitionGroup>
