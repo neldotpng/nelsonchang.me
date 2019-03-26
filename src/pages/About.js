@@ -11,7 +11,7 @@ class About extends Component {
             Who?
           </H1>
           <p className="about__introP">
-            I am Nelson. I’m a Korean-American. I was born in Rockville and raised in Dallas; educated in Evanston. Despite my portfolio, I have an elementary-level understanding of Korean. I love tattoos and streetwear and spend 90% of my waking hours listening to music.
+            My name is Nelson Chang. I’m a Korean-American. I was born in Rockville and raised in Dallas; educated in Evanston. I’m an ex-Pre-Med student, turned Psychology student, and I’ve been working as a professional developer for 3.5+ years now.
           </p>
         </header>
         <div className="about__more">
@@ -19,7 +19,7 @@ class About extends Component {
             What?
           </H1>
           <p className="about__introP">
-            I’m an ex-Pre-Med student, turned Psychology student. It took 14 years to figure out becoming a surgeon wasn’t for me, 2 years to figure out Psychology wasn’t my professional calling, and 1 month to figure out I wanted to code for a living. I’ve been working as a professional developer for 3.5+ years now.
+            Despite what my portfolio might indicate, I never fully learned to speak Korean. I love tattoos and streetwear and spend 90% of my waking hours listening to music. In my free time I like binge watching TV shows, wheelthrowing, or playing Super Smash Bros.
           </p>
         </div>
       </section>
