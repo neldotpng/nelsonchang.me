@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import Nav from './components/shared/Nav';
-import TextCanvas from './components/shared/TextCanvas';
+import Nav from './components/Nav';
+import TextCanvas from './components/TextCanvas';
 
 class Transition extends Component {
   render() {

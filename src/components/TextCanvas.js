@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TweenMax, Sine } from 'gsap';
 
 import Particle from './Particle';
-import debounce from '../../functions/debounce';
+import debounce from '../functions/debounce';
 
 class TextCanvas extends Component {
   state = {
