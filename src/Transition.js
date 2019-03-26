@@ -33,7 +33,7 @@ class Transition extends Component {
           in={true}
           classNames="Transition"
           timeout={{
-            enter: 1000,
+            enter: 400,
             exit: 400,
           }}>
           {this.props.children}
