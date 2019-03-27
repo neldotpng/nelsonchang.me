@@ -35,7 +35,7 @@ class TextCanvas extends Component {
     this.txtCtx = this.txtCanv.getContext('2d');
     this.txtCtx.fillStyle = 'black';
 
-    setTimeout(this.setValues, 1000);
+    setTimeout(this.setValues, 1500);
   }
 
   setValues = () => {
@@ -236,7 +236,7 @@ class TextCanvas extends Component {
 
     setTimeout(() => {
       this.updateCanvas(this.props.location);
-    }, 1000);
+    }, 1500);
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
     window.addEventListener('mousemove', this.onMouseMove);

@@ -18,3 +18,12 @@ body.is-transitioning {
     fill: rgba($white, 0.6);
   }
 }
+
+.transitionOverlay.shape-overlays {
+  z-index: 500;
+
+  .shape-overlays__path {
+    fill: $blue;
+    transition-duration: 0ms;
+  }
+}

@@ -89,7 +89,7 @@ class Nav extends Component {
         </div>
 
         <nav className={menuClasses}>
-          <ShapeOverlays isNavOpen={this.state.isOpen} duration={400} />
+          <ShapeOverlays isAnimatedIn={this.state.isOpen} duration={400} />
 
           <div className="nav__menuContainer">
             <ul className="nav__items">

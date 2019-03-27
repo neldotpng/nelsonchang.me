@@ -8,10 +8,10 @@ class ShapeOverlays extends Component {
   }
 
   state = {
-    isNavOpened: false,
-    numPoints: 3,
+    isAnimatedIn: false,
+    numPoints: 4,
     delayPointsArray: [],
-    delayPointsMax: 90,
+    delayPointsMax: 70,
     delayPerPath: 40,
     timeStart: Date.now(),
   }
@@ -27,7 +27,7 @@ class ShapeOverlays extends Component {
 
     this.setState({ delayPointsArray });
 
-    if (this.state.isNavOpened === false) {
+    if (this.state.isAnimatedIn === false) {
       this.open();
     } else {
       this.close();
@@ -36,14 +36,14 @@ class ShapeOverlays extends Component {
 
   open = () => {
     this.setState({
-      isNavOpened: true,
+      isAnimatedIn: true,
       timeStart: Date.now(),
     }, this.renderLoop);
   }
 
   close = () => {
     this.setState({
-      isNavOpened: false,
+      isAnimatedIn: false,
       timeStart: Date.now(),
     }, this.renderLoop);
   }
@@ -65,7 +65,7 @@ class ShapeOverlays extends Component {
     }
 
     let str = '';
-    str += (this.state.isNavOpened) ? `M 0 0 V ${points[0]} ` : `M 0 ${points[0]} `;
+    str += (this.state.isAnimatedIn) ? `M 0 0 V ${points[0]} ` : `M 0 ${points[0]} `;
 
     for (let j = 0; j < this.state.numPoints - 1; j++) {
       const p = (j + 1) / (this.state.numPoints - 1) * 100;
@@ -73,12 +73,12 @@ class ShapeOverlays extends Component {
       str += `C ${cp} ${points[j]} ${cp} ${points[j + 1]} ${p} ${points[j + 1]} `;
     }
 
-    str += (this.state.isNavOpened) ? `V 0 H 0` : `V 100 H 0`;
+    str += (this.state.isAnimatedIn) ? `V 0 H 0` : `V 100 H 0`;
     return str;
   }
 
   animate = () => {
-    if (this.state.isNavOpened) {
+    if (this.state.isAnimatedIn) {
       for (let i = 0; i < this.path.length; i++) {
         this.path[i].setAttribute('d', this.updatePath(Date.now() - (this.state.timeStart + this.state.delayPerPath * i)));
       }
@@ -100,10 +100,15 @@ class ShapeOverlays extends Component {
 
   componentDidMount() {
     this.path = this.elem.current.querySelectorAll('path');
+
+    if (this.props.startOpen) {
+      this.path[0].setAttribute('d', 'M 0 0 V 100 C 25 100 25 100 50 100 C 75 100 75 100 100 100 V 0 H 0');
+      this.setState({ isAnimatedIn: true });
+    }
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.isNavOpen !== this.props.isNavOpen) {
+    if (prevProps.isAnimatedIn !== this.props.isAnimatedIn) {
       this.toggle();
     }
   }

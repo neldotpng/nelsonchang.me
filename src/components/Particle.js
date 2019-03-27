@@ -56,8 +56,8 @@ export default class Particle {
 
     this.xVelocity += homeForce * Math.cos(homeAngle) + cursorForce * Math.cos(cursorAngle);
     this.yVelocity += homeForce * Math.sin(homeAngle) + cursorForce * Math.sin(cursorAngle);
-    this.xVelocity *= 0.585;
-    this.yVelocity *= 0.585;
+    this.xVelocity *= 0.58;
+    this.yVelocity *= 0.58;
 
     this.x += this.xVelocity;
     this.y += this.yVelocity;
