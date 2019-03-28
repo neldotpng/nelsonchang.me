@@ -18,9 +18,9 @@ class TextCanvas extends Component {
       '에이아르',
     ],
     size: {
-      max: 15,
-      min: 11,
-      grid: 13,
+      max: 25,
+      min: 21,
+      grid: 23,
     },
     fontSize: `${70 * window.devicePixelRatio}vh`,
     fontFamily: 'Black Han Sans',
@@ -147,7 +147,7 @@ class TextCanvas extends Component {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.animateParticles();
     this.animation = requestAnimationFrame(this.animate);
-  }, 1000 / 45)
+  }, 1000 / 60)
 
   tweenSize = () => {
     const t = 3.5,
@@ -190,6 +190,30 @@ class TextCanvas extends Component {
     });
   }
 
+  initWord = () => {
+    switch(this.props.location) {
+      default:
+      case '/':
+        this.setState({ i: 0 });
+        break;
+      case '/about':
+        this.setState({ i: 1 });
+        break;
+      case '/marquee-sports':
+        this.setState({ i: 2 });
+        break;
+      case '/odyssey':
+        this.setState({ i: 3 });
+        break;
+      case '/trunk-club':
+        this.setState({ i: 4 });
+        break;
+      case '/ar-vr':
+        this.setState({ i: 5 });
+        break;
+    }
+  }
+
   updateWord = (i) => {
     this.setState({ i }, () => {
       this.changeWord();
@@ -228,6 +252,7 @@ class TextCanvas extends Component {
 
   componentDidMount() {
     this.init();
+    this.initWord();
 
     setTimeout(() => {
       this.updateCanvas(this.props.location);
