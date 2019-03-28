@@ -25,7 +25,7 @@ class TextCanvas extends Component {
     fontSize: `${70 * window.devicePixelRatio}vh`,
     fontFamily: 'Black Han Sans',
     i: 0,
-    // scrollTop: 0,
+    scrollTop: 0,
   }
 
   init = () => {
@@ -165,19 +165,6 @@ class TextCanvas extends Component {
     });
   }
 
-  // tweenColor = (r, g, b) => {
-  //   const timer = 1;
-  //   this.particles.forEach((p, i) => {
-  //     TweenMax.to(p.color, timer, {
-  //       r: r,
-  //       g: g,
-  //       b: b,
-  //       delay: timer / this.particles.length * i,
-  //       easing: Sine.easeInOut,
-  //     });
-  //   });
-  // }
-
   onMouseMove = (e) => {
     this.mx = (e.clientX - this.canvas.offsetLeft) * 2;
     this.my = (e.clientY - this.canvas.offsetTop) * 2;
@@ -196,12 +183,12 @@ class TextCanvas extends Component {
     }
   }
 
-  // onScroll = (e) => {
-  //   const { scrollTop } = e.target.scrollingElement;
-  //   this.setState({
-  //     scrollTop: scrollTop / (-1.2),
-  //   });
-  // }
+  onScroll = (e) => {
+    const { scrollTop } = e.target.scrollingElement;
+    this.setState({
+      scrollTop: scrollTop / -1.2,
+    });
+  }
 
   updateWord = (i) => {
     this.setState({ i }, () => {
@@ -254,13 +241,14 @@ class TextCanvas extends Component {
 
   render() {
     return (
-      <div
-        className="canvas"
-        style={{
-          transform: `translateY(${this.state.scrollTop}px)`
-        }}>
+      <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
           장수영 나는 마키 오디세 트렁크 에이아르
+        </div>
+        <div className="canvas__bg" style={{transform: `translateY(${this.state.scrollTop}px)`}}>
+          <div className="canvas__bgText">
+            {this.state.words[this.state.i]}
+          </div>
         </div>
         <canvas
           id="canvas"
