@@ -25,6 +25,7 @@ class TextCanvas extends Component {
     fontSize: `${70 * window.devicePixelRatio}vh`,
     fontFamily: 'Black Han Sans',
     i: 0,
+    // scrollTop: 0,
   }
 
   init = () => {
@@ -195,6 +196,13 @@ class TextCanvas extends Component {
     }
   }
 
+  // onScroll = (e) => {
+  //   const { scrollTop } = e.target.scrollingElement;
+  //   this.setState({
+  //     scrollTop: scrollTop / (-1.2),
+  //   });
+  // }
+
   updateWord = (i) => {
     this.setState({ i }, () => {
       this.changeWord();
@@ -240,12 +248,17 @@ class TextCanvas extends Component {
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
     window.addEventListener('mousemove', this.onMouseMove);
+    // document.addEventListener('scroll', debounce(this.onScroll, 1000 / 60));
   }
 
 
   render() {
     return (
-      <div className="canvas">
+      <div
+        className="canvas"
+        style={{
+          transform: `translateY(${this.state.scrollTop}px)`
+        }}>
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
           장수영 나는 마키 오디세 트렁크 에이아르
         </div>
