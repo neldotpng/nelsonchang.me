@@ -56,14 +56,15 @@
 }
 
 .about__image {
+  box-shadow: 0 0 10px rgba($dark-gray, 0.3);
   left: 50%;
+  margin: 0 20px;
   max-width: 450px;
   opacity: 0;
-  padding: 0 20px;
   position: absolute;
   top: 50%;
   transition: all $short $cubic-bezier;
-  transform: scale(1.05) translate(-50%, -50%);
+  transform: scale(1.075) translate(-50%, -50%);
   width: 100%;
 
   &.is-visible {
@@ -112,7 +113,7 @@
 
 @media screen and (max-width: $mdViewport) {
   .about {
-    padding: 50px 0 80px;
+    padding: 40px 0 80px;
   }
 
   .about__hover:after,
@@ -121,13 +122,21 @@
   }
 
   .about__images {
-    height: 240px;
-    transform: translateX(-10px);
+    height: 280px;
+    overflow: hidden;
     width: 100%;
   }
 
   .about__image {
-    padding: 0;
+    height: calc(100% - 20px);
+    margin: 0;
+    overflow: hidden;
+    top: 10px;
+    transform: scale(1.075) translate(-50%, 0);
+
+    &.is-visible {
+      transform: scale(1) translate(-50%, 0);
+    }
   }
 
   .about__who {
@@ -137,11 +146,11 @@
   .about__who,
   .about__what,
   .about__where {
-    padding: 0 60px 0 30px;
+    padding: 0 55px 0 20px;
   }
 
   .about__intro {
-    margin-top: -40px;
+    margin-top: -60px;
   }
 
   .about__intro,
@@ -156,30 +165,30 @@
   }
 
   .about__p {
-    font-size: 18px;
-    line-height: 23px;
+    font-size: 19px;
+    line-height: 26px;
     margin-top: 10px;
   }
 }
 
-@media screen and (max-width: $mdViewport) and (min-width: $smViewport) {
-    .about__images {
-      overflow: hidden;
-    }
-
-    .about__image {
-      top: 0;
-      transform: scale(1.1) translate(-50%, 0);
-
-      &.is-visible {
-        transform: scale(1) translate(-50%, 0);
-      }
-    }
+@media screen and (max-width: $mdViewport) and (max-height: 400px) {
+  .about__images {
+    height: 220px;
+  }
 }
 
 @media screen and (max-width: $smViewport) {
+  .about {
+    padding-top: 5px;
+  }
+
+  .about__intro {
+    margin-top: -80px;
+  }
+
   .about__images {
-    height: 160px;
+    height: 240px;
+    transform: translateX(-5px);
   }
 }
 

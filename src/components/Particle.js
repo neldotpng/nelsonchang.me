@@ -5,8 +5,7 @@ export default class Particle {
     x,
     y,
     ctx,
-    size,
-    color = {r: 249, g: 173, b: 38, a: 0.75},
+    size
   ) {
     this.x = sx;
     this.y = sy;
@@ -15,7 +14,12 @@ export default class Particle {
     this.xVelocity = 0;
     this.yVelocity = 0;
     this.radius = size;
-    this.color = color;
+    this.color = {
+      r: 249,
+      g: 173,
+      b: 38,
+      a: 0.75
+    };
     this.ctx = ctx;
 
     this.getX = () => {

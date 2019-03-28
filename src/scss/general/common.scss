@@ -34,6 +34,12 @@ p {
   top: 0;
   width: calc(100vw - 20px);
   z-index: 1000;
+
+  @media screen and (max-width: $mdViewport) {
+    border-width: 6px;
+    height: calc(100vh - 12px);
+    width: calc(100vw - 12px);
+  }
 }
 
 .hangul {
