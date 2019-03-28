@@ -13,7 +13,7 @@ class TextCanvas extends Component {
       '장수영',
       '나는',
       '마키',
-      '오디세',
+      '오디시',
       '트렁크',
       '에이아르',
     ],
@@ -243,7 +243,7 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          장수영 나는 마키 오디세 트렁크 에이아르
+          장수영 나는 마키 오디시 트렁크 에이아르
         </div>
         <div className="canvas__bg" style={{transform: `translateY(${this.state.scrollTop}px)`}}>
           <div className="canvas__bgText">
@@ -253,7 +253,7 @@ class TextCanvas extends Component {
         <canvas
           id="canvas"
           className="shared__canvas">
-          장수영 나는 마키 오디세 트렁크 에이아르
+          장수영 나는 마키 오디시 트렁크 에이아르
         </canvas>
       </div>
     )
