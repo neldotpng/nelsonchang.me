@@ -121,7 +121,7 @@ class Nav extends Component {
             </ul>
 
             <p className="nav__menuCta">
-              For more work samples, email me at <a href="mail:nelsonschang@gmail.com" className="nav__menuEmail">nelsonschang@gmail.com</a>.
+              For more work samples, email me at <a href="mailto:nelsonschang@gmail.com" className="nav__menuEmail">nelsonschang@gmail.com</a>.
             </p>
           </div>
         </nav>
