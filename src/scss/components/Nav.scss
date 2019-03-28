@@ -11,7 +11,7 @@
 
   @media screen and (max-width: $mdViewport) {
     height: 60px;
-    padding: 0 30px 0 15px;
+    padding: 0 45px 0 15px;
   }
 }
 
@@ -89,6 +89,12 @@
       opacity: 1;
       transition-delay: $long;
     }
+  }
+
+  @media screen and (max-width: $mdViewport) {
+    height: calc(100vh - 12px);
+    left: 6px;
+    min-height: calc(100vh - 12px);
   }
 }
 

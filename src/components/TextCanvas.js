@@ -18,9 +18,9 @@ class TextCanvas extends Component {
       '에이아르',
     ],
     size: {
-      max: 15,
-      min: 11,
-      grid: 13,
+      max: 25,
+      min: 21,
+      grid: 23,
     },
     fontSize: `${65 * window.devicePixelRatio}vh`,
     fontFamily: 'Black Han Sans',

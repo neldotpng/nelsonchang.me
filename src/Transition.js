@@ -12,7 +12,7 @@ class Transition extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
-      document.body.classList.add('is-transitioning');
+      document.body.classList.add('no-scroll');
 
       setTimeout(() => {
         window.scrollTo({
@@ -20,7 +20,7 @@ class Transition extends Component {
           left: 0,
           behavior: 'smooth',
         });
-        document.body.classList.remove('is-transitioning');
+        document.body.classList.remove('no-scroll');
       }, 500);
     }
   }

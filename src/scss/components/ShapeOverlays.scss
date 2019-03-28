@@ -2,10 +2,10 @@
   height: 100vh;
   left: 0;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 0;
+  z-index: 50;
 }
 
 .shape-overlays__path {
@@ -20,7 +20,6 @@ body.is-transitioning {
 }
 
 .transitionOverlay.shape-overlays {
-  position: fixed;
   z-index: 500;
 
   .shape-overlays__path {
