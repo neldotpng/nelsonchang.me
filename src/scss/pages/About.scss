@@ -1,22 +1,79 @@
 .about {
   margin: 0 auto;
   max-width: $max-width;
-  padding: 120px 0 40px;
+  padding: 120px 0 150px;
+}
+
+.about__hover,
+.about__link {
+  color: $dark-gray;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    background-color: $blue;
+    bottom: 4px;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: width $short $cubic-bezier;
+    width: 100%;
+  }
 }
 
 .about__intro,
-.about__more {
-  width: 50%;
+.about__what,
+.about__where {
+  width: 60%;
 }
 
 .about__intro {
-  padding-right: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.about__more {
-  padding-left: 20px;
-  margin: 0 0 0 auto;
-  transform: translateY(-35%);
+.about__who {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__where {
+  margin: 0 auto;
+}
+
+.about__images {
+  height: 300px;
+  position: relative;
+  width: 40%;
+}
+
+.about__image {
+  left: 50%;
+  max-width: 450px;
+  opacity: 0;
+  padding: 0 20px;
+  position: absolute;
+  top: 50%;
+  transition: all $short $cubic-bezier;
+  transform: scale(1.05) translate(-50%, -50%);
+  width: 100%;
+
+  &.is-visible {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.about__what {
+  margin: 75px 0 0 auto;
+}
+
+.about__where {
+  margin-top: 75px;
 }
 
 .about__h1 {
@@ -24,15 +81,15 @@
   line-height: 85px;
 }
 
-.about__introP {
-  font-size: 20px;
-  line-height: 29px;
-  margin-top: 25px;
+.about__p {
+  font-size: 28px;
+  line-height: 36px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: $xlViewport) {
-  .about__intro,
-  .about__more {
+  .about__who,
+  .about__what {
     padding: 0 50px;
   }
 }
@@ -42,28 +99,70 @@
     font-size: 60px;
     line-height: 70px;
   }
+
+  .about__what,
+  .about__where {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: $mdViewport) {
   .about {
-    padding: 60px 0 70px;
+    padding: 50px 0 80px;
   }
 
-  .about__intro,
-  .about__more {
-    padding: 0 60px 0 30px;
+  .about__hover:after,
+  .about__link:after {
+    bottom: 2px;
+  }
+
+  .about__images {
+    height: 175px;
+    transform: translateX(-10px);
     width: 100%;
   }
 
-  .about__more {
-    margin: 40px auto 0;
-    transform: translateY(0);
+  .about__image {
+    padding: 0;
   }
 
-  .about__introP {
+  .about__who {
+    flex-flow: column-reverse;
+  }
+
+  .about__who,
+  .about__what,
+  .about__where {
+    padding: 0 60px 0 30px;
+  }
+
+  .about__intro {
+    margin-top: -40px;
+  }
+
+  .about__intro,
+  .about__what,
+  .about__where {
+    width: 100%;
+  }
+
+  .about__what,
+  .about__where {
+    margin: 40px auto 0;
+  }
+
+  .about__p {
     font-size: 18px;
     line-height: 23px;
     margin-top: 10px;
   }
 }
 
+@media screen and (min-width: $mdViewport) {
+  .about__hover:hover:after,
+  .about__link:hover:after {
+    left: auto;
+    right: 0;
+    width: 0;
+  }
+}

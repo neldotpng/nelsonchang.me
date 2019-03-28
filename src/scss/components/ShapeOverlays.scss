@@ -9,7 +9,7 @@
 }
 
 .shape-overlays__path {
-  fill: rgba($white, 0.9);
+  fill: rgba($white, 0.925);
   transition: fill $long $cubic-bezier;
 }
 
@@ -20,6 +20,7 @@ body.is-transitioning {
 }
 
 .transitionOverlay.shape-overlays {
+  position: fixed;
   z-index: 500;
 
   .shape-overlays__path {
