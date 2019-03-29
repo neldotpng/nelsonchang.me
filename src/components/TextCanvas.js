@@ -3,6 +3,7 @@ import { TweenMax, Sine } from 'gsap';
 
 import Particle from './Particle';
 import debounce from '../functions/debounce';
+import { isMobileDevice } from '../functions/browser-detect';
 
 class TextCanvas extends Component {
   state = {
@@ -252,7 +253,10 @@ class TextCanvas extends Component {
     }, 1500);
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
-    window.addEventListener('mousemove', this.onMouseMove);
+
+    if (!isMobileDevice()) {
+      window.addEventListener('mousemove', this.onMouseMove);
+    }
   }
 
   render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 
-import isMobileDevice from './functions/isMobile';
+import { isMobileDevice, isSafari } from './functions/browser-detect';
 
 import ShapeOverlays from './components/ShapeOverlays';
 import Nav from './components/Nav';
@@ -12,15 +12,28 @@ class Transition extends Component {
   state = {
     isAnimatedIn: true,
     isMobile: isMobileDevice(),
+    isSafari: isSafari(),
+    isntCaseStudy: false,
     isHomePage: false,
     bgText: '',
   }
 
-  checkHomepage = (location) => {
+  checkPage = (location) => {
     if (location === '/') {
-      this.setState({ isHomePage: true });
+      this.setState({
+        isHomePage: true,
+        isntCaseStudy: true,
+      });
+    } else if (location === '/about') {
+      this.setState({
+        isHomePage: false,
+        isntCaseStudy: true,
+      });
     } else {
-      this.setState({ isHomePage: false });
+      this.setState({
+        isHomePage: false,
+        isntCaseSTudy: false,
+      });
     }
   }
 
@@ -42,14 +55,14 @@ class Transition extends Component {
 
       setTimeout(() => {
         document.body.classList.remove('no-scroll');
-        this.checkHomepage(this.props.location);
+        this.checkPage(this.props.location);
       }, 500);
     }
   }
 
   componentDidMount() {
     this.wrapper = document.getElementById('Wrapper');
-    this.checkHomepage(this.props.location);
+    this.checkPage(this.props.location);
 
     setTimeout(() => {
       this.setState({ isAnimatedIn: false });
@@ -59,7 +72,8 @@ class Transition extends Component {
   render() {
     const wrapper = cx("wrapper", {
       "is-homepage": this.state.isHomePage,
-      "is-mobile": this.state.isMobile,
+      "is-mobile-or-safari": this.state.isMobile || this.state.isSafari,
+      "isnt-case-study": this.state.isntCaseStudy,
     });
 
     return [
