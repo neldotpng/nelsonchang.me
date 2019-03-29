@@ -13,7 +13,7 @@ class Transition extends Component {
     isAnimatedIn: true,
     isMobile: isMobileDevice(),
     isSafari: isSafari(),
-    isntCaseStudy: false,
+    isCaseStudy: false,
     isHomePage: false,
     bgText: '',
   }
@@ -22,17 +22,17 @@ class Transition extends Component {
     if (location === '/') {
       this.setState({
         isHomePage: true,
-        isntCaseStudy: true,
+        isCaseStudy: false,
       });
     } else if (location === '/about') {
       this.setState({
         isHomePage: false,
-        isntCaseStudy: true,
+        isCaseStudy: false,
       });
     } else {
       this.setState({
         isHomePage: false,
-        isntCaseSTudy: false,
+        isCaseStudy: true,
       });
     }
   }
@@ -73,7 +73,7 @@ class Transition extends Component {
     const wrapper = cx("wrapper", {
       "is-homepage": this.state.isHomePage,
       "is-mobile-or-safari": this.state.isMobile || this.state.isSafari,
-      "isnt-case-study": this.state.isntCaseStudy,
+      "is-case-study": this.state.isCaseStudy,
     });
 
     return [
