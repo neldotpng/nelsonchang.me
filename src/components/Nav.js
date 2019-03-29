@@ -24,13 +24,11 @@ class Nav extends Component {
               y: 0,
             }, 0.05);
           }, 200);
-          document.body.classList.add('no-scroll');
         } else {
           TweenMax.staggerTo('.nav__menuLink', 0.3, {
             opacity: 0,
             y: "-=10",
           }, 0.05);
-          document.body.classList.remove('no-scroll');
         }
 
         setTimeout(() => {
@@ -111,7 +109,7 @@ class Nav extends Component {
               </li>
               <li className="nav__item">
                 <Link to="/#" className="nav__menuLink">
-                  2017 Portfolio
+                  Portfolio (2017)
                 </Link>
               </li>
               <li className="nav__item">

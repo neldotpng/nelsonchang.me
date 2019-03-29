@@ -25,7 +25,6 @@ class TextCanvas extends Component {
     fontSize: `${65 * window.devicePixelRatio}vh`,
     fontFamily: 'Black Han Sans',
     i: 0,
-    scrollTop: 0,
   }
 
   init = () => {
@@ -183,13 +182,6 @@ class TextCanvas extends Component {
     }
   }
 
-  onScroll = (e) => {
-    const { scrollTop } = e.target.scrollingElement;
-    this.setState({
-      scrollTop: scrollTop / -1.2,
-    });
-  }
-
   initWord = () => {
     switch(this.props.location) {
       default:
@@ -217,6 +209,7 @@ class TextCanvas extends Component {
   updateWord = (i) => {
     this.setState({ i }, () => {
       this.changeWord();
+      this.props.getBgText(this.state.words[this.state.i]);
     });
   }
 
@@ -260,20 +253,13 @@ class TextCanvas extends Component {
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
     window.addEventListener('mousemove', this.onMouseMove);
-    // document.addEventListener('scroll', debounce(this.onScroll, 1000 / 60));
   }
-
 
   render() {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
           장수영 나는 마르케 오디세이 트렁크 에이아르
-        </div>
-        <div className="canvas__bg" style={{transform: `translateY(${this.state.scrollTop}px)`}}>
-          <div className="canvas__bgText">
-            {this.state.words[this.state.i]}
-          </div>
         </div>
         <canvas
           id="canvas"

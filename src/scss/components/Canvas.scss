@@ -8,28 +8,6 @@
   z-index: -1;
 }
 
-.canvas__bg {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  overflow-x: hidden;
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-
-.canvas__bgText {
-  color: $off-white;
-  font-family: $hangul;
-  font-size: 150vh;
-  margin-top: 25vh;
-  text-shadow: -1px 0 $white, 0 1px $white, 1px 0 $white, 0 -1px $white;
-  white-space: nowrap;
-  -webkit-text-stroke: 2px $white;
-}
-
 .shared__canvas {
   background-color: transparent;
   height: 100% !important;
