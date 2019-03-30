@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 
-import { isMobileDevice, isSafari } from './functions/browser-detect';
+import { isMobileDevice, isSafari, isChrome } from './functions/browser-detect';
 
 import ShapeOverlays from './components/ShapeOverlays';
 import Nav from './components/Nav';
@@ -13,6 +13,7 @@ class Transition extends Component {
     isAnimatedIn: true,
     isMobile: isMobileDevice(),
     isSafari: isSafari(),
+    isChrome: isChrome(),
     isCaseStudy: false,
     isHomePage: false,
     bgText: '',
@@ -74,6 +75,7 @@ class Transition extends Component {
       "is-homepage": this.state.isHomePage,
       "is-mobile-or-safari": this.state.isMobile || this.state.isSafari,
       "is-case-study": this.state.isCaseStudy,
+      "is-chrome": this.state.isChrome,
     });
 
     return [

@@ -1,7 +1,8 @@
 body.no-scroll {
   overflow: hidden;
 
-  .wrapper:not(.is-mobile-or-safari).is-case-study {
+  .wrapper:not(.is-mobile-or-safari).is-case-study,
+  .wrapper:not(.is-mobile-or-safari).is-chrome {
     .wrapper__bg {
       opacity: 0;
       transform: translateZ(-100px) scale(1.5);
@@ -22,17 +23,18 @@ body.no-scroll {
   overflow-x: hidden;
 }
 
-.wrapper:not(.is-mobile-or-safari).is-case-study {
+.wrapper:not(.is-mobile-or-safari).is-case-study,
+.wrapper:not(.is-mobile-or-safari).is-chrome {
   height: 100vh;
   overflow-y: auto;
-  perspective: 100px;
+  perspective: 1px;
 
   .wrapper__bg {
     align-items: flex-start;
     bottom: 0;
     position: absolute;
     right: 0;
-    transform: translateZ(-400px) scale(5);
+    transform: translateZ(-4px) scale(5);
   }
 
   .wrapper__bgText {
@@ -53,7 +55,7 @@ body.no-scroll {
 
   .canvas {
     position: absolute;
-    transform: translateZ(-10000px) scale(101);
+    transform: translateZ(-100px) scale(101);
   }
 }
 

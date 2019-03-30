@@ -108,13 +108,8 @@ class Nav extends Component {
                 </Link>
               </li>
               <li className="nav__item">
-                <Link to="/#" className="nav__menuLink">
-                  Portfolio (2017)
-                </Link>
-              </li>
-              <li className="nav__item">
                 <Link to="/ar-vr" className="nav__menuLink">
-                  AR Experiments
+                  Everything Else
                 </Link>
               </li>
               <li className="nav__item">

@@ -82,7 +82,7 @@
 }
 
 .about__h1 {
-  font-size: 72px;
+  font-size: 85px;
   line-height: 85px;
 }
 
@@ -100,11 +100,6 @@
 }
 
 @media screen and (max-width: $lgViewport) {
-  .about__h1 {
-    font-size: 60px;
-    line-height: 70px;
-  }
-
   .about__what,
   .about__where {
     width: 70%;
@@ -114,6 +109,11 @@
 @media screen and (max-width: $mdViewport) {
   .about {
     padding: 40px 0 80px;
+  }
+
+  .about__h1 {
+    font-size: 72px;
+    line-height: 72px;
   }
 
   .about__hover:after,

@@ -5,9 +5,9 @@ import debounce from '../functions/debounce';
 import H1 from '../components/H1';
 import IC from '../components/IC';
 
-import nelson from '../assets/images/nelson.jpg';
-import rockville from '../assets/images/rockville.jpg';
-import evanston from '../assets/images/evanston.jpg';
+import nelson from '../assets/images/about/nelson.jpg';
+import rockville from '../assets/images/about/rockville.jpg';
+import evanston from '../assets/images/about/evanston.jpg';
 
 class About extends Component {
   state = {
@@ -57,7 +57,7 @@ class About extends Component {
               Who?
             </H1>
             <p className="about__p">
-              My name is <span className="about__hover" onClick={this.onMouseEnter1} onMouseEnter={this.onMouseEnter1} onMouseLeave={this.onMouseLeave}>Nelson Chang</span>. I’m a Korean-American and the youngest of <span className="about__hover" onClick={this.onMouseEnter2} onMouseEnter={this.onMouseEnter2} onMouseLeave={this.onMouseLeave}>three</span> brothers. I was born in Rockville and raised in Dallas; educated in <span className="about__hover" onClick={this.onMouseEnter3} onMouseEnter={this.onMouseEnter3} onMouseLeave={this.onMouseLeave}>Evanston.</span> I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer. I’ve been working as a professional developer for a little over 3 years now.
+              My name is <span className="about__hover" onClick={this.onMouseEnter1} onMouseEnter={this.onMouseEnter1} onMouseLeave={this.onMouseLeave}>Nelson Chang</span>. I’m a Korean-American and the youngest of <span className="about__hover" onClick={this.onMouseEnter2} onMouseEnter={this.onMouseEnter2} onMouseLeave={this.onMouseLeave}>three</span> brothers. I was born in Rockville and raised in Dallas; <span className="about__hover" onClick={this.onMouseEnter3} onMouseEnter={this.onMouseEnter3} onMouseLeave={this.onMouseLeave}>educated</span> in Evanston. I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer. I’ve been working as a professional developer for a little over 3 years now.
             </p>
           </div>
           <div className="about__images">
