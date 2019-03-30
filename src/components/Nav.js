@@ -108,7 +108,7 @@ class Nav extends Component {
                 </Link>
               </li>
               <li className="nav__item">
-                <Link to="/ar-vr" className="nav__menuLink">
+                <Link to="/etc" className="nav__menuLink">
                   Everything Else
                 </Link>
               </li>
