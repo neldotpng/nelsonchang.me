@@ -72,10 +72,10 @@ class Transition extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
-      document.documentElement.classList.add('no-scroll');
+      document.body.classList.add('no-scroll');
 
       setTimeout(() => {
-        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
         this.checkPage(this.props.location);
       }, 550);
     }
