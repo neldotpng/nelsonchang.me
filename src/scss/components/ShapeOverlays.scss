@@ -13,7 +13,7 @@
   transition: fill $long $cubic-bezier;
 }
 
-body.no-scroll {
+html.no-scroll {
   .shape-overlays__path {
     fill: rgba($white, 0.35);
   }
@@ -23,7 +23,7 @@ body.no-scroll {
   z-index: 500;
 
   .shape-overlays__path {
-    fill: $blue;
+    fill: $dark-gray;
     transition-duration: 0ms;
   }
 }

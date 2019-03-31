@@ -17,6 +17,7 @@ class TextCanvas extends Component {
       '오디세이',
       '트렁크',
       '이것저것',
+      '다음',
     ],
     size: {
       max: 25,
@@ -181,6 +182,14 @@ class TextCanvas extends Component {
         this.tweenSize();
       });
     }
+  }
+
+  onScrollToBottom = () => {
+    this.updateWord(6);
+  }
+
+  onScrollUp = () => {
+    this.updateCanvas(this.props.location);
   }
 
   initWord = () => {

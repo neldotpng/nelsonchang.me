@@ -55,6 +55,7 @@
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
     "react-transition-group": "^2.5.3",
+    "react-waypoint": "^9.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",

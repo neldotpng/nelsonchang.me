@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Waypoint } from 'react-waypoint';
 import cx from 'classnames';
 
-import { isMobileDevice, isSafari, isChrome } from './functions/browser-detect';
+// import { isMobileDevice, isSafari, isChrome } from './functions/browser-detect';
 
 import ShapeOverlays from './components/ShapeOverlays';
 import Nav from './components/Nav';
 import TextCanvas from './components/TextCanvas';
 
 class Transition extends Component {
+  constructor() {
+    super();
+    this.ref = React.createRef();
+  }
+
   state = {
     isAnimatedIn: true,
-    // isMobile: isMobileDevice(),
-    // isSafari: isSafari(),
-    // isChrome: isChrome(),
-    // isCaseStudy: false,
-    // isHomePage: false,
+    animateInOut: false,
     bgText: '',
   }
 
@@ -44,23 +46,41 @@ class Transition extends Component {
     }, 500);
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.location !== this.props.location) {
-      document.body.classList.add('no-scroll');
+  onScrollToBottom = () => {
+    if (this.props.location !== '/' && this.props.location !== '/about') {
+      this.setState({ animateInOut: true });
+      this.ref.current.onScrollToBottom();
 
       setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-        });
-        document.body.classList.remove('no-scroll');
+        this.setState({ animateInOut: false });
+      }, 500);
+    }
+  }
+
+  onScrollUp = () => {
+    if (this.props.location !== '/' && this.props.location !== '/about') {
+      this.setState({ animateInOut: true });
+      this.ref.current.onScrollUp();
+
+      setTimeout(() => {
+        this.setState({ animateInOut: false });
+      }, 500);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      document.documentElement.classList.add('no-scroll');
+
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.classList.remove('no-scroll');
         this.checkPage(this.props.location);
       }, 550);
     }
   }
 
   componentDidMount() {
-    this.wrapper = document.getElementById('Wrapper');
     this.checkPage(this.props.location);
 
     setTimeout(() => {
@@ -70,10 +90,7 @@ class Transition extends Component {
 
   render() {
     const wrapper = cx("wrapper", {
-      // "is-homepage": this.state.isHomePage,
-      // "is-mobile-or-safari": this.state.isMobile || this.state.isSafari,
-      // "is-case-study": this.state.isCaseStudy,
-      // "is-chrome": this.state.isChrome,
+      "should-animate-in-out": this.state.animateInOut,
     });
 
     return [
@@ -97,7 +114,8 @@ class Transition extends Component {
         </div>
         <TextCanvas
           location={this.props.location}
-          getBgText={this.getBgText} />
+          getBgText={this.getBgText}
+          ref={this.ref} />
         <TransitionGroup component="article">
           <CSSTransition
             key={this.props.location}
@@ -107,7 +125,13 @@ class Transition extends Component {
             {this.props.children}
           </CSSTransition>
         </TransitionGroup>
-      </div>
+      </div>,
+      <Waypoint
+        key="Waypoint"
+        onEnter={this.onScrollToBottom}
+        onLeave={this.onScrollUp}
+        bottomOffset={-250}>
+      </Waypoint>
     ]
   }
 }

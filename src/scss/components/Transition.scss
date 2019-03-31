@@ -1,13 +1,6 @@
-body.no-scroll {
+html.no-scroll,
+.wrapper.should-animate-in-out {
   overflow: hidden;
-
-  // .wrapper:not(.is-mobile-or-safari).is-case-study,
-  // .wrapper:not(.is-mobile-or-safari).is-chrome {
-  //   .wrapper__bg {
-  //     opacity: 0;
-  //     transform: translateZ(-4px) scale(4);
-  //   }
-  // }
 
   .wrapper__bg {
     opacity: 0;
@@ -22,42 +15,6 @@ body.no-scroll {
 .wrapper {
   overflow-x: hidden;
 }
-
-// .wrapper:not(.is-mobile-or-safari).is-case-study,
-// .wrapper:not(.is-mobile-or-safari).is-chrome {
-//   height: 100vh;
-//   overflow-y: auto;
-//   perspective: 1px;
-
-//   .wrapper__bg {
-//     align-items: flex-start;
-//     bottom: 0;
-//     position: absolute;
-//     right: 0;
-//     transform: translateZ(-4px) scale(5);
-//   }
-
-//   .wrapper__bgText {
-//     margin: 0;
-//   }
-
-//   &.is-homepage {
-//     overflow-y: hidden;
-
-//     .wrapper__bg {
-//       align-items: center;
-//     }
-
-//     .wrapper__bgText {
-//       transform: translateY(5%);
-//     }
-//   }
-
-//   .canvas {
-//     position: absolute;
-//     transform: translateZ(-1000px) scale(1001);
-//   }
-// }
 
 .wrapper__bg {
   align-items: center;
@@ -104,6 +61,7 @@ body.no-scroll {
   opacity: 1;
   overflow: hidden;
   position: relative;
+  transition-delay: 0ms;
   z-index: 10;
 }
 
