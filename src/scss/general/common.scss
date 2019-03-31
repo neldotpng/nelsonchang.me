@@ -19,8 +19,13 @@ article {
 }
 
 p {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 23px;
+  line-height: 29px;
+
+  @media screen and (max-width: $mdViewport) {
+    font-size: 19px;
+    line-height: 23px;
+  }
 }
 
 #root:after {
@@ -49,7 +54,6 @@ p {
 .h1 {
   font-family: $display;
   font-size: 72px;
-  font-weight: 700;
   line-height: 78px;
 }
 
