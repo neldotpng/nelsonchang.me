@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import H1 from '../components/H1';
 import IC from '../components/IC';
@@ -39,6 +40,11 @@ class Marquee extends Component {
           <IC customClass="caseStudy__image" src={image2} alt="" />
           <IC customClass="caseStudy__image" src={image3} alt="" />
           <IC customClass="caseStudy__image" src={image4} alt="" />
+        </div>
+        <div className="caseStudy__next">
+          <Link to="/odyssey" className="caseStudy__nextCta">
+            Next | <span>Odyssey</span>
+          </Link>
         </div>
       </section>
     );
