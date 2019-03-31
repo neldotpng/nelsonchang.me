@@ -11,11 +11,11 @@ import TextCanvas from './components/TextCanvas';
 class Transition extends Component {
   state = {
     isAnimatedIn: true,
-    isMobile: isMobileDevice(),
-    isSafari: isSafari(),
-    isChrome: isChrome(),
-    isCaseStudy: false,
-    isHomePage: false,
+    // isMobile: isMobileDevice(),
+    // isSafari: isSafari(),
+    // isChrome: isChrome(),
+    // isCaseStudy: false,
+    // isHomePage: false,
     bgText: '',
   }
 
@@ -48,16 +48,14 @@ class Transition extends Component {
     if (prevProps.location !== this.props.location) {
       document.body.classList.add('no-scroll');
 
-      this.wrapper.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
-
       setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+        });
         document.body.classList.remove('no-scroll');
         this.checkPage(this.props.location);
-      }, 500);
+      }, 550);
     }
   }
 
@@ -72,10 +70,10 @@ class Transition extends Component {
 
   render() {
     const wrapper = cx("wrapper", {
-      "is-homepage": this.state.isHomePage,
-      "is-mobile-or-safari": this.state.isMobile || this.state.isSafari,
-      "is-case-study": this.state.isCaseStudy,
-      "is-chrome": this.state.isChrome,
+      // "is-homepage": this.state.isHomePage,
+      // "is-mobile-or-safari": this.state.isMobile || this.state.isSafari,
+      // "is-case-study": this.state.isCaseStudy,
+      // "is-chrome": this.state.isChrome,
     });
 
     return [
