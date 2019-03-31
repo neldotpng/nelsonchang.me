@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { isMobileDevice } from '../functions/browser-detect';
+
 import H1 from '../components/H1';
 import IC from '../components/IC';
 
+import video from '../assets/images/mse/mse-video.mp4';
+import poster from '../assets/images/mse/mse-poster.jpg';
 import image1 from '../assets/images/mse/mse-comp-1.png';
 import image2 from '../assets/images/mse/mse-comp-2.jpg';
 import image3 from '../assets/images/mse/mse-comp-3.jpg';
 import image4 from '../assets/images/mse/mse-comp-4.jpg';
 
 class Marquee extends Component {
+  state = {
+    isMobile: isMobileDevice(),
+  }
+
   render() {
-    return (
-      <section className="marquee caseStudy">
+    return [
+      <section key="main" className="marquee caseStudy">
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">
             Marquee Sports Group
@@ -36,18 +44,22 @@ class Marquee extends Component {
           </p>
         </aside>
         <div className="caseStudy__images">
+          <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
+            <source src={video} />
+          </video>
           <IC customClass="caseStudy__image" src={image1} alt="" />
           <IC customClass="caseStudy__image" src={image2} alt="" />
           <IC customClass="caseStudy__image" src={image3} alt="" />
           <IC customClass="caseStudy__image" src={image4} alt="" />
         </div>
-        <div className="caseStudy__next">
-          <Link to="/odyssey" className="caseStudy__nextCta">
-            Next | <span>Odyssey</span>
-          </Link>
-        </div>
-      </section>
-    );
+      </section>,
+      <div key="Cta" className="caseStudy__next">
+        <Link to="/odyssey" className="caseStudy__nextCta">
+          <span className="caseStudy__nextLabel">Next</span>
+          <span className="caseStudy__caseStudy">Odyssey</span>
+        </Link>
+      </div>
+    ];
   }
 }
 

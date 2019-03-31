@@ -52,6 +52,7 @@ class Transition extends Component {
     if (this.props.location !== '/' && this.props.location !== '/about') {
       this.setState({ animateInOut: true });
       this.ref.current.onScrollToBottom();
+      document.body.classList.add('is-showing-next');
 
       setTimeout(() => {
         this.setState({ animateInOut: false });
@@ -63,6 +64,7 @@ class Transition extends Component {
     if (this.props.location !== '/' && this.props.location !== '/about') {
       this.setState({ animateInOut: true });
       this.ref.current.onScrollUp();
+      document.body.classList.remove('is-showing-next');
 
       setTimeout(() => {
         this.setState({ animateInOut: false });
@@ -73,6 +75,7 @@ class Transition extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
       document.body.classList.add('no-scroll');
+      document.body.classList.remove('is-showing-next');
 
       setTimeout(() => {
         document.body.classList.remove('no-scroll');
@@ -122,7 +125,10 @@ class Transition extends Component {
             key={this.props.location}
             in={true}
             classNames="Transition"
-            timeout={500}>
+            timeout={{
+              enter: 600,
+              exit: 500,
+            }}>
             {this.props.children}
           </CSSTransition>
         </TransitionGroup>
