@@ -13,9 +13,9 @@
   transition: fill $long $cubic-bezier;
 }
 
-body.is-transitioning {
+body.no-scroll {
   .shape-overlays__path {
-    fill: rgba($white, 0.6);
+    fill: rgba($white, 0.35);
   }
 }
 
