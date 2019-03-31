@@ -75,7 +75,6 @@ class Transition extends Component {
       document.documentElement.classList.add('no-scroll');
 
       setTimeout(() => {
-        window.scrollTo(0, 0);
         document.documentElement.classList.remove('no-scroll');
         this.checkPage(this.props.location);
       }, 550);
@@ -84,7 +83,6 @@ class Transition extends Component {
 
   componentDidMount() {
     this.checkPage(this.props.location);
-    // document.scrollingElement.scrollTop = 0;
 
     setTimeout(() => {
       this.setState({ isAnimatedIn: false });
