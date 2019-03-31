@@ -16,7 +16,7 @@ class TextCanvas extends Component {
       '마르케',
       '오디세이',
       '트렁크',
-      '에이아르',
+      '이것저것',
     ],
     size: {
       max: 25,
@@ -232,7 +232,7 @@ class TextCanvas extends Component {
       case '/trunk-club':
         this.updateWord(4);
         break;
-      case '/ar-vr':
+      case '/etc':
         this.updateWord(5);
         break;
     }
@@ -263,12 +263,12 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          장수영 나는 마르케 오디세이 트렁크 에이아르
+          장수영 나는 마르케 오디세이 트렁크 이것저것
         </div>
         <canvas
           id="canvas"
           className="shared__canvas">
-          장수영 나는 마르케 오디세이 트렁크 에이아르
+          {this.state.words[this.state.i]}
         </canvas>
       </div>
     )
