@@ -3,8 +3,6 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Waypoint } from 'react-waypoint';
 import cx from 'classnames';
 
-// import { isMobileDevice, isSafari, isChrome } from './functions/browser-detect';
-
 import ShapeOverlays from './components/ShapeOverlays';
 import Nav from './components/Nav';
 import TextCanvas from './components/TextCanvas';
@@ -19,6 +17,7 @@ class Transition extends Component {
     isAnimatedIn: true,
     animateInOut: false,
     bgText: '',
+    offset: 0,
   }
 
   checkPage = (location) => {
@@ -26,16 +25,19 @@ class Transition extends Component {
       this.setState({
         isHomePage: true,
         isCaseStudy: false,
+        offset: 1,
       });
     } else if (location === '/about') {
       this.setState({
         isHomePage: false,
         isCaseStudy: false,
+        offset: 1,
       });
     } else {
       this.setState({
         isHomePage: false,
         isCaseStudy: true,
+        offset: -250,
       });
     }
   }
@@ -82,6 +84,7 @@ class Transition extends Component {
 
   componentDidMount() {
     this.checkPage(this.props.location);
+    // document.scrollingElement.scrollTop = 0;
 
     setTimeout(() => {
       this.setState({ isAnimatedIn: false });
@@ -130,7 +133,7 @@ class Transition extends Component {
         key="Waypoint"
         onEnter={this.onScrollToBottom}
         onLeave={this.onScrollUp}
-        bottomOffset={-250}>
+        bottomOffset={this.state.offset}>
       </Waypoint>
     ]
   }

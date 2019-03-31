@@ -91,7 +91,7 @@ class Nav extends Component {
 
         <nav className={menuClasses}>
           <div className="nav__menuContainer">
-            <ul className="nav__items">
+            <ul className={`nav__items ${this.props.location.replace(/\//g, '')}`}>
               <li className="nav__item">
                 <Link to="/marquee-sports" className="nav__menuLink">
                   Marquee Sports

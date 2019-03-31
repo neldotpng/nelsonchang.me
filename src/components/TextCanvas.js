@@ -272,7 +272,7 @@ class TextCanvas extends Component {
     return (
       <div className="canvas">
         <div style={{fontFamily: 'Black Han Sans', fontSize: 0}}>
-          장수영 나는 마르케 오디세이 트렁크 이것저것
+          장수영 나는 마르케 오디세이 트렁크 이것저것 다음
         </div>
         <canvas
           id="canvas"
