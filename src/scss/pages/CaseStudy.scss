@@ -191,6 +191,10 @@ body.is-showing-next {
   .caseStudy__caseStudy {
     font-size: 72px;
   }
+
+  .caseStudy__scroll {
+    display: none;
+  }
 }
 
 @media screen and (min-width: $mdViewport) {

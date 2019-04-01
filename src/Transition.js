@@ -34,11 +34,13 @@ class Transition extends Component {
         offset: 1,
       });
     } else {
-      this.setState({
-        isHomePage: false,
-        isCaseStudy: true,
-        offset: -250,
-      });
+      setTimeout(() => {
+        this.setState({
+          isHomePage: false,
+          isCaseStudy: true,
+          offset: -250,
+        });
+      }, 600);
     }
   }
 
@@ -126,7 +128,7 @@ class Transition extends Component {
             in={true}
             classNames="Transition"
             timeout={{
-              enter: 600,
+              enter: 900,
               exit: 500,
             }}>
             {this.props.children}

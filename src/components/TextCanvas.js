@@ -185,11 +185,11 @@ class TextCanvas extends Component {
   }
 
   onScrollToBottom = () => {
-    this.updateWord(6);
+    this.updateWord(6, 0);
   }
 
   onScrollUp = () => {
-    this.updateCanvas(this.props.location);
+    this.updateCanvas(this.props.location, 0);
   }
 
   initWord = () => {
@@ -218,38 +218,47 @@ class TextCanvas extends Component {
 
   updateWord = (i) => {
     this.setState({ i }, () => {
-      this.changeWord();
       this.props.getBgText(this.state.words[this.state.i]);
+      this.changeWord();
     });
   }
 
-  updateCanvas = (location) => {
+  updateWord = (i, t) => {
+    this.setState({ i }, () => {
+      this.props.getBgText(this.state.words[this.state.i]);
+      setTimeout(() => {
+        this.changeWord();
+      }, t);
+    });
+  }
+
+  updateCanvas = (location, t) => {
     switch(location) {
       default:
       case '/':
-        this.updateWord(0);
+        this.updateWord(0, t);
         break;
       case '/about':
-        this.updateWord(1);
+        this.updateWord(1, t);
         break;
       case '/marquee-sports':
-        this.updateWord(2);
+        this.updateWord(2, t);
         break;
       case '/odyssey':
-        this.updateWord(3);
+        this.updateWord(3, t);
         break;
       case '/trunk-club':
-        this.updateWord(4);
+        this.updateWord(4, t);
         break;
       case '/etc':
-        this.updateWord(5);
+        this.updateWord(5, t);
         break;
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
-      this.updateCanvas(this.props.location);
+      this.updateCanvas(this.props.location, 500);
     }
   }
 

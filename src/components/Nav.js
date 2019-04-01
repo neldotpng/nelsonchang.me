@@ -18,6 +18,7 @@ class Nav extends Component {
         isAnimating: true,
       }, () => {
         if (this.state.isOpen) {
+          document.body.classList.add('menu-is-open');
           setTimeout(() => {
             TweenMax.staggerTo('.nav__menuLink', 0.3, {
               opacity: 1,
@@ -25,6 +26,7 @@ class Nav extends Component {
             }, 0.05);
           }, 200);
         } else {
+          document.body.classList.remove('menu-is-open');
           TweenMax.staggerTo('.nav__menuLink', 0.3, {
             opacity: 0,
             y: "-=10",
@@ -44,6 +46,7 @@ class Nav extends Component {
     this.setState({
       isOpen: false,
     }, () => {
+      document.body.classList.remove('menu-is-open');
       TweenMax.staggerTo('.nav__menuLink', 0.3, {
         opacity: 0,
         y: "-=15",
@@ -53,6 +56,7 @@ class Nav extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
+      document.body.classList.remove('menu-is-open');
       setTimeout(() => {
         this.closeMenu();
       }, 200);
@@ -68,7 +72,7 @@ class Nav extends Component {
     });
 
     return [
-      <ShapeOverlays key="Background" isAnimatedIn={this.state.isOpen} duration={500} />,
+      <ShapeOverlays key="Background" isAnimatedIn={this.state.isOpen} duration={450} />,
       <div key="Navbar" className="nav">
         <div className={containerClasses}>
           <Link to="/" className="nav__link nav__home">

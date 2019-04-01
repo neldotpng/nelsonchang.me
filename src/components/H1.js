@@ -11,7 +11,7 @@ class H1 extends Component {
       this.setState({
         transitioned: true,
       })
-    }, 1000);
+    }, 1300);
   }
 
   render() {
