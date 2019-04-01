@@ -53,6 +53,7 @@
     "react-app-polyfill": "^0.2.1",
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.7.0",
+    "react-player": "^1.10.0",
     "react-router-dom": "^4.3.1",
     "react-transition-group": "^2.5.3",
     "react-waypoint": "^9.0.1",
