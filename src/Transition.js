@@ -103,7 +103,7 @@ class Transition extends Component {
       <ShapeOverlays
         customClass={"transitionOverlay"}
         isAnimatedIn={this.state.isAnimatedIn}
-        duration={500}
+        duration={600}
         key="Overlay"
         startOpen={true} />,
       <Nav
