@@ -27,7 +27,7 @@ body.no-scroll,
   position: fixed;
   top: 0;
   transform: scale(1);
-  transition: all $xlong $cubic-bezier;
+  transition: all 600ms $cubic-bezier;
   width: 100%;
   z-index: -1;
 }
