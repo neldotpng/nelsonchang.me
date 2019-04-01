@@ -19,7 +19,7 @@
 .caseStudy__h1 {
   font-size: 90px;
   line-height: 100px;
-  margin-top: calc(50vh - 50px);
+  margin-top: 40vh;
 }
 
 .caseStudy__p {
@@ -86,7 +86,8 @@
   left: 0;
 }
 
-.caseStudy__video {
+.caseStudy__video,
+.caseStudy__image {
   width: 100%;
 }
 
@@ -185,6 +186,10 @@ body.is-showing-next {
   .caseStudy__image,
   .caseStudy__vimeo {
     margin-bottom: 25px;
+  }
+
+  .caseStudy__caseStudy {
+    font-size: 72px;
   }
 }
 
