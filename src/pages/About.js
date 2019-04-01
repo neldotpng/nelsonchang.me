@@ -81,7 +81,7 @@ class About extends Component {
             What?
           </H1>
           <p className="about__p">
-            Despite what my portfolio might indicate, I never fully learned to speak Korean. I love tattoos and streetwear and spend 90% of my waking hours listening to music. In my free time I like watching Vine compilations, wheel throwing, or playing Super Smash Bros.
+            Despite what my portfolio might indicate, I never fully learned to speak Korean. I love tattoos and streetwear and spend 90% of my waking hours listening to music. In my free time I like watching variety shows, wheel throwing, or playing Super Smash Bros.
           </p>
         </div>
 

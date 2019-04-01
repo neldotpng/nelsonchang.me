@@ -33,6 +33,7 @@ class TrunkClub extends Component {
             <a href="https://www.trunkclub.com/" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
               Visit site
             </a>
+            .
           </div>
         </header>
         <aside className="caseStudy__aside">
