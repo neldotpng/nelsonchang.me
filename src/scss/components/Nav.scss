@@ -168,32 +168,28 @@ body.menu-is-open {
 .nav__items {
   counter-reset: item;
 
-  &.marquee-sports {
+  &.nav--marquee-sports {
     .nav__item:nth-child(1) .nav__menuLink:after {
       opacity: 1;
     }
   }
 
-  &.odyssey {
+  &.nav--odyssey {
     .nav__item:nth-child(2) .nav__menuLink:after {
       opacity: 1;
     }
   }
 
-  &.trunk-club {
+  &.nav--trunk-club {
     .nav__item:nth-child(3) .nav__menuLink:after {
       opacity: 1;
     }
   }
 
-  &.etc {
+  &.nav--etc {
     .nav__item:nth-child(4) .nav__menuLink:after {
       opacity: 1;
     }
-  }
-
-  @media screen and (max-height: $smViewport) {
-    padding-bottom: 70px;
   }
 }
 
