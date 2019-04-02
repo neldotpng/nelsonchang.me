@@ -258,7 +258,7 @@ class TextCanvas extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
-      this.updateCanvas(this.props.location, 550);
+      this.updateCanvas(this.props.location, 250);
     }
   }
 

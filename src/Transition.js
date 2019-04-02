@@ -17,7 +17,7 @@ class Transition extends Component {
     isAnimatedIn: true,
     animateInOut: false,
     bgText: '',
-    offset: 0,
+    offset: 9999,
   }
 
   checkPage = (location) => {
@@ -25,22 +25,22 @@ class Transition extends Component {
       this.setState({
         isHomePage: true,
         isCaseStudy: false,
-        offset: 1,
+        offset: 9999,
       });
     } else if (location === '/about') {
       this.setState({
         isHomePage: false,
         isCaseStudy: false,
-        offset: 1,
+        offset: 9999,
       });
     } else {
       setTimeout(() => {
         this.setState({
           isHomePage: false,
           isCaseStudy: true,
-          offset: -250,
+          offset: -150,
         });
-      }, 600);
+      }, 900);
     }
   }
 
@@ -50,7 +50,7 @@ class Transition extends Component {
     }, 500);
   }
 
-  onScrollToBottom = () => {
+  onEnter = () => {
     if (this.props.location !== '/' && this.props.location !== '/about') {
       this.setState({ animateInOut: true });
       this.ref.current.onScrollToBottom();
@@ -62,7 +62,7 @@ class Transition extends Component {
     }
   }
 
-  onScrollUp = () => {
+  onExit = () => {
     if (this.props.location !== '/' && this.props.location !== '/about') {
       this.setState({ animateInOut: true });
       this.ref.current.onScrollUp();
@@ -127,18 +127,15 @@ class Transition extends Component {
             key={this.props.location}
             in={true}
             classNames="Transition"
-            timeout={{
-              enter: 900,
-              exit: 500,
-            }}>
+            timeout={900}>
             {this.props.children}
           </CSSTransition>
         </TransitionGroup>
       </div>,
       <Waypoint
         key="Waypoint"
-        onEnter={this.onScrollToBottom}
-        onLeave={this.onScrollUp}
+        onEnter={this.onEnter}
+        onLeave={this.onExit}
         bottomOffset={this.state.offset}>
       </Waypoint>
     ]

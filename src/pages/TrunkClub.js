@@ -27,7 +27,7 @@ class TrunkClub extends Component {
             Trunk Club
           </H1>
           <p className="caseStudy__p">
-            At Trunk Club, I was brought on as the sole front-end developer for the marketing site. In my tenure, I completed two full homepage redesigns. This included the main landing page, the women’s landing, and the men’s landing. A number of other pages and experiences were created or redesigned in the process, including a brand new press hub and a gift cards purchasing flow. (Disclaimer: Trunk Club has gone through yet another redesign and much of my work is no longer on the live site.)
+            At Trunk Club, I was brought on as the sole front-end developer for the marketing site. In my tenure, I completed two full homepage redesigns. This included the main landing page, the women’s landing, and the men’s landing. A number of other pages and experiences were created or redesigned in the process, including a brand new press hub and a gift cards purchasing flow. (Note: Trunk Club has gone through yet another redesign and much of my work is no longer on the live site.)
           </p>
           <div className="caseStudy__cta">
             <a href="https://www.trunkclub.com/" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
@@ -47,12 +47,13 @@ class TrunkClub extends Component {
         <div className="caseStudy__images">
           <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
             <source src={video} />
+            Trunk Club homepage animations and transitions
           </video>
-          <IC customClass="caseStudy__image" src={image1} alt="" />
-          <IC customClass="caseStudy__image" src={image2} alt="" />
-          <IC customClass="caseStudy__image" src={image3} alt="" />
-          <IC customClass="caseStudy__image" src={image4} alt="" />
-          <IC customClass="caseStudy__image" src={image5} alt="" />
+          <IC customClass="caseStudy__image" src={image1} alt="Trunk Club 2016 homepage" />
+          <IC customClass="caseStudy__image" src={image2} alt="Trunk Club 2017 gift cards landing page" />
+          <IC customClass="caseStudy__image" src={image3} alt="Trunk Club 2017 homepage" />
+          <IC customClass="caseStudy__image" src={image4} alt="Trunk Club 2017 women's homepage header" />
+          <IC customClass="caseStudy__image" src={image5} alt="Trunk Club 2017 women's homepage pricing section" />
         </div>
       </section>,
       <div key="cta" className="caseStudy__next">

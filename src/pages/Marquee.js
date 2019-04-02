@@ -46,11 +46,12 @@ class Marquee extends Component {
         <div className="caseStudy__images">
           <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
             <source src={video} />
+            Video showcasing the intro animation.
           </video>
-          <IC customClass="caseStudy__image" src={image1} alt="" />
-          <IC customClass="caseStudy__image" src={image2} alt="" />
-          <IC customClass="caseStudy__image" src={image3} alt="" />
-          <IC customClass="caseStudy__image" src={image4} alt="" />
+          <IC customClass="caseStudy__image" src={image1} alt="Marquee site menu" />
+          <IC customClass="caseStudy__image" src={image2} alt="Marquee concerts page" />
+          <IC customClass="caseStudy__image" src={image3} alt="Marquee homepage slides and case studies sections" />
+          <IC customClass="caseStudy__image" src={image4} alt="Marquee homepage sections navigation" />
         </div>
       </section>,
       <div key="Cta" className="caseStudy__next">

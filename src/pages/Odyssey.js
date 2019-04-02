@@ -54,11 +54,12 @@ class Odyssey extends Component {
           </div>
           <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
             <source src={video} />
+            Homepage 3D transitions and animations
           </video>
-          <IC customClass="caseStudy__image" src={image1} alt="" />
-          <IC customClass="caseStudy__image" src={image2} alt="" />
-          <IC customClass="caseStudy__image" src={image3} alt="" />
-          <IC customClass="caseStudy__image" src={image4} alt="" />
+          <IC customClass="caseStudy__image" src={image1} alt="Odyssey landing page" />
+          <IC customClass="caseStudy__image" src={image2} alt="Odyssey onboarding second page" />
+          <IC customClass="caseStudy__image" src={image3} alt="Odyssey gym area overview slide" />
+          <IC customClass="caseStudy__image" src={image4} alt="Odyssey conference room example" />
         </div>
       </section>,
       <div key="Cta" className="caseStudy__next">
