@@ -8,10 +8,11 @@ import IC from '../components/IC';
 
 import video from '../assets/images/mse/mse-video.mp4';
 import poster from '../assets/images/mse/mse-poster.jpg';
-import image1 from '../assets/images/mse/mse-comp-1.png';
+import image1 from '../assets/images/mse/mse-comp-1.jpg';
 import image2 from '../assets/images/mse/mse-comp-2.jpg';
 import image3 from '../assets/images/mse/mse-comp-3.jpg';
-import image4 from '../assets/images/mse/mse-comp-4.jpg';
+import image4 from '../assets/images/mse/mse-comp-4.png';
+import image5 from '../assets/images/mse/mse-comp-5.jpg';
 
 class Marquee extends Component {
   state = {
@@ -48,10 +49,11 @@ class Marquee extends Component {
             <source src={video} />
             Video showcasing the intro animation.
           </video>
-          <IC customClass="caseStudy__image" src={image1} alt="Marquee site menu" />
-          <IC customClass="caseStudy__image" src={image2} alt="Marquee concerts page" />
-          <IC customClass="caseStudy__image" src={image3} alt="Marquee homepage slides and case studies sections" />
-          <IC customClass="caseStudy__image" src={image4} alt="Marquee homepage sections navigation" />
+          <IC customClass="caseStudy__image" src={image1} alt="Marquee homepage sections" />
+          <IC customClass="caseStudy__image" src={image2} alt="Marquee venues page example" />
+          <IC customClass="caseStudy__image" src={image3} alt="Marquee concerts page" />
+          <IC customClass="caseStudy__image" src={image4} alt="Marquee site menu" />
+          <IC customClass="caseStudy__image" src={image5} alt="Marquee general venues page" />
         </div>
       </section>,
       <div key="Cta" className="caseStudy__next">
