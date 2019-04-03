@@ -8,6 +8,30 @@ body.no-scroll,
   }
 }
 
+.transition__logo {
+  height: 100px;
+  left: 50%;
+  opacity: 1;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity $long $cubic-bezier,
+    width $long $cubic-bezier,
+    height $long $cubic-bezier;
+  width: 100px;
+  z-index: 501;
+
+  .st0 {
+    fill: $white;
+  }
+
+  &.should-animate-out {
+    height: 50px;
+    opacity: 0;
+    width: 50px;
+  }
+}
+
 .page {
   transition: opacity $xlong $cubic-bezier $short;
 }

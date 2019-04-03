@@ -115,16 +115,19 @@ class ShapeOverlays extends Component {
 
   render() {
     return (
-      <svg
-        className={cx(
-          this.props.customClass,
-          "shape-overlays"
-        )}
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        ref={this.elem}>
-        <path className="shape-overlays__path"></path>
-      </svg>
+      <div>
+        <svg
+          className={cx(
+            this.props.customClass,
+            "shape-overlays"
+          )}
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          ref={this.elem}>
+          <path className="shape-overlays__path"></path>
+        </svg>
+        {this.props.children}
+      </div>
     );
   }
 }
