@@ -20,14 +20,14 @@ class Nav extends Component {
         if (this.state.isOpen) {
           document.body.classList.add('menu-is-open');
           setTimeout(() => {
-            TweenMax.staggerTo('.nav__menuLink', 0.3, {
+            TweenMax.staggerTo('.nav__menuLink', 0.25, {
               opacity: 1,
               y: 0,
             }, 0.05);
           }, 200);
         } else {
           document.body.classList.remove('menu-is-open');
-          TweenMax.staggerTo('.nav__menuLink', 0.3, {
+          TweenMax.staggerTo('.nav__menuLink', 0.25, {
             opacity: 0,
             y: "-=10",
           }, 0.05);
@@ -47,7 +47,7 @@ class Nav extends Component {
       isOpen: false,
     }, () => {
       document.body.classList.remove('menu-is-open');
-      TweenMax.staggerTo('.nav__menuLink', 0.3, {
+      TweenMax.staggerTo('.nav__menuLink', 0.25, {
         opacity: 0,
         y: "-=15",
       }, 0.05);

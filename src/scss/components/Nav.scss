@@ -169,26 +169,42 @@ body.menu-is-open {
   counter-reset: item;
 
   &.nav--marquee-sports {
-    .nav__item:nth-child(1) .nav__menuLink:after {
-      opacity: 1;
+    .nav__item:nth-child(1) {
+      pointer-events: none;
+
+      .nav__menuLink:after {
+        opacity: 1;
+      }
     }
   }
 
   &.nav--odyssey {
-    .nav__item:nth-child(2) .nav__menuLink:after {
-      opacity: 1;
+    .nav__item:nth-child(2) {
+      pointer-events: none;
+
+      .nav__menuLink:after {
+        opacity: 1;
+      }
     }
   }
 
   &.nav--trunk-club {
-    .nav__item:nth-child(3) .nav__menuLink:after {
-      opacity: 1;
+    .nav__item:nth-child(3) {
+      pointer-events: none;
+
+      .nav__menuLink:after {
+        opacity: 1;
+      }
     }
   }
 
   &.nav--etc {
-    .nav__item:nth-child(4) .nav__menuLink:after {
-      opacity: 1;
+    .nav__item:nth-child(4) {
+      pointer-events: none;
+
+      .nav__menuLink:after {
+        opacity: 1;
+      }
     }
   }
 }
