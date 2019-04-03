@@ -26,16 +26,12 @@ class About extends Component {
     this.setState({ index: 3 });
   }
 
-  onMouseLeave = () => {
-    this.setState({ index: 0 });
-  }
-
-  onTouchmove = () => {
+  hideImages = () => {
     this.setState({ index: 0 });
   }
 
   componentDidMount() {
-    document.addEventListener('touchmove', debounce(this.onTouchmove, 1000 / 10));
+    document.addEventListener('touchmove', debounce(this.hideImages, 1000 / 10));
   }
 
   render() {
@@ -57,7 +53,7 @@ class About extends Component {
               Who?
             </H1>
             <p className="about__p">
-              My name is <span className="about__hover" onClick={this.onMouseEnter1} onMouseEnter={this.onMouseEnter1} onMouseLeave={this.onMouseLeave}>Nelson Chang</span>. I’m a Korean-American and the youngest of <span className="about__hover" onClick={this.onMouseEnter2} onMouseEnter={this.onMouseEnter2} onMouseLeave={this.onMouseLeave}>three</span> brothers. I was born in Rockville and raised in Dallas; <span className="about__hover" onClick={this.onMouseEnter3} onMouseEnter={this.onMouseEnter3} onMouseLeave={this.onMouseLeave}>educated</span> in Evanston. I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer. I’ve been working as a professional developer for a little over 3 years now.
+              My name is <span className="about__hover" onClick={this.onMouseEnter1} onMouseEnter={this.onMouseEnter1} onMouseLeave={this.hideImages}>Nelson Chang</span>. I’m a Korean-American and the youngest of <span className="about__hover" onClick={this.onMouseEnter2} onMouseEnter={this.onMouseEnter2} onMouseLeave={this.hideImages}>three</span> brothers. I was born in Rockville and raised in Dallas; <span className="about__hover" onClick={this.onMouseEnter3} onMouseEnter={this.onMouseEnter3} onMouseLeave={this.hideImages}>educated</span> in Evanston. Despite what my portfolio might indicate, I never fully learned to speak Korean. I love tattoos and streetwear and spend 90% of my waking hours listening to music. In my free time I like watching variety shows, wheel throwing, or playing Super Smash Bros.
             </p>
           </div>
           <div className="about__images">
@@ -84,7 +80,7 @@ class About extends Component {
             What?
           </H1>
           <p className="about__p">
-            Despite what my portfolio might indicate, I never fully learned to speak Korean. I love tattoos and streetwear and spend 90% of my waking hours listening to music. In my free time I like watching variety shows, wheel throwing, or playing Super Smash Bros.
+            I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer; I’ve been working as a full-time developer for a little over 3 years now. I’ve worked on projects ranging from visually heavy marketing sites to AR/VR to Actions for Google to high-fidelity prototypes and simple mobile apps.
           </p>
         </div>
 
