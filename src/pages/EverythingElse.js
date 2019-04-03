@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { isMobileDevice } from '../functions/browser-detect';
-
 import H1 from '../components/H1';
 import IC from '../components/IC';
+import VC from '../components/VC';
 
 import video from '../assets/images/everythingelse/usdz-balls.mp4';
 import poster from '../assets/images/everythingelse/poster.jpg';
@@ -12,13 +11,9 @@ import usdz from '../assets/images/everythingelse/usdz-cube.jpg';
 import portfolio from '../assets/images/everythingelse/portfolio-2017.jpg';
 
 class EverythingElse extends Component {
-  state = {
-    isMobile: isMobileDevice(),
-  }
-
   render() {
     return [
-      <section key="main" className="everythingElse caseStudy">
+      <section key="main" className="page everythingElse caseStudy">
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">
             Everything Else
@@ -37,11 +32,17 @@ class EverythingElse extends Component {
         </aside>
         <div className="caseStudy__images">
           <div className="everythingElse__etc">
-            <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
-              <source src={video} />
+            <VC
+              customClass="caseStudy__video"
+              src={video}
+              poster={poster}>
               USDZ ball wave animation
-            </video>
-            <IC customClass="caseStudy__image" src={usdz} alt="USDZ lifesize reflective cube with window" />
+            </VC>
+            <IC
+              customClass="caseStudy__image"
+              src={usdz}
+              alt="USDZ lifesize reflective cube with window"
+              waypoint={true} />
             <H1 customClass="everythingElse__h1">
               USDZ
             </H1>
@@ -55,7 +56,7 @@ class EverythingElse extends Component {
               .
             </div>
             <p className="caseStudy__p">
-              In a similar vein to the ball wave experiment, this was an experiment with a lifesize cube that could be stepped into. It was a simple proof of concept to see what the experience of walking into a USDZ model would be like.
+              In a similar vein to the ball wave, this was a quick experiment with a lifesize cube that could be stepped into. It was a simple proof of concept to see what the experience of walking into a USDZ model would be like and how textures would be rendered.
             </p>
             <div className="caseStudy__cta">
               <a href="/files/cube-black.usdz" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
@@ -66,7 +67,11 @@ class EverythingElse extends Component {
           </div>
 
           <div className="everythingElse__etc">
-            <IC customClass="caseStudy__image" src={portfolio} alt="Portfolio 2017 landing page" />
+            <IC
+              customClass="caseStudy__image"
+              src={portfolio}
+              alt="Portfolio 2017 landing page"
+              waypoint={true} />
             <H1 customClass="everythingElse__h1">
               Portfolio 2017
             </H1>

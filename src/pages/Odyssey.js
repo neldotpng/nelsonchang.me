@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Waypoint } from 'react-waypoint';
 import ReactPlayer from 'react-player';
-
-import { isMobileDevice } from '../functions/browser-detect';
+import cx from 'classnames';
 
 import H1 from '../components/H1';
 import IC from '../components/IC';
+import VC from '../components/VC';
 
 import video from '../assets/images/odyssey/odyssey-transitions.mp4';
 import poster from '../assets/images/odyssey/odyssey-poster.png';
@@ -16,12 +17,22 @@ import image4 from '../assets/images/odyssey/odyssey-comp4.png';
 
 class Odyssey extends Component {
   state = {
-    isMobile: isMobileDevice(),
+    isVisible: false,
+  }
+
+  onEnter = () => {
+    this.setState({
+      isVisible: true,
+    });
   }
 
   render() {
+    const vimeoClasses = cx("caseStudy__vimeo", {
+      'is-visible': this.state.isVisible,
+    });
+
     return [
-      <section key="main" className="odyssey caseStudy">
+      <section key="main" className="page odyssey caseStudy">
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">
             Odyssey
@@ -45,21 +56,44 @@ class Odyssey extends Component {
           </p>
         </aside>
         <div className="caseStudy__images">
-          <div className="caseStudy__vimeo">
-            <ReactPlayer
-              className="caseStudy__vimeoVideo"
-              url="https://vimeo.com/320330995"
-              width="100%"
-              height="100%" />
-          </div>
-          <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
-            <source src={video} />
+          <Waypoint
+            scrollableAncestor={window}
+            onEnter={this.onEnter}
+            bottomOffset="200px">
+            <div className={vimeoClasses}>
+              <ReactPlayer
+                className="caseStudy__vimeoVideo"
+                url="https://vimeo.com/320330995"
+                width="100%"
+                height="100%" />
+            </div>
+          </Waypoint>
+          <VC
+            customClass="caseStudy__video"
+            src={video}
+            poster={poster}>
             Homepage 3D transitions and animations
-          </video>
-          <IC customClass="caseStudy__image" src={image1} alt="Odyssey landing page" />
-          <IC customClass="caseStudy__image" src={image2} alt="Odyssey onboarding second page" />
-          <IC customClass="caseStudy__image" src={image3} alt="Odyssey gym area overview slide" />
-          <IC customClass="caseStudy__image" src={image4} alt="Odyssey conference room example" />
+          </VC>
+          <IC
+            customClass="caseStudy__image"
+            src={image1}
+            alt="Odyssey landing page"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image2}
+            alt="Odyssey onboarding second page"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image3}
+            alt="Odyssey gym area overview slide"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image4}
+            alt="Odyssey conference room example"
+            waypoint={true} />
         </div>
       </section>,
       <div key="Cta" className="caseStudy__next">

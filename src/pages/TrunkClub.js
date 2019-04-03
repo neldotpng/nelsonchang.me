@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { isMobileDevice } from '../functions/browser-detect';
-
 import H1 from '../components/H1';
 import IC from '../components/IC';
+import VC from '../components/VC';
 
 import video from '../assets/images/trunkclub/trunkclub-video.mp4';
 import poster from '../assets/images/trunkclub/trunkclub-poster.jpg';
@@ -15,13 +14,9 @@ import image4 from '../assets/images/trunkclub/trunkclub-comp4.jpg';
 import image5 from '../assets/images/trunkclub/trunkclub-comp5.jpg';
 
 class TrunkClub extends Component {
-  state = {
-    isMobile: isMobileDevice(),
-  }
-
   render() {
     return [
-      <section key="main" className="trunkclub caseStudy">
+      <section key="main" className="page trunkclub caseStudy">
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">
             Trunk Club
@@ -45,15 +40,37 @@ class TrunkClub extends Component {
           </p>
         </aside>
         <div className="caseStudy__images">
-          <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
-            <source src={video} />
+          <VC
+            customClass="caseStudy__video"
+            src={video}
+            poster={poster}>
             Trunk Club homepage animations and transitions
-          </video>
-          <IC customClass="caseStudy__image" src={image1} alt="Trunk Club 2016 homepage" />
-          <IC customClass="caseStudy__image" src={image2} alt="Trunk Club 2017 gift cards landing page" />
-          <IC customClass="caseStudy__image" src={image3} alt="Trunk Club 2017 homepage" />
-          <IC customClass="caseStudy__image" src={image4} alt="Trunk Club 2017 women's homepage header" />
-          <IC customClass="caseStudy__image" src={image5} alt="Trunk Club 2017 women's homepage pricing section" />
+          </VC>
+          <IC
+            customClass="caseStudy__image"
+            src={image1}
+            alt="Trunk Club 2016 homepage"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image2}
+            alt="Trunk Club 2017 gift cards landing page"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image3}
+            alt="Trunk Club 2017 homepage"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image4}
+            alt="Trunk Club 2017 women's homepage header"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image5}
+            alt="Trunk Club 2017 women's homepage pricing section"
+            waypoint={true} />
         </div>
       </section>,
       <div key="cta" className="caseStudy__next">

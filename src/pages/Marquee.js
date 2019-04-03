@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { isMobileDevice } from '../functions/browser-detect';
-
 import H1 from '../components/H1';
 import IC from '../components/IC';
+import VC from '../components/VC';
 
 import video from '../assets/images/mse/mse-video.mp4';
 import poster from '../assets/images/mse/mse-poster.jpg';
@@ -15,13 +14,9 @@ import image4 from '../assets/images/mse/mse-comp-4.png';
 import image5 from '../assets/images/mse/mse-comp-5.jpg';
 
 class Marquee extends Component {
-  state = {
-    isMobile: isMobileDevice(),
-  }
-
   render() {
     return [
-      <section key="main" className="marquee caseStudy">
+      <section key="main" className="page marquee caseStudy">
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">
             Marquee Sports Group
@@ -45,15 +40,37 @@ class Marquee extends Component {
           </p>
         </aside>
         <div className="caseStudy__images">
-          <video className="caseStudy__video" controls={this.state.isMobile} poster={poster} autoPlay={!this.state.isMobile} loop preload="auto">
-            <source src={video} />
+          <VC
+            customClass="caseStudy__video"
+            src={video}
+            poster={poster}>
             Video showcasing the intro animation.
-          </video>
-          <IC customClass="caseStudy__image" src={image1} alt="Marquee homepage sections" />
-          <IC customClass="caseStudy__image" src={image2} alt="Marquee venues page example" />
-          <IC customClass="caseStudy__image" src={image3} alt="Marquee concerts page" />
-          <IC customClass="caseStudy__image" src={image4} alt="Marquee site menu" />
-          <IC customClass="caseStudy__image" src={image5} alt="Marquee general venues page" />
+          </VC>
+          <IC
+            customClass="caseStudy__image"
+            src={image1}
+            alt="Marquee homepage sections"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image2}
+            alt="Marquee venues page example"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image3}
+            alt="Marquee concerts page"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image4}
+            alt="Marquee site menu"
+            waypoint={true} />
+          <IC
+            customClass="caseStudy__image"
+            src={image5}
+            alt="Marquee general venues page"
+            waypoint={true} />
         </div>
       </section>,
       <div key="Cta" className="caseStudy__next">

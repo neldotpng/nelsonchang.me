@@ -64,15 +64,18 @@ class About extends Component {
             <IC
               customClass={image1}
               src={nelson}
-              alt="Current picture of me." />
+              alt="Current picture of me."
+              waypoint={false} />
             <IC
               customClass={image2}
               src={rockville}
-              alt="My brothers and I on the street I grew up on." />
+              alt="My brothers and I on the street I grew up on."
+              waypoint={false} />
             <IC
               customClass={image3}
               src={evanston}
-              alt="Me at my college graduation." />
+              alt="Me at my college graduation."
+              waypoint={false} />
           </div>
         </div>
 

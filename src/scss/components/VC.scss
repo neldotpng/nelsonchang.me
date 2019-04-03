@@ -1,15 +1,19 @@
-.image {
+.video {
   background-color: $dark-gray;
   font-size: 0;
 
-  > img {
+  > video {
     opacity: 0;
     transition: opacity $mid $cubic-bezier;
     width: 100%;
   }
 
+  > video[poster] {
+    object-fit: cover;
+  }
+
   &.is-visible {
-    > img {
+    > video {
       opacity: 1;
     }
   }

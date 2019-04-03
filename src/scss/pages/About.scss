@@ -8,7 +8,6 @@
 .about__link {
   color: $dark-gray;
   cursor: pointer;
-  display: inline-block;
   position: relative;
   text-decoration: none;
 
@@ -133,6 +132,7 @@
     overflow: hidden;
     top: 10px;
     transform: scale(1.075) translate(-50%, 0);
+    width: calc(100% - 20px);
 
     &.is-visible {
       transform: scale(1) translate(-50%, 0);
@@ -150,7 +150,7 @@
   }
 
   .about__intro {
-    margin-top: -60px;
+    margin-top: -70px;
   }
 
   .about__intro,
@@ -189,6 +189,7 @@
   .about__images {
     height: 240px;
     transform: translateX(-5px);
+    min-width: 320px;
   }
 }
 

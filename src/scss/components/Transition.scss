@@ -47,11 +47,15 @@ body.no-scroll,
   position: absolute;
   top: 0;
   transform: translateX(-50%);
+  transition-delay: 0ms;
+  transition-duration: 0ms;
   width: 100%;
   z-index: 1;
 }
 
-.Transition-enter-active {}
+.Transition-enter-active {
+  opacity: 0;
+}
 
 .Transition-enter-done {
   opacity: 1;
