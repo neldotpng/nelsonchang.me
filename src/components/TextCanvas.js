@@ -9,7 +9,7 @@ class TextCanvas extends Component {
   state = {
     width: window.innerWidth,
     height: window.innerHeight,
-    dpi: window.devicePixelRatio,
+    dpi: window.devicePixelRatio >= 2 ? window.devicePixelRatio : 2,
     words: [
       '장수영',
       '나는',
