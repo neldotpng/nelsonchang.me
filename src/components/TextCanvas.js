@@ -20,11 +20,11 @@ class TextCanvas extends Component {
       '다음',
     ],
     size: {
-      max: 25,
-      min: 21,
-      grid: 23,
+      max: 12.5 * window.devicePixelRatio,
+      grid: 11.5 * window.devicePixelRatio,
+      min: 10.5 * window.devicePixelRatio,
     },
-    fontSize: `${65 * window.devicePixelRatio}vh`,
+    fontSize: `${70 * window.devicePixelRatio}vh`,
     fontFamily: 'Black Han Sans',
     i: 0,
   }
@@ -36,8 +36,6 @@ class TextCanvas extends Component {
     this.txtCanv = document.createElement('canvas');
     this.txtCtx = this.txtCanv.getContext('2d');
     this.txtCtx.fillStyle = 'black';
-
-    setTimeout(this.setValues, 1500);
   }
 
   setValues = () => {
@@ -118,6 +116,41 @@ class TextCanvas extends Component {
     });
   }
 
+  // getPixelsV = (keyword) => {
+  //   this.txtCtx.clearRect(0, 0, this.txtCanv.width, this.txtCanv.height);
+  //   this.txtCtx.textBaseline = 'top';
+  //   this.setState({
+  //     fontSize: `${90 / keyword.length * this.state.dpi}vh`
+  //   }, () => {
+  //     this.txtCtx.font = `${this.state.fontSize} ${this.state.fontFamily}`;
+  //   });
+
+  //   for (let i = 0; i < keyword.length; i++) {
+  //     this.txtCtx.fillText(
+  //       keyword[i],
+  //       i * (this.txtCanv.width / 2) - this.txtCtx.measureText(keyword[i]).width / 2,
+  //       i * (this.txtCanv.height / keyword.length),
+  //     );
+  //   }
+
+  //   const imgData = this.txtCtx.getImageData(0, 0, this.txtCanv.width, this.txtCanv.height);
+  //   const buffer32 = new Uint32Array(imgData.data.buffer);
+
+  //   this.positions = [];
+  //   for (let y = 0; y < this.txtCanv.height; y += this.state.size.grid) {
+  //     for (let x = 0; x < this.txtCanv.width; x += this.state.size.grid) {
+  //       if (buffer32[y * this.txtCanv.width + x]) {
+  //         this.positions.push({ x, y });
+  //       }
+  //     }
+  //   }
+
+  //   const diff = (this.canvas.height - this.positions[this.positions.length - 1].y - this.positions[0].y) / 2;
+  //   this.positions.forEach((p) => {
+  //     p.y += diff;
+  //   });
+  // }
+
   animateParticles = () => {
     this.positions.forEach((p, i) => {
       this.particles[i].move(this.mx, this.my);
@@ -166,22 +199,68 @@ class TextCanvas extends Component {
     });
   }
 
+  resetTween = () => {
+    this.setValues();
+    TweenMax.killAll(true);
+    this.tweenSize();
+  }
+
   onMouseMove = (e) => {
-    this.mx = (e.clientX - this.canvas.offsetLeft) * 2;
-    this.my = (e.clientY - this.canvas.offsetTop) * 2;
+    this.mx = (e.clientX - this.canvas.offsetLeft) * this.state.dpi;
+    this.my = (e.clientY - this.canvas.offsetTop) * this.state.dpi;
   }
 
   onResize = () => {
-    if (this.state.width !== window.innerWidth) {
-      this.setState({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      }, () => {
-        this.setValues();
-        TweenMax.killAll(true);
-        this.tweenSize();
-      });
+    if (this.state.width !== window.innerWidth ||
+       (this.state.height !== window.innerHeight && this.state.width > 768)
+    ) {
+      this.setCanvasState();
     }
+  }
+
+  setCanvasState = () => {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    }, () => {
+      if (this.state.width >= 1600) {
+        this.setState({
+          size: {
+            max: 15 * this.state.dpi,
+            grid: 14 * this.state.dpi,
+            min: 13 * this.state.dpi,
+          },
+          fontSize: `${75 * this.state.dpi}vh`,
+        }, this.resetTween);
+      } else if (this.state.width < 1600 && this.state.width >= 1080) {
+        this.setState({
+          size: {
+            max: 12.5 * this.state.dpi,
+            grid: 11.5 * this.state.dpi,
+            min: 10.5 * this.state.dpi,
+          },
+          fontSize: `${70 * this.state.dpi}vh`,
+        }, this.resetTween);
+      } else if (this.state.width < 1080 && this.state.width >= 480) {
+        this.setState({
+          size: {
+            max: 10 * this.state.dpi,
+            grid: 9 * this.state.dpi,
+            min: 8 * this.state.dpi,
+          },
+          fontSize: `${60 * this.state.dpi}vh`,
+        }, this.resetTween);
+      } else {
+        this.setState({
+          size: {
+            max: 8 * this.state.dpi,
+            grid: 7 * this.state.dpi,
+            min: 6 * this.state.dpi,
+          },
+          fontSize: `${40 * this.state.dpi}vh`,
+        }, this.resetTween);
+      }
+    });
   }
 
   onScrollToBottom = () => {
@@ -268,6 +347,7 @@ class TextCanvas extends Component {
 
     setTimeout(() => {
       this.updateCanvas(this.props.location);
+      this.setCanvasState();
     }, 1500);
 
     window.addEventListener('resize', debounce(this.onResize, 1000 / 5));
