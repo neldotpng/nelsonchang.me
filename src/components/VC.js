@@ -23,7 +23,7 @@ class VC extends Component {
       autoplay: true,
     });
 
-    if (this.ref.current.paused) {
+    if (this.ref.current.paused && !this.state.isMobile) {
       this.playVideo();
     }
   }
@@ -58,6 +58,7 @@ class VC extends Component {
             controls={this.state.isMobile || this.state.autoplayError}
             poster={this.props.poster}
             loop
+            muted
             preload="auto"
             ref={this.ref}>
             <source src={this.props.src} />
