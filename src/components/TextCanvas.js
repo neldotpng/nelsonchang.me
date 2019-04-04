@@ -83,7 +83,6 @@ class TextCanvas extends Component {
           i + this.canvas.height / 2,
           this.ctx,
           this.state.size.max,
-          this.particles[0].color,
         )
       )
     }
