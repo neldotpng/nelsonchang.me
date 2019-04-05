@@ -17,7 +17,8 @@ class Transition extends Component {
     isAnimatedIn: true,
     animateInOut: false,
     bgText: '',
-    offset: 9999,
+    bgOffset: -25,
+    ctaOffset: 9999,
     notAtTopOrBottom: false,
   }
 
@@ -26,20 +27,23 @@ class Transition extends Component {
       this.setState({
         isHomePage: true,
         isCaseStudy: false,
-        offset: 9999,
+        bgOffset: -9999,
+        ctaOffset: 9999,
       });
     } else if (location === '/about') {
       this.setState({
         isHomePage: false,
         isCaseStudy: false,
-        offset: 9999,
+        bgOffset: -25,
+        ctaOffset: 9999,
       });
     } else {
       setTimeout(() => {
         this.setState({
           isHomePage: false,
           isCaseStudy: true,
-          offset: -175,
+          bgOffset: -25,
+          ctaOffset: -175,
         });
       }, 900);
     }
@@ -142,7 +146,7 @@ class Transition extends Component {
         key="Top"
         onEnter={this.removeBackground}
         onLeave={this.addBackground}
-        topOffset={-25} />,
+        topOffset={this.state.bgOffset} />,
       <div
         id="Wrapper"
         key="Wrapper"
