@@ -71,6 +71,8 @@ class Nav extends Component {
       "is-open": this.state.isOpen,
     });
 
+    const location = this.props.location.replace(/\//g, '');
+
     return [
       <ShapeOverlays key="Background" isAnimatedIn={this.state.isOpen} duration={450} />,
       <div key="Navbar" className="nav">
@@ -88,14 +90,14 @@ class Nav extends Component {
             <span></span>
           </div>
 
-          <Link to="/about" className="nav__link nav__about">
+          <Link to="/about" className={`nav__link nav__about nav--${location}`}>
             About
           </Link>
         </div>
 
         <nav className={menuClasses}>
           <div className="nav__menuContainer">
-            <ul className={`nav__items nav--${this.props.location.replace(/\//g, '')}`}>
+            <ul className={`nav__items nav--${location}`}>
               <li className="nav__item">
                 <Link to="/marquee-sports" className="nav__menuLink">
                   Marquee Sports

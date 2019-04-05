@@ -50,6 +50,10 @@ body.menu-is-open {
   transition: color $mid $cubic-bezier;
 }
 
+.nav__about.nav--about {
+  pointer-events: none;
+}
+
 .nav__hamburger {
   cursor: pointer;
   display: flex;
@@ -206,6 +210,10 @@ body.menu-is-open {
         opacity: 1;
       }
     }
+  }
+
+  @media screen and (max-height: $smViewport) {
+    padding: 50px 0;
   }
 }
 
