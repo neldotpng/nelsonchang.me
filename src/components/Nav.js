@@ -120,13 +120,13 @@ class Nav extends Component {
               </li>
               <li className="nav__item">
                 <span className="nav__menuLink nav__menuLink--inactive">
-                  Facebook
+                  Facebook*
                 </span>
               </li>
             </ul>
 
             <p className="nav__menuCta">
-              For more work samples, email me at <a href="mailto:nelsonschang@gmail.com" className="nav__menuEmail">nelsonschang@gmail.com</a>.
+              *For more work samples, email me at <a href="mailto:nelsonschang@gmail.com" className="nav__menuEmail">nelsonschang@gmail.com</a>.
             </p>
           </div>
         </nav>

@@ -16,8 +16,8 @@ body.menu-is-open {
   z-index: 100;
 
   @media screen and (max-width: $mdViewport) {
-    height: 60px;
-    padding: 0 45px 0 15px;
+    height: 45px;
+    padding: 0 45px 0 7.5px;
   }
 }
 
