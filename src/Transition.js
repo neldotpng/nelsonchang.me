@@ -174,7 +174,7 @@ class Transition extends Component {
         key="Bottom"
         onEnter={this.onBottomEnter}
         onLeave={this.onBottomExit}
-        bottomOffset={this.state.offset} />
+        bottomOffset={this.state.ctaOffset} />
     ]
   }
 }
