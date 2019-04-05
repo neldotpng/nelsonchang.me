@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/odyssey-comp1.534df784.png"
   },
   {
-    "revision": "c65ac49ebf30db2aaeee",
+    "revision": "58c360c3808173330ec1",
     "url": "/static/css/main.dc0c6ca6.chunk.css"
   },
   {
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/static/media/odyssey-poster.f21e0017.png"
   },
   {
-    "revision": "c65ac49ebf30db2aaeee",
-    "url": "/static/js/main.c65ac49e.chunk.js"
+    "revision": "58c360c3808173330ec1",
+    "url": "/static/js/main.58c360c3.chunk.js"
   },
   {
     "revision": "8b2567ad6991c67c03595c5756dbece2",
@@ -124,7 +124,7 @@ self.__precacheManifest = [
     "url": "/static/media/portfolio-2017.834b9086.jpg"
   },
   {
-    "revision": "f2957c1e213e25db0ddf16361a18bae1",
+    "revision": "82ead1bb98a62a7225dbeb6ffb081454",
     "url": "/index.html"
   }
 ];
