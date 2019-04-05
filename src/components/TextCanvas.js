@@ -414,7 +414,11 @@ class TextCanvas extends Component {
   render() {
     return (
       <div className="canvas">
-        <div style={{fontFamily: 'Black Han Sans', fontSize: '1px'}}>
+        <div style={{
+          fontFamily: 'Black Han Sans',
+          fontSize: '1px',
+          color: '#EFEFEF',
+        }}>
           장수영 나는 마르케 오디세이 트렁크 이것저것 다음
         </div>
         <canvas
