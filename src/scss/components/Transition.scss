@@ -37,7 +37,14 @@ body.no-scroll,
 }
 
 .wrapper {
+  background-color: rgba($white, 0);
   overflow-x: hidden;
+  transition: background $short ease-in-out;
+}
+
+.wrapper.has-background {
+  background-color: rgba($white, 0.85);
+  transition-duration: $xlong;
 }
 
 .wrapper__bg {

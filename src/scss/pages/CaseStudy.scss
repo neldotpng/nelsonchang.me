@@ -1,4 +1,6 @@
 .caseStudy {
+  margin: 0 auto;
+  max-width: $max-width;
   padding-bottom: 100vh;
   pointer-events: none;
   position: relative;
@@ -6,9 +8,11 @@
 }
 
 .caseStudy__header {
-  margin: 0 auto;
-  max-width: $max-width;
   min-height: 100vh;
+
+  @media screen and (max-width: $smViewport) {
+    min-height: auto;
+  }
 }
 
 .caseStudy__header,
@@ -163,7 +167,7 @@ body.is-showing-next {
 
 @media screen and (max-width: $mdViewport) {
   .caseStudy {
-    padding: 0 30px 100vh 20px;
+    padding: 0 40px 100vh 20px;
   }
 
   .caseStudy__h1 {

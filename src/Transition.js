@@ -18,6 +18,7 @@ class Transition extends Component {
     animateInOut: false,
     bgText: '',
     offset: 9999,
+    notAtTopOrBottom: false,
   }
 
   checkPage = (location) => {
@@ -38,7 +39,7 @@ class Transition extends Component {
         this.setState({
           isHomePage: false,
           isCaseStudy: true,
-          offset: -150,
+          offset: -175,
         });
       }, 900);
     }
@@ -50,9 +51,12 @@ class Transition extends Component {
     }, 500);
   }
 
-  onEnter = () => {
+  onBottomEnter = () => {
     if (this.props.location !== '/' && this.props.location !== '/about') {
-      this.setState({ animateInOut: true });
+      this.setState({
+        animateInOut: true,
+        notAtTopOrBottom: false,
+      });
       this.ref.current.onScrollToBottom();
       document.body.classList.add('is-showing-next');
 
@@ -62,9 +66,12 @@ class Transition extends Component {
     }
   }
 
-  onExit = () => {
+  onBottomExit = () => {
     if (this.props.location !== '/' && this.props.location !== '/about') {
-      this.setState({ animateInOut: true });
+      this.setState({
+        animateInOut: true,
+        notAtTopOrBottom: true,
+      });
       this.ref.current.onScrollUp();
       document.body.classList.remove('is-showing-next');
 
@@ -72,6 +79,14 @@ class Transition extends Component {
         this.setState({ animateInOut: false });
       }, 500);
     }
+  }
+
+  onTopEnter = () => {
+    this.setState({ notAtTopOrBottom: false });
+  }
+
+  onTopExit = () => {
+    this.setState({ notAtTopOrBottom: true });
   }
 
   componentDidUpdate(prevProps) {
@@ -82,7 +97,8 @@ class Transition extends Component {
       setTimeout(() => {
         document.body.classList.remove('no-scroll');
         this.checkPage(this.props.location);
-      }, 550);
+        this.setState({ notAtTopOrBottom: false });
+      }, 700);
     }
   }
 
@@ -102,6 +118,7 @@ class Transition extends Component {
   render() {
     const wrapper = cx("wrapper", {
       "should-animate-in-out": this.state.animateInOut,
+      "has-background": this.state.notAtTopOrBottom,
     });
 
     const logo = cx("transition__logo", {
@@ -120,6 +137,11 @@ class Transition extends Component {
       <Nav
         key="Nav"
         location={this.props.location} />,
+      <Waypoint
+        key="Top"
+        onEnter={this.onTopEnter}
+        onLeave={this.onTopExit}
+        topOffset={-25} />,
       <div
         id="Wrapper"
         key="Wrapper"
@@ -144,11 +166,10 @@ class Transition extends Component {
         </TransitionGroup>
       </div>,
       <Waypoint
-        key="Waypoint"
-        onEnter={this.onEnter}
-        onLeave={this.onExit}
-        bottomOffset={this.state.offset}>
-      </Waypoint>
+        key="Bottom"
+        onEnter={this.onBottomEnter}
+        onLeave={this.onBottomExit}
+        bottomOffset={this.state.offset} />
     ]
   }
 }
