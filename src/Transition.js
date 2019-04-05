@@ -81,11 +81,11 @@ class Transition extends Component {
     }
   }
 
-  onTopEnter = () => {
+  removeBackground = () => {
     this.setState({ notAtTopOrBottom: false });
   }
 
-  onTopExit = () => {
+  addBackground = () => {
     this.setState({ notAtTopOrBottom: true });
   }
 
@@ -136,11 +136,12 @@ class Transition extends Component {
       </ShapeOverlays>,
       <Nav
         key="Nav"
-        location={this.props.location} />,
+        location={this.props.location}
+        removeBackground={this.removeBackground} />,
       <Waypoint
         key="Top"
-        onEnter={this.onTopEnter}
-        onLeave={this.onTopExit}
+        onEnter={this.removeBackground}
+        onLeave={this.addBackground}
         topOffset={-25} />,
       <div
         id="Wrapper"

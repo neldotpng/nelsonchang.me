@@ -47,6 +47,8 @@ class Nav extends Component {
       isOpen: false,
     }, () => {
       document.body.classList.remove('menu-is-open');
+      this.props.removeBackground();
+
       TweenMax.staggerTo('.nav__menuLink', 0.25, {
         opacity: 0,
         y: "-=15",
