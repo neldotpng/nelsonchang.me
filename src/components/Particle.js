@@ -18,7 +18,7 @@ export default class Particle {
       r: 249,
       g: 173,
       b: 38,
-      a: 0.4
+      a: 0.75,
     };
     this.ctx = ctx;
 
