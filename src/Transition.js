@@ -116,7 +116,7 @@ class Transition extends Component {
 
     setTimeout(() => {
       document.body.classList.remove('no-scroll');
-    }, 1200);
+    }, 2000);
   }
 
   render() {
