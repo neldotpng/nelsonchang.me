@@ -115,7 +115,7 @@ class ShapeOverlays extends Component {
 
   render() {
     return (
-      <div>
+      <div class="shape">
         <svg
           className={cx(
             this.props.customClass,
