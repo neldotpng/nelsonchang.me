@@ -45,6 +45,7 @@ body.no-scroll,
     display: block;
     height: 100vh;
     left: 0;
+    pointer-events: none;
     position: fixed;
     top: 0;
     transition: background $short ease-in-out;
