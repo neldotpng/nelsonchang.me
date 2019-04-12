@@ -1,0 +1,148 @@
+.button {
+  background-color: rgba($white, 0.7);
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 12px 20px;
+  position: relative;
+  transition: background $long $cubic-bezier;
+}
+
+.button__top,
+.button__right,
+.button__bottom,
+.button__left {
+  transition-delay: 0.2s;
+}
+
+.button__top,
+.button__right,
+.button__bottom,
+.button__left,
+.button__top:before,
+.button__right:before,
+.button__bottom:before,
+.button__left:before {
+  background-color: $blue;
+  display: block;
+  position: absolute;
+  transition: all $long ease-in-out;
+}
+
+.button__top:before,
+.button__right:before,
+.button__bottom:before,
+.button__left:before {
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition-delay: 0s;
+  width: 100%;
+}
+
+.button__top,
+.button__bottom {
+  height: 1px;
+  width: 100%;
+}
+
+.button__right,
+.button__left {
+  height: 100%;
+  width: 1px;
+}
+
+.button__top {
+  left: 0;
+  top: 0;
+
+  &:before {
+    transform: translateX(-200%);
+  }
+}
+
+.button__right {
+  right: 0;
+  top: 0;
+
+  &:before {
+    transform: translateY(-200%);
+  }
+}
+
+.button__bottom,
+.button__left {
+  bottom: 0;
+  left: 0;
+}
+
+.button__bottom:before {
+  transform: translateX(200%);
+}
+
+.button__left:before {
+  transform: translateY(200%);
+}
+
+.button__link {
+  color: $dark-gray;
+  text-decoration: none;
+  transition: color $mid $cubic-bezier;
+}
+
+@media screen and (min-width: $mdViewport) {
+  .button:hover {
+    background-color: rgba($white, 0.925);
+
+    .button__top:before,
+    .button__right:before,
+    .button__bottom:before,
+    .button__left:before {
+      transition-delay: 0.2s;
+    }
+
+    .button__top:before {
+      transform: translateX(-100%);
+    }
+
+    .button__right:before {
+      transform: translateY(-100%);
+    }
+
+    .button__bottom:before {
+      transform: translateX(100%);
+    }
+
+    .button__left:before {
+      transform: translateY(100%);
+    }
+
+    .button__top,
+    .button__right,
+    .button__bottom,
+    .button__left {
+      transition-delay: 0s;
+    }
+
+    .button__top {
+      transform: translateX(100%);
+    }
+
+    .button__right {
+      transform: translateY(100%);
+    }
+
+    .button__bottom {
+      transform: translateX(-100%);
+    }
+
+    .button__left {
+      transform: translateY(-100%);
+    }
+
+    .button__link {
+      color: $blue;
+    }
+  }
+}
