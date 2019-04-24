@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Button from '../components/Button';
 import H1 from '../components/H1';
 import IC from '../components/IC';
 import VC from '../components/VC';
@@ -22,13 +23,12 @@ class Marquee extends Component {
             Marquee Sports Group
           </H1>
           <p className="caseStudy__p">
-            At Perficient Digital Labs, I was responsible for the front-end development of Marquee Sports Group’s new marketing site. The website was designed to showcase the aspects of Marquee’s unique offerings and was developed to scale after the code was handed off. Development followed a structure of creating reusable components that could be distributed across new pages that would be later added to the site.
+            At Perficient Digital Labs, I was responsible for the front-end development of Marquee Sports Group’s new marketing site. The website was designed to showcase the aspects of Marquee’s unique offerings and was developed to scale after the code was handed off. Development followed a structure of creating reusable components that could be distributed across new pages that would be later added to the site. (Note: The client made a few adjustments to the design post hand-off.)
           </p>
           <div className="caseStudy__cta">
-            <a href="https://www.marqueesportsgroup.com/" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
+            <Button href="https://www.marqueesportsgroup.com/">
               View site
-            </a>
-            .
+            </Button>
           </div>
         </header>
         <aside className="caseStudy__aside">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Button from '../components/Button';
 import H1 from '../components/H1';
 import IC from '../components/IC';
 import VC from '../components/VC';
@@ -50,19 +51,17 @@ class EverythingElse extends Component {
               Working with Blender for the first time, I made a simplistic moving 3D ball wave model in order to explore the process of converting animated 3D models to USDZ, Apple’s new, collaborative 3D file format with Pixar. (Note: USDZ models are only viewable on iOS 12+.)
             </p>
             <div className="caseStudy__cta" style={{ marginBottom: '40px' }}>
-              <a href="/files/ball-wave.usdz" className="caseStudy__link">
-                View USDZ ball wave
-              </a>
-              .
+              <Button href="/files/ball-wave.usdz">
+                View USDZ
+              </Button>
             </div>
             <p className="caseStudy__p">
               In a similar vein to the ball wave, this was a quick experiment with a lifesize cube that could be stepped into. It was a simple proof of concept to see what the experience of walking into a USDZ model would be like and how textures would be rendered.
             </p>
             <div className="caseStudy__cta">
-              <a href="/files/cube-black.usdz" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
-                View USDZ cube
-              </a>
-              .
+              <Button href="/files/cube-black.usdz">
+                View USDZ
+              </Button>
             </div>
           </div>
 
@@ -79,10 +78,9 @@ class EverythingElse extends Component {
               My original portfolio site.
             </p>
             <div className="caseStudy__cta">
-              <a href="/2017/index.html" className="caseStudy__link">
+              <Button href="/2017/index.html">
                 View site
-              </a>
-              .
+              </Button>
             </div>
           </div>
 
@@ -94,10 +92,9 @@ class EverythingElse extends Component {
               Windy City 311 was a React Native internal project at Perficient Digital Labs. The primary goal was to setup a more easily accessible 311 mobile app than what was currently available on the market. The secondary goal was to gain experience with React Native as a framework. The implementation was barebones but efficient.
             </p>
             <div className="caseStudy__cta">
-              <a href="https://windycity311.perficientdigitallabs.com/" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
+              <Button href="https://windycity311.perficientdigitallabs.com/">
                 View site
-              </a>
-              .
+              </Button>
             </div>
           </div>
         </div>

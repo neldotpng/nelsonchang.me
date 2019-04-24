@@ -4,6 +4,7 @@ import { Waypoint } from 'react-waypoint';
 import ReactPlayer from 'react-player';
 import cx from 'classnames';
 
+import Button from '../components/Button';
 import H1 from '../components/H1';
 import IC from '../components/IC';
 import VC from '../components/VC';
@@ -41,10 +42,9 @@ class Odyssey extends Component {
             At Perficient Digital Labs, I was tasked with developing a high-fidelity proof of concept for a smart spaces app. The idea was to use beacons to supplement and automate a web app tour experience for new employees. The smart spaces concept could be broadly applied to automate tours of any space like an office, museum, or grocery store.
           </p>
           <div className="caseStudy__cta">
-            <a href="https://blog.truthlabs.com/a-new-way-to-experience-space-ac01c9823a25" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
+            <Button href="https://blog.truthlabs.com/a-new-way-to-experience-space-ac01c9823a25">
               Read more
-            </a>
-            .
+            </Button>
           </div>
         </header>
         <aside className="caseStudy__aside">

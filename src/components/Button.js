@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
 class Button extends Component {
   render() {
-    const cta = this.props.to != undefined ?
-      <Link
-        to={this.props.to}
-        className="button__link">
+    const cta = this.props.href != undefined ?
+      <a
+        href={this.props.href}
+        className="button__link"
+        target="_blank"
+        rel="noopener noreferrer">
         {this.props.children}
-      </Link> :
+      </a> :
       <div className="button__link">
         {this.props.children}
       </div>;

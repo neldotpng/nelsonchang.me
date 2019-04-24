@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Button from '../components/Button';
 import H1 from '../components/H1';
 import IC from '../components/IC';
 import VC from '../components/VC';
@@ -25,10 +26,9 @@ class TrunkClub extends Component {
             At Trunk Club, I was brought on as the sole front-end developer for the marketing site. In my tenure, I completed two full homepage redesigns. This included the main landing page, the women’s landing, and the men’s landing. A number of other pages and experiences were created or redesigned in the process, including a brand new press hub and a gift cards purchasing flow. (Note: Trunk Club has gone through yet another redesign and much of my work is no longer on the live site.)
           </p>
           <div className="caseStudy__cta">
-            <a href="https://www.trunkclub.com/" target="_blank" rel="noopener noreferrer" className="caseStudy__link">
+            <Button href="https://www.trunkclub.com/">
               Visit site
-            </a>
-            .
+            </Button>
           </div>
         </header>
         <aside className="caseStudy__aside">
