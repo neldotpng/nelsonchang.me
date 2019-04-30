@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TweenMax, Sine } from 'gsap';
+// import { TweenMax, Sine } from 'gsap';
 
 import Particle from './Particle';
 import debounce from '../functions/debounce';
@@ -181,7 +181,7 @@ class TextCanvas extends Component {
   }
 
   changeWord = () => {
-    TweenMax.killAll(true);
+    // TweenMax.killAll(true);
 
     if (!this.state.vertical) {
       this.getPixels(this.state.words[this.state.i]);
@@ -209,41 +209,41 @@ class TextCanvas extends Component {
     this.animation = requestAnimationFrame(this.animate);
   }, 1000 / 60)
 
-  tweenSize = () => {
-    const t = 3.5,
-          l = this.particles.length;
-    if (!this.state.isMobile) {
-      this.particles.forEach((p, i) => {
-        TweenMax.to(p, t, {
-          radius: this.state.size.min,
-          homeX: p.getX() + 20,
-          homeY: p.getY() + 20,
-          delay: t / l * i,
-          yoyo: true,
-          repeat: -1,
-          easing: Sine.easeInOut,
-        });
-      });
-    } else {
-      this.particles.forEach((p, i) => {
-        TweenMax.to(p, t, {
-          radius: this.state.size.min,
-          homeX: p.getX() + 10,
-          homeY: p.getY() + 10,
-          delay: t / l * i,
-          yoyo: true,
-          repeat: -1,
-          easing: Sine.easeInOut,
-        });
-      });
-    }
-  }
+  // tweenSize = () => {
+  //   const t = 3.5,
+  //         l = this.particles.length;
+  //   if (!this.state.isMobile) {
+  //     this.particles.forEach((p, i) => {
+  //       TweenMax.to(p, t, {
+  //         radius: this.state.size.min,
+  //         homeX: p.getX() + 20,
+  //         homeY: p.getY() + 20,
+  //         delay: t / l * i,
+  //         yoyo: true,
+  //         repeat: -1,
+  //         easing: Sine.easeInOut,
+  //       });
+  //     });
+  //   } else {
+  //     this.particles.forEach((p, i) => {
+  //       TweenMax.to(p, t, {
+  //         radius: this.state.size.min,
+  //         homeX: p.getX() + 10,
+  //         homeY: p.getY() + 10,
+  //         delay: t / l * i,
+  //         yoyo: true,
+  //         repeat: -1,
+  //         easing: Sine.easeInOut,
+  //       });
+  //     });
+  //   }
+  // }
 
-  resetTween = () => {
-    this.setValues();
-    TweenMax.killAll(true);
-    this.tweenSize();
-  }
+  // resetTween = () => {
+  //   this.setValues();
+  //   TweenMax.killAll(true);
+  //   this.tweenSize();
+  // }
 
   onMouseMove = (e) => {
     this.mx = (e.clientX - this.canvas.offsetLeft) * this.state.dpi;
@@ -272,7 +272,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${70 * this.state.dpi}vh`,
           vertical: false,
-        });
+        }, this.setValues);
       } else if (this.state.width < 1600 && this.state.width >= 1080) {
         this.setState({
           size: {
@@ -282,7 +282,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${65 * this.state.dpi}vh`,
           vertical: false,
-        });
+        }, this.setValues);
       } else if (this.state.width < 1080 && this.state.width >= 768) {
         this.setState({
           size: {
@@ -292,7 +292,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${60 * this.state.dpi}vh`,
           vertical: false,
-        });
+        }, this.setValues);
       } else if (this.state.width < 768 && this.state.width >= 480) {
         this.setState({
           size: {
@@ -302,7 +302,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${60 * this.state.dpi}vh`,
           vertical: false,
-        });
+        }, this.setValues);
       } else {
         this.setState({
           size: {
@@ -312,7 +312,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${40 * this.state.dpi}vh`,
           vertical: true,
-        });
+        }, this.setValues);
       }
     });
   }
@@ -347,13 +347,6 @@ class TextCanvas extends Component {
         this.setState({ i: 5 });
         break;
     }
-  }
-
-  updateWord = (i) => {
-    this.setState({ i }, () => {
-      this.props.getBgText(this.state.words[this.state.i]);
-      this.changeWord();
-    });
   }
 
   updateWord = (i, t) => {
