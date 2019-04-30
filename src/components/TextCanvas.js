@@ -71,7 +71,7 @@ class TextCanvas extends Component {
             this.positions[i].x,
             this.positions[i].y,
             this.ctx,
-            this.state.size.max,
+            this.state.size.min,
           )
         )
       }
@@ -88,7 +88,7 @@ class TextCanvas extends Component {
           this.canvas.width / 2,
           i + this.canvas.height / 2,
           this.ctx,
-          this.state.size.max,
+          this.state.size.min,
         )
       )
     }
@@ -200,7 +200,7 @@ class TextCanvas extends Component {
       this.particles[i].homeY = p.y;
     });
 
-    this.tweenSize();
+    // this.tweenSize();
   }
 
   animate = debounce(() => {
@@ -272,7 +272,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${70 * this.state.dpi}vh`,
           vertical: false,
-        }, this.resetTween);
+        });
       } else if (this.state.width < 1600 && this.state.width >= 1080) {
         this.setState({
           size: {
@@ -282,7 +282,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${65 * this.state.dpi}vh`,
           vertical: false,
-        }, this.resetTween);
+        });
       } else if (this.state.width < 1080 && this.state.width >= 768) {
         this.setState({
           size: {
@@ -292,7 +292,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${60 * this.state.dpi}vh`,
           vertical: false,
-        }, this.resetTween);
+        });
       } else if (this.state.width < 768 && this.state.width >= 480) {
         this.setState({
           size: {
@@ -302,7 +302,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${60 * this.state.dpi}vh`,
           vertical: false,
-        }, this.resetTween);
+        });
       } else {
         this.setState({
           size: {
@@ -312,7 +312,7 @@ class TextCanvas extends Component {
           },
           fontSize: `${40 * this.state.dpi}vh`,
           vertical: true,
-        }, this.resetTween);
+        });
       }
     });
   }
