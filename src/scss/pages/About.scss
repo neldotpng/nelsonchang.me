@@ -7,7 +7,6 @@
 .about__hover,
 .about__link {
   color: $dark-gray;
-  cursor: pointer;
   position: relative;
   text-decoration: none;
 
@@ -24,6 +23,7 @@
 }
 
 .about__link {
+  cursor: pointer;
   font-weight: 600;
 }
 

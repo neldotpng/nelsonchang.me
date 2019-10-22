@@ -80,7 +80,7 @@ class About extends Component {
             What?
           </H1>
           <p className="about__p">
-            I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer; I’ve been working as a full-time developer for a little over 3.5 years now. I’ve worked on projects ranging from visually heavy marketing sites to AR/VR to Actions for Google to high-fidelity prototypes and simple mobile apps.
+            I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer; I’ve been working as a full-time developer for about 4 years now. I’ve worked on projects ranging from interaction-heavy and visually intensive marketing sites to AR/VR to Actions for Google to high-fidelity prototypes and simple mobile apps. With a background in UX and UI, I bring both a reasoned approach to user experience and a highly trained eye for visual details to my development.
           </p>
         </div>
 
