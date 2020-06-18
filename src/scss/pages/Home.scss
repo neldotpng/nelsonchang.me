@@ -42,6 +42,10 @@
   position: relative;
 }
 
+.home__subsub {
+  margin: 10px 0 25px;
+}
+
 @media screen and (max-width: $mdViewport) {
   .home__header {
     padding: 0 30px;

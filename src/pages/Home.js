@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import H1 from '../components/H1';
+import Button from '../components/Button';
 
 class Home extends Component {
   render() {
@@ -17,6 +18,12 @@ class Home extends Component {
             <p className="home__sub">
               I’m a NYC-based creative technologist / front-end developer.
             </p>
+            <p className="home__subsub">
+              Currently taking on freelance projects.
+            </p>
+            <Button href="mailto:nelsonschang@gmail.com">
+              Contact me
+            </Button>
           </div>
         </header>
       </section>
