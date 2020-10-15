@@ -21,7 +21,7 @@ body.menu-is-open {
   }
 
   @media screen and (max-width: $smViewport) {
-    padding: 0 100px 0 7.5px;
+    padding: 0 20vh 0 7.5px;
   }
 }
 
@@ -58,8 +58,23 @@ body.menu-is-open {
   pointer-events: none;
 }
 
-.nav__hamburger {
+.nav__burgerBox {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  > span {
+    transition: color $mid $cubic-bezier;
+  }
+
+  @media screen and (max-width: $mdViewport) {
+    > span {
+      display: none;
+    }
+  }
+}
+
+.nav__hamburger {
   display: flex;
   flex-flow: column;
   height: 36px;
@@ -249,6 +264,10 @@ body.menu-is-open {
 
   #logo .st0 {
     fill: $blue;
+  }
+
+  .nav__burgerBox > span {
+    color: $blue;
   }
 
   .nav__hamburger {
