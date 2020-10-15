@@ -201,7 +201,7 @@ class TextCanvas extends Component {
       this.particles[i].homeY = p.y;
     });
 
-    this.tweenSize();
+    setTimeout(this.tweenSize, 2000);
   }
 
   animate = debounce(() => {
@@ -406,7 +406,7 @@ class TextCanvas extends Component {
 
     if (!this.state.isMobile) {
       window.addEventListener('mousemove', this.onMouseMove);
-      window.addEventListener('scroll', debounce(this.onScroll, 1000 / 30));
+      window.addEventListener('scroll', debounce(this.onScroll, 1000 / 45));
     }
   }
 
