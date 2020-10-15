@@ -182,7 +182,7 @@ class TextCanvas extends Component {
   }
 
   changeWord = () => {
-    // TweenMax.killAll(true);
+    TweenMax.killAll(true);
 
     if (!this.state.vertical) {
       this.getPixels(this.state.words[this.state.i]);
