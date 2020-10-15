@@ -30,6 +30,7 @@ class TextCanvas extends Component {
     i: 0,
     vertical: false,
     timer: null,
+    wordTimer: null,
   }
 
   init = () => {
@@ -201,7 +202,10 @@ class TextCanvas extends Component {
       this.particles[i].homeY = p.y;
     });
 
-    // setTimeout(this.tweenSize, 2000);
+    this.setState({
+      wordTimer: setTimeout(this.tweenSize, 2000)
+    });
+    // this.tweenSize();
   }
 
   animate = debounce(() => {
@@ -312,6 +316,7 @@ class TextCanvas extends Component {
   onScroll = () => {
     TweenMax.killAll(true);
     this.props.setHasBackground(true);
+    clearTimeout(this.state.wordTimer);
     clearTimeout(this.state.timer);
 
     this.setState({
