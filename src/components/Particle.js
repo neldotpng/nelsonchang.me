@@ -22,13 +22,13 @@ export default class Particle {
     };
     this.ctx = ctx;
 
-    // this.getX = () => {
-    //   return this.homeX;
-    // }
+    this.getX = () => {
+      return this.homeX;
+    }
 
-    // this.getY = () => {
-    //   return this.homeY;
-    // }
+    this.getY = () => {
+      return this.homeY;
+    }
   }
 
   draw = () => {

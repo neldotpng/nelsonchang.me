@@ -20,6 +20,7 @@ class Transition extends Component {
     bgOffset: -25,
     ctaOffset: 9999,
     notAtTopOrBottom: false,
+    hasBackground: false,
   }
 
   checkPage = (location) => {
@@ -60,6 +61,7 @@ class Transition extends Component {
       this.setState({
         animateInOut: true,
         notAtTopOrBottom: false,
+        hasBackground: false,
       });
       this.ref.current.onScrollToBottom();
       document.body.classList.add('is-showing-next');
@@ -75,6 +77,7 @@ class Transition extends Component {
       this.setState({
         animateInOut: true,
         notAtTopOrBottom: true,
+        hasBackground: true,
       });
       this.ref.current.onScrollUp();
       document.body.classList.remove('is-showing-next');
@@ -86,11 +89,17 @@ class Transition extends Component {
   }
 
   removeBackground = () => {
-    this.setState({ notAtTopOrBottom: false });
+    this.setState({ 
+      hasBackground: false,
+      notAtTopOrBottom: false,
+    });
   }
 
   addBackground = () => {
-    this.setState({ notAtTopOrBottom: true });
+    this.setState({
+      hasBackground: true,
+      notAtTopOrBottom: true,
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -122,7 +131,7 @@ class Transition extends Component {
   render() {
     const wrapper = cx("wrapper", {
       "should-animate-in-out": this.state.animateInOut,
-      "has-background": this.state.notAtTopOrBottom,
+      "has-background": this.state.notAtTopOrBottom && this.state.hasBackground,
     });
 
     const logo = cx("transition__logo", {
@@ -159,7 +168,10 @@ class Transition extends Component {
         <TextCanvas
           location={this.props.location}
           getBgText={this.getBgText}
-          ref={this.ref} />
+          ref={this.ref}
+          setHasBackground={(bool) => this.setState({ hasBackground: bool })}
+          notAtTopOrBottom={this.state.notAtTopOrBottom}
+        />
         <TransitionGroup component="article">
           <CSSTransition
             key={this.props.location}

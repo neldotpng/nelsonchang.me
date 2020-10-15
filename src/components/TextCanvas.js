@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { TweenMax, Sine } from 'gsap';
+import { TweenMax, Sine } from 'gsap';
 
 import Particle from './Particle';
 import debounce from '../functions/debounce';
@@ -29,6 +29,7 @@ class TextCanvas extends Component {
     fontFamily: 'Black Han Sans',
     i: 0,
     vertical: false,
+    timer: null,
   }
 
   init = () => {
@@ -181,7 +182,7 @@ class TextCanvas extends Component {
   }
 
   changeWord = () => {
-    // TweenMax.killAll(true);
+    TweenMax.killAll(true);
 
     if (!this.state.vertical) {
       this.getPixels(this.state.words[this.state.i]);
@@ -200,7 +201,7 @@ class TextCanvas extends Component {
       this.particles[i].homeY = p.y;
     });
 
-    // this.tweenSize();
+    this.tweenSize();
   }
 
   animate = debounce(() => {
@@ -209,47 +210,36 @@ class TextCanvas extends Component {
     this.animation = requestAnimationFrame(this.animate);
   }, 1000 / 60)
 
-  // tweenSize = () => {
-  //   const t = 3.5,
-  //         l = this.particles.length;
-  //   if (!this.state.isMobile) {
-  //     this.particles.forEach((p, i) => {
-  //       TweenMax.to(p, t, {
-  //         radius: this.state.size.min,
-  //         homeX: p.getX() + 20,
-  //         homeY: p.getY() + 20,
-  //         delay: t / l * i,
-  //         yoyo: true,
-  //         repeat: -1,
-  //         easing: Sine.easeInOut,
-  //       });
-  //     });
-  //   } else {
-  //     this.particles.forEach((p, i) => {
-  //       TweenMax.to(p, t, {
-  //         radius: this.state.size.min,
-  //         homeX: p.getX() + 10,
-  //         homeY: p.getY() + 10,
-  //         delay: t / l * i,
-  //         yoyo: true,
-  //         repeat: -1,
-  //         easing: Sine.easeInOut,
-  //       });
-  //     });
-  //   }
-  // }
+  tweenSize = () => {
+    if (this.state.isMobile) return;
+    
+    const t = 3.5,
+          l = this.particles.length;
+    this.particles.forEach((p, i) => {
+      TweenMax.to(p, t, {
+        radius: this.state.size.max,
+        homeX: !this.state.isMobile ? p.getX() + 20 : p.getX() + 10,
+        homeY: !this.state.isMobile ? p.getY() + 30 : p.getY() + 15,
+        delay: t / l * i,
+        yoyo: true,
+        repeat: -1,
+        easing: Sine.easeInOut,
+      });
+    });
+  }
 
-  // resetTween = () => {
-  //   this.setValues();
-  //   TweenMax.killAll(true);
-  //   this.tweenSize();
-  // }
+  resetTween = () => {
+    this.setValues();
+    TweenMax.killAll(true);
+    this.tweenSize();
+  }
 
   onMouseMove = (e) => {
     this.mx = (e.clientX - this.canvas.offsetLeft) * this.state.dpi;
     this.my = (e.clientY - this.canvas.offsetTop) * this.state.dpi;
   }
 
+  // Reset Canvas State on resize
   onResize = () => {
     if (this.state.width !== window.innerWidth ||
        (this.state.height !== window.innerHeight && this.state.width > 768)
@@ -258,6 +248,8 @@ class TextCanvas extends Component {
     }
   }
 
+  // Canvas State Set Function
+  // Breakpoint sizing updates
   setCanvasState = () => {
     this.setState({
       width: window.innerWidth,
@@ -314,6 +306,19 @@ class TextCanvas extends Component {
           vertical: true,
         }, this.setValues);
       }
+    });
+  }
+
+  onScroll = () => {
+    TweenMax.killAll(true);
+    this.props.setHasBackground(true);
+    clearTimeout(this.state.timer);
+
+    this.setState({
+      timer: setTimeout(() => {
+        this.props.setHasBackground(false);
+        this.tweenSize();
+      }, 5000)
     });
   }
 
@@ -401,6 +406,7 @@ class TextCanvas extends Component {
 
     if (!this.state.isMobile) {
       window.addEventListener('mousemove', this.onMouseMove);
+      window.addEventListener('scroll', debounce(this.onScroll, 1000 / 30));
     }
   }
 
