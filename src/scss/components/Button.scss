@@ -1,5 +1,5 @@
 .button {
-  background-color: rgba($white, 0.25);
+  background-color: rgba($white, 0.75);
   cursor: pointer;
   display: inline-block;
   font-size: 18px;
@@ -94,7 +94,7 @@
 
 @media screen and (min-width: $mdViewport) {
   .button:hover {
-    background-color: rgba($white, 0.5);
+    background-color: rgba($white, 1);
 
     .button__top:before,
     .button__right:before,
