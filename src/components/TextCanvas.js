@@ -182,7 +182,7 @@ class TextCanvas extends Component {
   }
 
   changeWord = () => {
-    TweenMax.killAll(true);
+    // TweenMax.killAll(true);
 
     if (!this.state.vertical) {
       this.getPixels(this.state.words[this.state.i]);
@@ -201,7 +201,7 @@ class TextCanvas extends Component {
       this.particles[i].homeY = p.y;
     });
 
-    setTimeout(this.tweenSize, 2000);
+    // setTimeout(this.tweenSize, 2000);
   }
 
   animate = debounce(() => {
