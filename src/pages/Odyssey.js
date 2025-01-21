@@ -19,27 +19,30 @@ import image4 from '../assets/images/odyssey/odyssey-comp4.png';
 class Odyssey extends Component {
   state = {
     isVisible: false,
-  }
+  };
 
   onEnter = () => {
     this.setState({
       isVisible: true,
     });
-  }
+  };
 
   render() {
-    const vimeoClasses = cx("caseStudy__vimeo", {
+    const vimeoClasses = cx('caseStudy__vimeo', {
       'is-visible': this.state.isVisible,
     });
 
     return [
-      <section key="main" className="page odyssey caseStudy">
+      <section
+        key="main"
+        className="page odyssey caseStudy">
         <header className="caseStudy__header">
-          <H1 customClass="caseStudy__h1">
-            Odyssey
-          </H1>
+          <H1 customClass="caseStudy__h1">Odyssey</H1>
           <p className="caseStudy__p">
-            At Perficient Digital Labs, I was tasked with developing a high-fidelity proof of concept for a smart spaces app. The idea was to use beacons to supplement and automate a web app tour experience for new employees. The smart spaces concept could be broadly applied to automate tours of any space like an office, museum, or grocery store.
+            At Perficient Digital Labs, I was tasked with developing a high-fidelity proof of
+            concept for a smart spaces app. The idea was to use beacons to supplement and automate a
+            web app tour experience for new employees. The smart spaces concept could be broadly
+            applied to automate tours of any space like an office, museum, or grocery store.
           </p>
           <div className="caseStudy__cta">
             <Button href="https://blog.truthlabs.com/a-new-way-to-experience-space-ac01c9823a25">
@@ -48,11 +51,15 @@ class Odyssey extends Component {
           </div>
         </header>
         <aside className="caseStudy__aside">
-          <h2 className="caseStudy__h2">
-            Details
-          </h2>
+          <h2 className="caseStudy__h2">Details</h2>
           <p className="caseStudy__details">
-            Developed with <span className="caseStudy__emphasis">React</span> on the front-end and flexing <span className="caseStudy__emphasis">Progressive Web App (PWA)</span> capabilities for offline functionality and a native app feel. The back-end used <span className="caseStudy__emphasis">Socket.IO</span> to connect to Raspberry Pi beacons. The 3D isometric model of the office was loaded and animated using <span className="caseStudy__emphasis">THREE.js</span> and <span className="caseStudy__emphasis">GSAP</span>.
+            Developed with <span className="caseStudy__emphasis">React</span> on the front-end and
+            flexing <span className="caseStudy__emphasis">Progressive Web App (PWA)</span>{' '}
+            capabilities for offline functionality and a native app feel. The back-end used{' '}
+            <span className="caseStudy__emphasis">Socket.IO</span> to connect to Raspberry Pi
+            beacons. The 3D isometric model of the office was loaded and animated using{' '}
+            <span className="caseStudy__emphasis">THREE.js</span> and{' '}
+            <span className="caseStudy__emphasis">GSAP</span>.
           </p>
         </aside>
         <div className="caseStudy__images">
@@ -65,7 +72,8 @@ class Odyssey extends Component {
                 className="caseStudy__vimeoVideo"
                 url="https://vimeo.com/320330995"
                 width="100%"
-                height="100%" />
+                height="100%"
+              />
             </div>
           </Waypoint>
           <VC
@@ -78,30 +86,38 @@ class Odyssey extends Component {
             customClass="caseStudy__image"
             src={image1}
             alt="Odyssey landing page"
-            waypoint={true} />
+            waypoint={true}
+          />
           <IC
             customClass="caseStudy__image"
             src={image2}
             alt="Odyssey onboarding second page"
-            waypoint={true} />
+            waypoint={true}
+          />
           <IC
             customClass="caseStudy__image"
             src={image3}
             alt="Odyssey gym area overview slide"
-            waypoint={true} />
+            waypoint={true}
+          />
           <IC
             customClass="caseStudy__image"
             src={image4}
             alt="Odyssey conference room example"
-            waypoint={true} />
+            waypoint={true}
+          />
         </div>
       </section>,
-      <div key="Cta" className="caseStudy__next">
-        <Link to="/trunk-club" className="caseStudy__nextCta">
+      <div
+        key="Cta"
+        className="caseStudy__next">
+        <Link
+          to="/etc"
+          className="caseStudy__nextCta">
           <span className="caseStudy__nextLabel">Next</span>
-          <span className="caseStudy__caseStudy">Trunk Club</span>
+          <span className="caseStudy__caseStudy">Everything Else</span>
         </Link>
-      </div>
+      </div>,
     ];
   }
 }

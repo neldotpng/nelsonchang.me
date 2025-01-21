@@ -1,12 +1,5 @@
 export default class Particle {
-  constructor(
-    sx,
-    sy,
-    x,
-    y,
-    ctx,
-    size
-  ) {
+  constructor(sx, sy, x, y, ctx, size) {
     this.x = sx;
     this.y = sy;
     this.homeX = x;
@@ -24,11 +17,11 @@ export default class Particle {
 
     this.getX = () => {
       return this.homeX;
-    }
+    };
 
     this.getY = () => {
       return this.homeY;
-    }
+    };
   }
 
   draw = () => {
@@ -39,7 +32,7 @@ export default class Particle {
       ${this.color.a}
     )`;
     this.ctx.fillRect(this.x, this.y, this.radius, this.radius);
-  }
+  };
 
   move = (mx, my) => {
     let homeDX = this.homeX - this.x;
@@ -65,5 +58,5 @@ export default class Particle {
 
     this.x += this.xVelocity;
     this.y += this.yVelocity;
-  }
+  };
 }

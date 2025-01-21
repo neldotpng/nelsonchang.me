@@ -136,7 +136,7 @@ body.menu-is-open {
 }
 
 .nav__menuLink {
-  color: $dark-gray;
+  color: $white;
   display: inline-block;
   font-size: 40px;
   font-family: $display;
@@ -185,7 +185,7 @@ body.menu-is-open {
 .nav__items {
   counter-reset: item;
 
-  &.nav--marquee-sports {
+  &.nav--verizon {
     .nav__item:nth-child(1) {
       pointer-events: none;
 
@@ -195,7 +195,7 @@ body.menu-is-open {
     }
   }
 
-  &.nav--odyssey {
+  &.nav--trinet {
     .nav__item:nth-child(2) {
       pointer-events: none;
 
@@ -205,7 +205,7 @@ body.menu-is-open {
     }
   }
 
-  &.nav--trunk-club {
+  &.nav--cartier {
     .nav__item:nth-child(3) {
       pointer-events: none;
 
@@ -215,8 +215,28 @@ body.menu-is-open {
     }
   }
 
-  &.nav--etc {
+  &.nav--marquee-sports {
     .nav__item:nth-child(4) {
+      pointer-events: none;
+
+      .nav__menuLink:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.nav--odyssey {
+    .nav__item:nth-child(5) {
+      pointer-events: none;
+
+      .nav__menuLink:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.nav--etc {
+    .nav__item:nth-child(6) {
       pointer-events: none;
 
       .nav__menuLink:after {
@@ -231,7 +251,7 @@ body.menu-is-open {
 }
 
 .nav__item:not(:last-child) {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 
   @media screen and (max-width: $smViewport) {
     margin-bottom: 35px;
@@ -240,7 +260,7 @@ body.menu-is-open {
 
 .nav__menuCta {
   bottom: 20px;
-  color: $dark-gray;
+  color: $white;
   font-size: 14px;
   left: 50%;
   opacity: 0;

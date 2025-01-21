@@ -12,13 +12,13 @@
 }
 
 .shape-overlays__path {
-  fill: rgba($white, 0.925);
+  fill: rgba($dark-gray, 0.975);
   transition: fill $long $cubic-bezier;
 }
 
 body.no-scroll {
   .shape-overlays__path {
-    fill: rgba($white, 0.5);
+    fill: rgba($dark-gray, 0.5);
   }
 }
 

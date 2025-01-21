@@ -14,9 +14,11 @@ class TextCanvas extends Component {
     words: [
       '장수영',
       '나는',
+      '베라이존',
+      '트라이넷',
+      '카르티에',
       '마르케',
       '오디세이',
-      '트렁크',
       '이것저것',
       '다음',
     ],
@@ -31,7 +33,7 @@ class TextCanvas extends Component {
     vertical: false,
     timer: null,
     wordTimer: null,
-  }
+  };
 
   init = () => {
     this.canvas = document.getElementById('canvas');
@@ -40,7 +42,7 @@ class TextCanvas extends Component {
     this.txtCanv = document.createElement('canvas');
     this.txtCtx = this.txtCanv.getContext('2d');
     this.txtCtx.fillStyle = 'black';
-  }
+  };
 
   setValues = () => {
     this.canvas.width = this.state.width * this.state.dpi;
@@ -61,7 +63,7 @@ class TextCanvas extends Component {
 
     this.makeParticles();
     this.animate();
-  }
+  };
 
   makeParticles = () => {
     for (let i = 0; i < this.positions.length; i++) {
@@ -73,12 +75,12 @@ class TextCanvas extends Component {
             this.positions[i].x,
             this.positions[i].y,
             this.ctx,
-            this.state.size.min,
+            this.state.size.min
           )
-        )
+        );
       }
     }
-  }
+  };
 
   addParticles = () => {
     const nta = this.positions.length - this.particles.length;
@@ -90,20 +92,24 @@ class TextCanvas extends Component {
           this.canvas.width / 2,
           i + this.canvas.height / 2,
           this.ctx,
-          this.state.size.min,
+          this.state.size.min
         )
-      )
+      );
     }
-  }
+  };
 
   removeParticles = () => {
     const newArr = this.particles.slice(0, this.positions.length);
     this.particles = newArr;
-  }
+  };
 
   getPixels = (keyword) => {
     this.txtCtx.clearRect(0, 0, this.txtCanv.width, this.txtCanv.height);
-    this.txtCtx.fillText(keyword, this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2, this.txtCanv.height / 2);
+    this.txtCtx.fillText(
+      keyword,
+      this.txtCanv.width / 2 - this.txtCtx.measureText(keyword).width / 2,
+      this.txtCanv.height / 2
+    );
 
     const imgData = this.txtCtx.getImageData(0, 0, this.txtCanv.width, this.txtCanv.height);
     const buffer32 = new Uint32Array(imgData.data.buffer);
@@ -117,11 +123,12 @@ class TextCanvas extends Component {
       }
     }
 
-    const diff = (this.canvas.height - this.positions[this.positions.length - 1].y - this.positions[0].y) / 2;
+    const diff =
+      (this.canvas.height - this.positions[this.positions.length - 1].y - this.positions[0].y) / 2;
     this.positions.forEach((p) => {
       p.y += diff;
     });
-  }
+  };
 
   getPixelsV = (keyword) => {
     this.txtCtx.clearRect(0, 0, this.txtCanv.width, this.txtCanv.height);
@@ -129,26 +136,34 @@ class TextCanvas extends Component {
 
     let p;
     if (keyword.length >= 3) {
-      this.setState({
-        fontSize: `${110 / keyword.length * this.state.dpi}vh`
-      }, () => {
-        this.txtCtx.font = `${this.state.fontSize} ${this.state.fontFamily}`;
-      });
+      this.setState(
+        {
+          fontSize: `${(110 / keyword.length) * this.state.dpi}vh`,
+        },
+        () => {
+          this.txtCtx.font = `${this.state.fontSize} ${this.state.fontFamily}`;
+        }
+      );
       p = 1 / keyword.length;
     } else {
-      this.setState({
-        fontSize: `${80 / keyword.length * this.state.dpi}vh`
-      }, () => {
-        this.txtCtx.font = `${this.state.fontSize} ${this.state.fontFamily}`;
-      });
+      this.setState(
+        {
+          fontSize: `${(80 / keyword.length) * this.state.dpi}vh`,
+        },
+        () => {
+          this.txtCtx.font = `${this.state.fontSize} ${this.state.fontFamily}`;
+        }
+      );
       p = 0.4;
     }
 
     for (let i = 0; i < keyword.length; i++) {
       this.txtCtx.fillText(
         keyword[i],
-        i * (this.txtCanv.width / ((keyword.length + 1) / 2) - this.txtCtx.measureText(keyword[i]).width / 2),
-        i * (this.txtCanv.height * p),
+        i *
+          (this.txtCanv.width / ((keyword.length + 1) / 2) -
+            this.txtCtx.measureText(keyword[i]).width / 2),
+        i * (this.txtCanv.height * p)
       );
     }
 
@@ -168,19 +183,21 @@ class TextCanvas extends Component {
     if (keyword.length >= 3) {
       diff = this.positions[0].y / -1;
     } else {
-      diff = (this.canvas.height - this.positions[this.positions.length - 1].y - this.positions[0].y) / 2;
+      diff =
+        (this.canvas.height - this.positions[this.positions.length - 1].y - this.positions[0].y) /
+        2;
     }
     this.positions.forEach((p) => {
       p.y += diff;
     });
-  }
+  };
 
   animateParticles = () => {
     this.positions.forEach((p, i) => {
       this.particles[i].move(this.mx, this.my);
       this.particles[i].draw();
     });
-  }
+  };
 
   changeWord = () => {
     TweenMax.killAll(true);
@@ -203,115 +220,134 @@ class TextCanvas extends Component {
     });
 
     this.setState({
-      wordTimer: setTimeout(this.tweenSize, 2000)
+      wordTimer: setTimeout(this.tweenSize, 2000),
     });
     // this.tweenSize();
-  }
+  };
 
   animate = debounce(() => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.animateParticles();
     this.animation = requestAnimationFrame(this.animate);
-  }, 1000 / 60)
+  }, 1000 / 60);
 
   tweenSize = () => {
     if (this.state.isMobile) return;
-    
+
     const t = 3.5,
-          l = this.particles.length;
+      l = this.particles.length;
     this.particles.forEach((p, i) => {
       TweenMax.to(p, t, {
         radius: this.state.size.max,
         homeX: !this.state.isMobile ? p.getX() + 20 : p.getX() + 10,
         homeY: !this.state.isMobile ? p.getY() + 30 : p.getY() + 15,
-        delay: t / l * i,
+        delay: (t / l) * i,
         yoyo: true,
         repeat: -1,
         easing: Sine.easeInOut,
       });
     });
-  }
+  };
 
   resetTween = () => {
     this.setValues();
     TweenMax.killAll(true);
     this.tweenSize();
-  }
+  };
 
   onMouseMove = (e) => {
     this.mx = (e.clientX - this.canvas.offsetLeft) * this.state.dpi;
     this.my = (e.clientY - this.canvas.offsetTop) * this.state.dpi;
-  }
+  };
 
   // Reset Canvas State on resize
   onResize = () => {
-    if (this.state.width !== window.innerWidth ||
-       (this.state.height !== window.innerHeight && this.state.width > 768)
+    if (
+      this.state.width !== window.innerWidth ||
+      (this.state.height !== window.innerHeight && this.state.width > 768)
     ) {
       this.setCanvasState();
     }
-  }
+  };
 
   // Canvas State Set Function
   // Breakpoint sizing updates
   setCanvasState = () => {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    }, () => {
-      if (this.state.width >= 1600) {
-        this.setState({
-          size: {
-            max: 14.5 * this.state.dpi,
-            grid: 14 * this.state.dpi,
-            min: 13.5 * this.state.dpi,
-          },
-          fontSize: `${70 * this.state.dpi}vh`,
-          vertical: false,
-        }, this.setValues);
-      } else if (this.state.width < 1600 && this.state.width >= 1080) {
-        this.setState({
-          size: {
-            max: 12 * this.state.dpi,
-            grid: 11.5 * this.state.dpi,
-            min: 11 * this.state.dpi,
-          },
-          fontSize: `${65 * this.state.dpi}vh`,
-          vertical: false,
-        }, this.setValues);
-      } else if (this.state.width < 1080 && this.state.width >= 768) {
-        this.setState({
-          size: {
-            max: 9.5 * this.state.dpi,
-            grid: 9 * this.state.dpi,
-            min: 8.5 * this.state.dpi,
-          },
-          fontSize: `${60 * this.state.dpi}vh`,
-          vertical: false,
-        }, this.setValues);
-      } else if (this.state.width < 768 && this.state.width >= 480) {
-        this.setState({
-          size: {
-            max: 7.5 * this.state.dpi,
-            grid: 7 * this.state.dpi,
-            min: 6.5 * this.state.dpi,
-          },
-          fontSize: `${60 * this.state.dpi}vh`,
-          vertical: false,
-        }, this.setValues);
-      } else {
-        this.setState({
-          size: {
-            max: 7.5 * this.state.dpi,
-            grid: 7 * this.state.dpi,
-            min: 6.5 * this.state.dpi,
-          },
-          fontSize: `${40 * this.state.dpi}vh`,
-          vertical: true,
-        }, this.setValues);
+    this.setState(
+      {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      },
+      () => {
+        if (this.state.width >= 1600) {
+          this.setState(
+            {
+              size: {
+                max: 14.5 * this.state.dpi,
+                grid: 14 * this.state.dpi,
+                min: 13.5 * this.state.dpi,
+              },
+              fontSize: `${70 * this.state.dpi}vh`,
+              vertical: false,
+            },
+            this.setValues
+          );
+        } else if (this.state.width < 1600 && this.state.width >= 1080) {
+          this.setState(
+            {
+              size: {
+                max: 12 * this.state.dpi,
+                grid: 11.5 * this.state.dpi,
+                min: 11 * this.state.dpi,
+              },
+              fontSize: `${65 * this.state.dpi}vh`,
+              vertical: false,
+            },
+            this.setValues
+          );
+        } else if (this.state.width < 1080 && this.state.width >= 768) {
+          this.setState(
+            {
+              size: {
+                max: 9.5 * this.state.dpi,
+                grid: 9 * this.state.dpi,
+                min: 8.5 * this.state.dpi,
+              },
+              fontSize: `${60 * this.state.dpi}vh`,
+              vertical: false,
+            },
+            this.setValues
+          );
+        } else if (this.state.width < 768 && this.state.width >= 480) {
+          this.setState(
+            {
+              size: {
+                max: 7.5 * this.state.dpi,
+                grid: 7 * this.state.dpi,
+                min: 6.5 * this.state.dpi,
+              },
+              fontSize: `${60 * this.state.dpi}vh`,
+              vertical: false,
+            },
+            this.setValues
+          );
+        } else {
+          this.setState(
+            {
+              size: {
+                max: 7.5 * this.state.dpi,
+                grid: 7 * this.state.dpi,
+                min: 6.5 * this.state.dpi,
+              },
+              fontSize: `${40 * this.state.dpi}vh`,
+              vertical: true,
+            },
+            this.setValues
+          );
+        }
       }
-    });
-  }
+    );
+  };
 
   onScroll = () => {
     TweenMax.killAll(true);
@@ -323,20 +359,20 @@ class TextCanvas extends Component {
       timer: setTimeout(() => {
         this.props.setHasBackground(false);
         this.tweenSize();
-      }, 5000)
+      }, 5000),
     });
-  }
+  };
 
   onScrollToBottom = () => {
-    this.updateWord(6, 0);
-  }
+    this.updateWord(8, 0);
+  };
 
   onScrollUp = () => {
     this.updateCanvas(this.props.location, 0);
-  }
+  };
 
   initWord = () => {
-    switch(this.props.location) {
+    switch (this.props.location) {
       default:
       case '/':
         this.setState({ i: 0 });
@@ -344,20 +380,26 @@ class TextCanvas extends Component {
       case '/about':
         this.setState({ i: 1 });
         break;
-      case '/marquee-sports':
+      case '/verizon':
         this.setState({ i: 2 });
         break;
-      case '/odyssey':
+      case '/trinet':
         this.setState({ i: 3 });
         break;
-      case '/trunk-club':
+      case '/cartier':
         this.setState({ i: 4 });
         break;
-      case '/ar-vr':
+      case '/marquee-sports':
         this.setState({ i: 5 });
         break;
+      case '/odyssey':
+        this.setState({ i: 6 });
+        break;
+      case '/etc':
+        this.setState({ i: 7 });
+        break;
     }
-  }
+  };
 
   updateWord = (i, t) => {
     this.setState({ i }, () => {
@@ -366,10 +408,10 @@ class TextCanvas extends Component {
         this.changeWord();
       }, t);
     });
-  }
+  };
 
   updateCanvas = (location, t) => {
-    switch(location) {
+    switch (location) {
       default:
       case '/':
         this.updateWord(0, t);
@@ -377,20 +419,26 @@ class TextCanvas extends Component {
       case '/about':
         this.updateWord(1, t);
         break;
-      case '/marquee-sports':
+      case '/verizon':
         this.updateWord(2, t);
         break;
-      case '/odyssey':
+      case '/trinet':
         this.updateWord(3, t);
         break;
-      case '/trunk-club':
+      case '/cartier':
         this.updateWord(4, t);
         break;
-      case '/etc':
+      case '/marquee-sports':
         this.updateWord(5, t);
         break;
+      case '/odyssey':
+        this.updateWord(6, t);
+        break;
+      case '/etc':
+        this.updateWord(7, t);
+        break;
     }
-  }
+  };
 
   componentDidUpdate(prevProps) {
     if (prevProps.location !== this.props.location) {
@@ -418,11 +466,12 @@ class TextCanvas extends Component {
   render() {
     return (
       <div className="canvas">
-        <div style={{
-          fontFamily: 'Black Han Sans',
-          fontSize: '1px',
-          color: '#EFEFEF',
-        }}>
+        <div
+          style={{
+            fontFamily: 'Black Han Sans',
+            fontSize: '1px',
+            color: '#EFEFEF',
+          }}>
           장수영 나는 마르케 오디세이 트렁크 이것저것 다음
         </div>
         <canvas
@@ -431,7 +480,7 @@ class TextCanvas extends Component {
           {this.state.words[this.state.i]}
         </canvas>
       </div>
-    )
+    );
   }
 }
 
