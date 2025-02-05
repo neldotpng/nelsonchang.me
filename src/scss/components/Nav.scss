@@ -38,7 +38,7 @@ body.menu-is-open {
 #logo {
   width: 35px;
 
-  .st0 {
+  > path {
     fill: $dark-gray;
     transition: fill $mid $cubic-bezier;
   }
@@ -161,7 +161,7 @@ body.menu-is-open {
   }
 
   &:after {
-    background-color: rgba($blue, 0.8);
+    background-color: rgba($red, 1);
     content: '';
     height: 4px;
     left: 30px;
@@ -188,6 +188,7 @@ body.menu-is-open {
   &.nav--verizon {
     .nav__item:nth-child(1) {
       pointer-events: none;
+      opacity: 0.5;
 
       .nav__menuLink:after {
         opacity: 1;
@@ -198,6 +199,7 @@ body.menu-is-open {
   &.nav--trinet {
     .nav__item:nth-child(2) {
       pointer-events: none;
+      opacity: 0.5;
 
       .nav__menuLink:after {
         opacity: 1;
@@ -208,6 +210,7 @@ body.menu-is-open {
   &.nav--cartier {
     .nav__item:nth-child(3) {
       pointer-events: none;
+      opacity: 0.5;
 
       .nav__menuLink:after {
         opacity: 1;
@@ -218,6 +221,7 @@ body.menu-is-open {
   &.nav--marquee-sports {
     .nav__item:nth-child(4) {
       pointer-events: none;
+      opacity: 0.5;
 
       .nav__menuLink:after {
         opacity: 1;
@@ -228,6 +232,7 @@ body.menu-is-open {
   &.nav--odyssey {
     .nav__item:nth-child(5) {
       pointer-events: none;
+      opacity: 0.5;
 
       .nav__menuLink:after {
         opacity: 1;
@@ -238,6 +243,7 @@ body.menu-is-open {
   &.nav--etc {
     .nav__item:nth-child(6) {
       pointer-events: none;
+      opacity: 0.5;
 
       .nav__menuLink:after {
         opacity: 1;
@@ -282,7 +288,7 @@ body.menu-is-open {
     color: $blue;
   }
 
-  #logo .st0 {
+  #logo > path {
     fill: $blue;
   }
 

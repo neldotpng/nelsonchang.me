@@ -355,12 +355,12 @@ class TextCanvas extends Component {
     clearTimeout(this.state.wordTimer);
     clearTimeout(this.state.timer);
 
-    this.setState({
-      timer: setTimeout(() => {
-        this.props.setHasBackground(false);
-        this.tweenSize();
-      }, 5000),
-    });
+    // this.setState({
+    //   timer: setTimeout(() => {
+    //     this.props.setHasBackground(false);
+    //     this.tweenSize();
+    //   }, 5000),
+    // });
   };
 
   onScrollToBottom = () => {
@@ -472,7 +472,7 @@ class TextCanvas extends Component {
             fontSize: '1px',
             color: '#EFEFEF',
           }}>
-          장수영 나는 마르케 오디세이 트렁크 이것저것 다음
+          장수영 나는 마르케 오디세이 베라이존 트라이넷 카르티에 이것저것 다음
         </div>
         <canvas
           id="canvas"

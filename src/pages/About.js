@@ -72,9 +72,9 @@ class About extends Component {
                 onClick={this.onMouseEnter2}
                 onMouseEnter={this.onMouseEnter2}
                 onMouseLeave={this.hideImages}>
-                three
+                three brothers
               </span>{' '}
-              brothers. I was born in Rockville and raised in Dallas;{' '}
+              . I was born in Rockville and raised in Dallas;{' '}
               <span
                 className="about__hover"
                 onClick={this.onMouseEnter3}
@@ -82,9 +82,11 @@ class About extends Component {
                 onMouseLeave={this.hideImages}>
                 educated
               </span>{' '}
-              in Evanston. I didn’t grow up understanding Korean, but I’ve been teaching myself. My
-              interests include tattoos, streetwear, old Korean music, variety shows, wheel
-              throwing, and Super Smash Bros.
+              in Evanston. After living in Chicago for 4 years post-college, I’m now located in
+              Brooklyn, NY where I’ve lived for the last 5 years. My interests go through shifts and
+              phases, but lately I’ve been loving bread baking, Rocket League, sewing,
+              hand-embroidery, learning Japanese, and bowling. My constant interests are in music,
+              tattoos, manga, and clothing; I have a lot of opinions if you just ask!
             </p>
           </div>
           <div className="about__images">
@@ -115,9 +117,12 @@ class About extends Component {
             I’m an ex-Pre-Med student, turned Psychology student, turned front-end developer; I’ve
             been working as a full-time developer for about {this.calculateYears()} years now. I’ve
             worked on projects ranging from interaction-heavy and visually intensive marketing sites
-            to AR/VR to Actions for Google to high-fidelity prototypes and simple mobile apps. With
-            a background in UX and UI, I bring both a reasoned approach to user experience and a
-            highly trained eye for visual details to my development.
+            and webpages to AR/VR to Actions for Google to high-fidelity prototypes and simple
+            mobile apps. While the range of work that I’ve been fortunate to work on has been broad,
+            my specialty lies in working with designers to concept and develop clean and
+            user-friendly interfaces with meaningful and enjoyable user interactability. I’ve been
+            teaching myself 3D (THREE.js, WebGL/GLSL, Blender, R3F) and am always looking for
+            opportunities to expand my work in that space.
           </p>
         </div>
 

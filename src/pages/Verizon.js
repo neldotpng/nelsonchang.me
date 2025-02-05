@@ -15,18 +15,25 @@ class Verizon extends Component {
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">Verizon</H1>
           <p className="caseStudy__p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus, harum velit
-            illo, totam ipsa, rerum quo adipisci odit ut nemo eum iste voluptatibus tenetur hic
-            numquam. Praesentium, excepturi aliquam.
+            Built for Verizon&rsquo;s 5G Experience ad campaign, the following two Paid Posts were
+            Part 2 and Part 3, respectively. New York Times contracted with an external developer
+            for 'The Evolution of Speed' to create the large-type section headers which were then
+            integrated into the build by myself alongside the additional design elements and
+            subcopy.
           </p>
           <div className="caseStudy__cta">
-            <Button href="#">View site</Button>
+            <Button href="https://www.nytimes.com/paidpost/verizon-5g/the-evolution-of-speed.html">
+              View 'The Evolution of Speed'
+            </Button>
+            <Button href="https://www.nytimes.com/paidpost/verizon-5g/when-headlines-come-to-life.html">
+              View 'Eclipse'
+            </Button>
           </div>
         </header>
         <aside className="caseStudy__aside">
           <h2 className="caseStudy__h2">Details</h2>
           <p className="caseStudy__details">
-            Lorem ipsum, dolor sit amet <span class="caseStudy__emphasis">consectetur</span>{' '}
+            Lorem ipsum, dolor sit amet <span className="caseStudy__emphasis">consectetur</span>{' '}
             adipisicing elit. Voluptatem, aspernatur earum. Explicabo minima provident est inventore
             voluptatem! Nesciunt tempore, sit consectetur officiis eos fugit optio culpa molestias
             nihil voluptates voluptatem?
