@@ -15,9 +15,14 @@ class Trinet extends Component {
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">Trinet</H1>
           <p className="caseStudy__p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus, harum velit
-            illo, totam ipsa, rerum quo adipisci odit ut nemo eum iste voluptatibus tenetur hic
-            numquam. Praesentium, excepturi aliquam.
+            Trinet approached New York Times with a data-focused Paid Post titled 'How Small
+            Businesses Have Handled Another Unprecendented Year.' The data was focused around
+            surveys conducted on remote work and its perceived impact on businesses and their
+            employees.
+          </p>
+          <p className="caseStudy__note">
+            *Please be advised that since some aspects of this post are hosted on the ad servers of
+            the New York Times, some interactions may break if you have an AdBlocker enabled.
           </p>
           <div className="caseStudy__cta">
             <Button href="#">View site</Button>
@@ -26,10 +31,12 @@ class Trinet extends Component {
         <aside className="caseStudy__aside">
           <h2 className="caseStudy__h2">Details</h2>
           <p className="caseStudy__details">
-            Lorem ipsum, dolor sit amet <span class="caseStudy__emphasis">consectetur</span>{' '}
-            adipisicing elit. Voluptatem, aspernatur earum. Explicabo minima provident est inventore
-            voluptatem! Nesciunt tempore, sit consectetur officiis eos fugit optio culpa molestias
-            nihil voluptates voluptatem?
+            Built using <span className="caseStudy__emphasis">Pug.js</span> for the templating
+            language, <span className="caseStudy__emphasis">SCSS</span> for styling,{' '}
+            <span className="caseStudy__emphasis">vanilla ES6 JavaScript</span> for the data
+            visualization (given the simpler designs of the data visualizations, a detailed data
+            visualization library felt like overkill), and lastly{' '}
+            <span className="caseStudy__emphasis">GSAP</span> for animation tweening.
           </p>
         </aside>
         <div className="caseStudy__images"></div>

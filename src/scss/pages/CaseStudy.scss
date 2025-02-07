@@ -26,9 +26,15 @@
   margin-top: 40vh;
 }
 
-.caseStudy__p {
+.caseStudy__p,
+.caseStudy__note {
   margin-top: 20px;
   width: 75%;
+}
+
+.caseStudy__note {
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .caseStudy__cta {
@@ -181,6 +187,7 @@ body.is-showing-next {
   }
 
   .caseStudy__p,
+  .caseStudy__note,
   .caseStudy__aside {
     width: 100%;
   }

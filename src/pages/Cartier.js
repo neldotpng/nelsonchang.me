@@ -15,21 +15,33 @@ class Cartier extends Component {
         <header className="caseStudy__header">
           <H1 customClass="caseStudy__h1">Cartier</H1>
           <p className="caseStudy__p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio delectus, harum velit
-            illo, totam ipsa, rerum quo adipisci odit ut nemo eum iste voluptatibus tenetur hic
-            numquam. Praesentium, excepturi aliquam.
+            Cartier approached the New York Times to create a three-part series of Paid Posts
+            detailing Cartier&rsquo;s history and showcasing some of their most iconic designs as
+            part of a larger advertising campaign. I was brought on at the end of the design process
+            to help with animations, layout cleanup, and creation of a general template to be reused
+            in the later chapters.
+          </p>
+          <p className="caseStudy__note">
+            *Please be advised that since some aspects of these posts are hosted on the ad servers
+            of the New York Times, some interactions may break if you have an AdBlocker enabled.
           </p>
           <div className="caseStudy__cta">
-            <Button href="#">View site</Button>
+            <Button href="https://www.nytimes.com/paidpost/cartier/the-genesis-of-cartier-icons.html">
+              View site
+            </Button>
           </div>
         </header>
         <aside className="caseStudy__aside">
           <h2 className="caseStudy__h2">Details</h2>
           <p className="caseStudy__details">
-            Lorem ipsum, dolor sit amet <span class="caseStudy__emphasis">consectetur</span>{' '}
-            adipisicing elit. Voluptatem, aspernatur earum. Explicabo minima provident est inventore
-            voluptatem! Nesciunt tempore, sit consectetur officiis eos fugit optio culpa molestias
-            nihil voluptates voluptatem?
+            Built in <span class="caseStudy__emphasis">Webflow</span> and needing to be handed off
+            to designers for the later chapters, there were limitations on the customization and
+            complexity that could be used to create some of the interactions. For example, in the
+            header animation, Webflow did not allow for{' '}
+            <span class="caseStudy__emphasis">font-size</span> to be animated, so a workaround had
+            to be used to adjust the height of the container at the same rate as the scale-down for
+            the text. Other small tricks like this were used throughout the Paid Post to give the
+            article a more bespoke feel.
           </p>
         </aside>
         <div className="caseStudy__images"></div>

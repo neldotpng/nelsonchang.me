@@ -1,6 +1,8 @@
 .image {
   background-color: $navy;
   font-size: 0;
+  overflow: hidden;
+  border-radius: 10px;
 
   > img {
     opacity: 0;

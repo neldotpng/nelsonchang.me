@@ -15,7 +15,7 @@ class VC extends Component {
     isVisible: false,
     autoplay: true,
     autoplayError: false,
-  }
+  };
 
   onEnter = () => {
     this.setState({
@@ -26,15 +26,15 @@ class VC extends Component {
     if (this.ref.current.paused && !this.state.isMobile) {
       this.playVideo();
     }
-  }
+  };
 
   playVideo = () => {
     try {
       this.ref.current.play();
-    } catch(err) {
+    } catch (err) {
       this.setState({ autoplayError: true });
     }
-  }
+  };
 
   componentDidMount() {
     setTimeout(() => {
@@ -59,7 +59,7 @@ class VC extends Component {
             poster={this.props.poster}
             loop
             muted
-            preload="auto"
+            preload="meta"
             ref={this.ref}>
             <source src={this.props.src} />
             {this.props.children}
