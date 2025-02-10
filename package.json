@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://nelsonchang.me/",
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "glslify": "^7.0.0"
   },
   "dependencies": {
@@ -32,7 +33,6 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.1",
-    "gh-pages": "^2.0.1",
     "gsap": "^2.1.2",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
