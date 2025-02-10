@@ -13,7 +13,7 @@ class VC extends Component {
   state = {
     isMobile: isMobileDevice(),
     isVisible: false,
-    autoplay: true,
+    autoplay: false,
     autoplayError: false,
   };
 
@@ -59,7 +59,7 @@ class VC extends Component {
             poster={this.props.poster}
             loop
             muted
-            preload="meta"
+            preload="none"
             ref={this.ref}>
             <source src={this.props.src} />
             {this.props.children}
