@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nelson Chang | Designer &amp; Front-End Developer Portfolio</title>
+    <meta name="description" content="I am Nelson Chang, a UX-proficient UI designer and front-end developer. This is my portfolio site.">
+
+    <link rel="icon" href="img/favicon.png">
+
+    <link rel="stylesheet" href="css/webfontkit/stylesheet.css">
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Raleway:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/reset.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+    <div id="loader" class="svg-container">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
+        <g id="Logo_Stroke">
+          <path id="XMLID_1_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M192.857,99.655 192.857,60.133 0,60.133  "/>
+          <path id="XMLID_2_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M166.327,99.655 166.327,86.627 0,86.627  "/>
+          <path id="XMLID_3_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M33.677,100.132 33.677,113.122 200,113.122   "/>
+          <path id="XMLID_4_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M7.148,100.132 7.148,139.617 200,139.617   "/>
+          <path id="XMLID_5_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M166.327,153.254 166.327,166.112 0.005,166.112   "/>
+          <path id="XMLID_10_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M192.857,153.254 192.857,192.607 0.005,192.607  "/>
+          <path id="XMLID_11_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M7.148,46.905 7.148,7.143 200,7.143   "/>
+          <path id="XMLID_12_" fill="none" stroke="#282828" stroke-width="15" stroke-miterlimit="10" d="M33.677,46.905 33.677,33.638 200,33.638   "/>
+        </g>
+      </svg>
+    </div>
+
+    <nav>
+      <span class="logo-container">
+        <a class="home" href="#">
+          <img src="img/logo-white.png" alt="Logo" class="logo">
+        </a>
+      </span>
+
+      <ul class="nav clearfix">
+        <li id="work">
+          Work
+        </li>
+        <li id="about">
+          About
+        </li>
+        <li id="resume">
+          <a href="./files/NelsonChang-Resume.pdf" target="_blank">Résumé</a>
+        </li>
+      </ul>
+
+      <ul class="works">
+        <li>
+          <span class="close">+</span>
+          <a href="projects/trunkclub.html" class="trunkclub">
+            <div>
+              <h2>Trunk Club</h2>
+              <h3>Dev</h3>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="projects/wanderlust.html" class="wanderlust">
+            <div>
+              <h2>Wanderlust</h2>
+              <h3>UX / UI</h3>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="projects/designation.html" class="designation">
+            <div>
+              <h2>Designation</h2>
+              <h3>UI / Dev</h3>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <canvas id="canv" onmousemove="canv_mousemove(event);"></canvas>
+
+    <header>
+      <h1 class="head">I Am</h1>
+
+      <h2 class="sub-head">A Designer And Front-End Developer</h2>
+    </header>
+
+    <div class="enter">
+      <span>View Work</span>
+    </div>
+
+    <aside class="about">
+      <span class="close-about">+</span>
+
+      <div class="pic">
+        <img src="img/profile.jpg" alt="Profile Pic">
+        <img src="img/profile-hover.jpg" alt="Hover Pic" class="hover-pic">
+      </div>
+
+      <h2>Who Am I?</h2>
+
+      <p>I am a UX-proficient UI designer and front-end developer. I was born in Rockville, MD, raised in Dallas, TX, and attended college in Evanston, IL at Northwestern University, graduating with the class of 2015. I’m passionate about design and coding, and I obsess over details and pixel perfection.</p>
+      <p>Apart from design, I like fashion and tattoos, I spend 90% of my waking hours listening to music, and when I have free time, I enjoy binge-reading manga and listening to K-Pop.</p>
+
+      <h3>Contact Me!</h3>
+      <a href="mailto:nelsonschang@gmail.com" class="email">nelsonschang@gmail.com</a>
+
+      <ul class="social">
+        <li>
+          <a href="https://www.linkedin.com/in/nelsonschang" target="_blank">
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/neldotpng/" target="_blank">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/neldotpng" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+
+</html>

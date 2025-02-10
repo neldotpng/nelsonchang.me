@@ -1,0 +1,406 @@
+$body-font: 'Raleway', Helvetica, sans-serif;
+$head-font: 'Slabo 27px', Georgia, serif;
+$trunkclub-primary: #232e39;
+$trunkclub-secondary: #b77d64;
+
+.trunkclub-body {
+  font-family: $body-font;
+  color: #eaeaea;
+  background-color: #ccc;
+
+  header {
+    background-color: $trunkclub-primary;
+  }
+
+  .scroll-down:hover {
+    border-color: $trunkclub-secondary;
+    background-color: $trunkclub-secondary;
+  }
+
+  .logo-container {
+    background-color: $trunkclub-secondary;
+  }
+
+  .active {
+    border-bottom: 3px solid $trunkclub-secondary;
+  }
+
+  nav .nav {
+    li:hover {
+      color: $trunkclub-secondary;
+    }
+
+    a:hover {
+      color: $trunkclub-secondary;
+    }
+  }
+
+  .about a:hover {
+    color: $trunkclub-secondary;
+  }
+
+  .prev,
+  .next {
+    color: $trunkclub-secondary;
+  }
+
+  .main {
+    padding-top: 1%;
+    background-color: $trunkclub-primary;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $head-font;
+      letter-spacing: 1px;
+      font-size: 42px;
+      line-height: 36px;
+      text-align: center;
+    }
+
+    p {
+      width: 60%;
+      margin: 0 auto;
+      max-width: 750px;
+    }
+
+    .summary {
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 40px 75px;
+    }
+
+    .tags {
+      background-color: $trunkclub-secondary;
+      text-align: center;
+
+      h2 {
+        margin: 0 auto;
+        padding: 35px 0 20px;
+        width: 85%;
+        font-size: 26px;
+      }
+
+      p {
+        margin: 0 auto;
+        width: 85%;
+        padding-bottom: 35px;
+      }
+
+      .skills {
+        float: left;
+        width: 40%;
+        margin-left: 10%;
+      }
+
+      .deliverables {
+        float: left;
+        width: 40%;
+        margin-right: 10%;
+      }
+    }
+
+    .marketing-redesign,
+    .gift-cards,
+    .press-hub {
+      figure {
+        text-align: center;
+        margin: 40px 0;
+
+        img {
+          display: block;
+          width: 70%;
+          max-width: 1000px;
+          margin: 0 auto 15px;
+          -webkit-box-shadow: 0px 0px 7.5px 0px rgba(0,0,0,1);
+          -moz-box-shadow: 0px 0px 7.5px 0px rgba(0,0,0,1);
+          -o-box-shadow: 0px 0px 7.5px 0px rgba(0,0,0,1);
+          box-shadow: 0px 0px 7.5px 0px rgba(0,0,0,1);
+        }
+
+        .gif {
+          max-width: 768px;
+        }
+
+        figcaption {
+          padding: 0 40px;
+          font-style: italic;
+        }
+      }
+    }
+
+    .marketing-redesign {
+      margin: 75px auto 0;
+      padding-bottom: 55px;
+
+      h2 {
+        padding: 0 40px;
+        margin-bottom: 35px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin: 0 auto 20px;  
+        width: 50%;
+        max-width: 675px;
+
+        li {
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    .gift-cards {
+      h2 {
+        padding-top: 75px;
+        margin: 0 auto 35px;
+        border-top: 1px solid #aaa;
+        width: 60%;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+    }
+
+    .press-hub {
+      h2 {
+        width: 60%;
+        margin: 0 auto 35px;
+        padding-top: 75px;
+        border-top: 1px solid #aaa;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+      
+      figure {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    .links {
+      background-color: $trunkclub-primary;
+
+      a:before {
+        background-color: $trunkclub-secondary;
+      }
+
+      a:hover {
+        border-color: $trunkclub-secondary;
+      }
+    }   
+  }
+
+  footer {
+    text-align: center;
+    height: 75px;
+    line-height: 75px;
+    vertical-align: middle;
+    background-color: $trunkclub-secondary;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .trunkclub-body {
+    .about {
+      width: 80%;
+    }
+
+    .main {
+      p {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .trunkclub-body {
+    .about {
+      width: 100%;
+    }
+
+    nav {
+      .works {
+        li {
+          width: 100%;
+          height: 33.33vh;
+          float: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .trunkclub-body {
+    .main {
+      p {
+        width: 100%;
+        padding: 0 40px;
+      }
+    }
+
+    .about {
+      -webkit-transform: translate(0, -100vh);
+      -moz-transform: translate(0, -100vh);
+      -o-transform: translate(0, -100vh);
+      transform: translate(0, -100vh);
+    }
+
+    .about-show {
+      visibility: visible;
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
+    }
+
+    nav {
+      height: 50px;
+    }
+
+    nav.scroll {
+      background-color: $trunkclub-primary;
+      -webkit-transition: all 0.3s 0.5s;
+      -moz-transition: all 0.3s 0.5s;
+      -o-transition: all 0.3s 0.5s;
+      transition: all 0.3s 0.5s;
+    }
+
+    .about {
+      .pic {
+        width: 33.33%;
+        height: 33.33vw;
+        margin: 15px auto;
+      }
+
+      h2,
+      p,
+      h3 {
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin: 25px auto 15px;
+      }
+
+      .social {
+        margin-top: 15px;
+      }
+    }
+
+    header {
+      .slice {
+        .head-text {
+          h1 {
+            font-size: 60px;
+          }
+        }
+      }
+
+      .prev,
+      .next {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+
+        span {
+          height: 40px;
+        }
+      }
+
+      .next {
+        span {
+          right: 40px;
+        }
+      }
+
+      .prev {
+        span {
+          left: 40px;
+        }
+      }
+    }
+
+    .main {
+      h2 {
+        font-size: 36px;
+      }
+
+      .tags {
+        h2 {
+          font-size: 22px;
+          width: 95%;
+        }
+
+        p {
+          width: 95%;
+        }
+
+        .skills,
+        .deliverables {
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .skills p {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .trunkclub-body {
+    header {
+      .slice {
+        .head-text {
+          h1 {
+            font-size: 56px;
+          }
+        }
+      }
+      
+      .prev:hover span,
+      .next:hover span {
+        width: 0;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .trunkclub-body {
+    nav {
+      .nav {
+        li {
+          margin-left: 20px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
