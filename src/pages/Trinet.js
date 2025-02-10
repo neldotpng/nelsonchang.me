@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 
 import Button from '../components/Button';
 import H1 from '../components/H1';
-import IC from '../components/IC';
 import VC from '../components/VC';
+
+import video1 from '../assets/videos/trinet/trinet-1.mp4';
+import video2 from '../assets/videos/trinet/trinet-2.mp4';
+import video3 from '../assets/videos/trinet/trinet-3.mp4';
+import video4 from '../assets/videos/trinet/trinet-4.mp4';
+import video5 from '../assets/videos/trinet/trinet-5.mp4';
+
+const poster = null;
 
 class Trinet extends Component {
   render() {
@@ -25,7 +32,7 @@ class Trinet extends Component {
             the New York Times, some interactions may break if you have an AdBlocker enabled.
           </p>
           <div className="caseStudy__cta">
-            <Button href="#">View site</Button>
+            <Button href="#">View article</Button>
           </div>
         </header>
         <aside className="caseStudy__aside">
@@ -39,7 +46,38 @@ class Trinet extends Component {
             <span className="caseStudy__emphasis">GSAP</span> for animation tweening.
           </p>
         </aside>
-        <div className="caseStudy__images"></div>
+        <div className="caseStudy__images">
+          <VC
+            customClass="caseStudy__video"
+            src={video1}
+            poster={poster}>
+            Trinet intro animation
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video2}
+            poster={poster}>
+            Trinet scrolling copy sample
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video3}
+            poster={poster}>
+            Trinet bar graph entry animation and hover states
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video4}
+            poster={poster}>
+            Trinet section header animation and circle data entry animation
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video5}
+            poster={poster}>
+            Trinet alternate data set animation on click
+          </VC>
+        </div>
       </section>,
       <div
         key="Cta"

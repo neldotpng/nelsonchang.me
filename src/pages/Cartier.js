@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 
 import Button from '../components/Button';
 import H1 from '../components/H1';
-import IC from '../components/IC';
 import VC from '../components/VC';
+
+import video1 from '../assets/videos/cartier/cartier-1.mp4';
+import video2 from '../assets/videos/cartier/cartier-2.mp4';
+import video3 from '../assets/videos/cartier/cartier-3.mp4';
+import video4 from '../assets/videos/cartier/cartier-4.mp4';
+
+const poster = null;
 
 class Cartier extends Component {
   render() {
@@ -27,7 +33,7 @@ class Cartier extends Component {
           </p>
           <div className="caseStudy__cta">
             <Button href="https://www.nytimes.com/paidpost/cartier/the-genesis-of-cartier-icons.html">
-              View site
+              View article
             </Button>
           </div>
         </header>
@@ -36,15 +42,35 @@ class Cartier extends Component {
           <p className="caseStudy__details">
             Built in <span class="caseStudy__emphasis">Webflow</span> and needing to be handed off
             to designers for the later chapters, there were limitations on the customization and
-            complexity that could be used to create some of the interactions. For example, in the
-            header animation, Webflow did not allow for{' '}
-            <span class="caseStudy__emphasis">font-size</span> to be animated, so a workaround had
-            to be used to adjust the height of the container at the same rate as the scale-down for
-            the text. Other small tricks like this were used throughout the Paid Post to give the
-            article a more bespoke feel.
+            complexity that could be used to create some of the interactions.
           </p>
         </aside>
-        <div className="caseStudy__images"></div>
+        <div className="caseStudy__images">
+          <VC
+            customClass="caseStudy__video"
+            src={video1}
+            poster={poster}>
+            Cartier intro animation
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video2}
+            poster={poster}>
+            Cartier scrolling copy sample
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video3}
+            poster={poster}>
+            Cartier section header scrolling animation
+          </VC>
+          <VC
+            customClass="caseStudy__video"
+            src={video4}
+            poster={poster}>
+            Cartier hovering keyframe animation
+          </VC>
+        </div>
       </section>,
       <div
         key="Cta"
